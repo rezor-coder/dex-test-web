@@ -141,9 +141,9 @@ const Home = () => {
                   powered by Rezor's Layer 0 Blockchain
                 </p> */}
                 <div className="mt-3 d-flex flex-column flex-xl-row justify-content-start gap-3 align-items-center text-center">
-                  <button className="border-0 community_button font-geist text-white text-decoration-none fw-bold">
-                    Coming Soon
-                  </button>
+                  <a href="https://pancakeswap.finance/swap" className="border-0 community_button font-geist text-white text-decoration-none fw-bold position-relative" >
+                    Trade Now
+                  </a>
 
                   {/* <button className="whitepaper_button font-geist d-flex align-items-center gap-3 justify-content-center">
                     Whitepaper
@@ -758,8 +758,8 @@ const Home = () => {
                   />
                 </div>
                 <div className="rezor_subtract_button_coin">
-                  <button className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
-                    Coming Soon
+                  <a href="https://pancakeswap.finance/swap" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
+                    Trade Now
                     <span className="icon">
                       <img
                         src="/assets/images/flash-circle.png"
@@ -768,7 +768,7 @@ const Home = () => {
                         height="20px"
                       />
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
               <div className="rezor_subtract position-relative d-xl-block d-none">
@@ -779,8 +779,8 @@ const Home = () => {
                   />
                 </div>
                 <div className="rezor_subtract_button_coin">
-                  <button className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
-                    Coming Soon
+                  <a href="https://pancakeswap.finance/swap" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
+                    Trade Now
                     <span className="icon">
                       <img src="/assets/images/flash-circle.png"
                         className="img-fluid"
@@ -788,7 +788,7 @@ const Home = () => {
                         height="20px"
                       />
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
