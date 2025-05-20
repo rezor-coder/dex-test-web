@@ -141,7 +141,7 @@ const Home = () => {
                   powered by Rezor's Layer 0 Blockchain
                 </p> */}
                 <div className="mt-3 d-flex flex-column flex-xl-row justify-content-start gap-3 align-items-center text-center">
-                  <a href="https://pancakeswap.finance/swap" className="border-0 community_button font-geist text-white text-decoration-none fw-bold position-relative" >
+                  <a href="https://pancakeswap.finance/swap?outputCurrency=0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707&inputCurrency=0x55d398326f99059fF775485246999027B3197955" className="border-0 community_button font-geist text-white text-decoration-none fw-bold position-relative" >
                     Trade Now
                   </a>
 
@@ -758,7 +758,7 @@ const Home = () => {
                   />
                 </div>
                 <div className="rezor_subtract_button_coin">
-                  <a href="https://pancakeswap.finance/swap" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
+                  <a href="https://pancakeswap.finance/swap?outputCurrency=0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707&inputCurrency=0x55d398326f99059fF775485246999027B3197955" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
                     Trade Now
                     <span className="icon">
                       <img
@@ -779,7 +779,7 @@ const Home = () => {
                   />
                 </div>
                 <div className="rezor_subtract_button_coin">
-                  <a href="https://pancakeswap.finance/swap" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
+                  <a href="https://pancakeswap.finance/swap?outputCurrency=0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707&inputCurrency=0x55d398326f99059fF775485246999027B3197955" className="whitepaper_button_coin fw-medium font-geist d-flex align-items-center justify-content-between">
                     Trade Now
                     <span className="icon">
                       <img src="/assets/images/flash-circle.png"
