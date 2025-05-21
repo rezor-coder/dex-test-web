@@ -7146,6 +7146,10 @@
   .whitepaper_button_coin {
     width: 95%;
   }
+
+  .blogDescriptionImg{
+    height: auto;
+  }
 }
 
 @media (min-width: 720px) and (max-width: 1200px)
