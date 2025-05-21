@@ -7176,6 +7176,10 @@
     right: 0%;
   }
 
+  .whats_in_it{
+    margin-left: 4rem;
+  }
+
 }
 
 
@@ -7184,11 +7188,17 @@
   ul.slick-dots.slick-thumb.custom-dots {
     transform: translateX(-33%);
   }
+  .whats_in_it{
+    margin-left: 0rem;
+  }
 }
 @media (min-width: 2200px) and (max-width: 3000px)
 {
   ul.slick-dots.slick-thumb.custom-dots {
     transform: translateX(-25%);
+  }
+  .whats_in_it{
+    margin-left: 0rem;
   }
 }
 
@@ -7196,6 +7206,9 @@
 {
   ul.slick-dots.slick-thumb.custom-dots {
     transform: translateX(-18%);
+  }
+  .whats_in_it{
+    margin-left: 0rem;
   }
 }
 
