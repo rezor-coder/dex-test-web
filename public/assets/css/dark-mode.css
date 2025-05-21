@@ -6808,3 +6808,11 @@ body.dark-mode .panCakeImage {
   color: #fff;
 }
 
+.dark-mode .main-wrapper .navbar .nav-link.active{
+    color: var(--orange-color);
+}
+
+body.dark-mode .main-wrapper .navdropdownitem.active img {
+  content: url(/assets/images/arrow-right-orange.png);
+}
+
