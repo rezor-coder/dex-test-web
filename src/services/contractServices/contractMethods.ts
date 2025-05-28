@@ -389,7 +389,7 @@ export const callGetMethod = async (
       //     });
 
 
-      if (contract && contract?.methods) {
+      // if (contract && contract?.methods) {
 
 
         
@@ -404,9 +404,9 @@ export const callGetMethod = async (
             console.log("in catch:", error);
             reject(error);
           });
-      } else {
-        reject(new Error("Contract not found."));
-      }
+      // } else {
+      //   reject(new Error("Contract not found."));
+      // }
     } catch (error) {
       console.log("error", error);
       reject(error);
