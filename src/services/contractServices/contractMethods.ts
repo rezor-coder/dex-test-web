@@ -389,11 +389,11 @@ export const callGetMethod = async (
           .then((result: any) => {
             console.log("in then:", result);
             resolve(result);
-          })
-          .catch((error: any) => {
-            console.log("in catch:", error);
-            reject(error);
-        });
+          });
+        //   .catch((error: any) => {
+        //     console.log("in catch:", error);
+        //     reject(error);
+        // });
       
 
       
