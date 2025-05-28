@@ -371,7 +371,7 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     return res;
   } catch (error) {
 
-    console.log("error", error);
+    console.log("errorsdfdsfs", error);
     
     return ["0", "0"];
   }
