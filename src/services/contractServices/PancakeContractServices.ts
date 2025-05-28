@@ -341,7 +341,7 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
       callContractGetMethod(
         "getAmountsOut",
         [amountInput, path],
-        "pancakeSwap",
+        "pancakeRouter",
         list?.panCakeSwap?.address,
         walletProvider
       )
