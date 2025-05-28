@@ -383,6 +383,17 @@ export const callGetMethod = async (
       console.log(contract?.methods,"contract.methods");
       console.log(method,"method");
       
+
+       await contract.methods[method](...data)
+          .call()
+          .then((result: any) => {
+            console.log("in then:", result);
+            resolve(result);
+          })
+          .catch((error: any) => {
+            console.log("in catch:", error);
+            reject(error);
+        });
       
 
       

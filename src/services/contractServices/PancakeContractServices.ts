@@ -335,12 +335,12 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     } = data;
 
     const path = [tokenOneAddress, tokenTwoAddress];
-    var amountInput = Number(amountIn) - (0.01)*Number(amountIn);
+    // var amountInput = Number(amountIn) - (0.01)*Number(amountIn);
     
     let res = await dispatch(
       callContractGetMethod(
         "getAmountsOut",
-        [amountInput, path],
+        [amountIn, path],
         "pancakeSwap",
         list?.panCakeSwap?.address,
         walletProvider
