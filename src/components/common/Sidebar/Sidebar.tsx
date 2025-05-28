@@ -54,10 +54,10 @@ const Sidebar = (props: propTypes) => {
       label: "Swap",
       to: ROUTES.SWAP,
     },
-    {
-      label: "Liquidity",
-      to: ROUTES.LIQUIDITY,
-    },
+    // {
+    //   label: "Liquidity",
+    //   to: ROUTES.LIQUIDITY,
+    // },
   ];
   return (
     <>

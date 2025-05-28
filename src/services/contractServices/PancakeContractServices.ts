@@ -402,7 +402,7 @@ const getAmountsInfunction = async (data: GET_AMOUNTS_DATA) => {
       callContractGetMethod(
         "getAmountsIn",
         [amountIn, path],
-        "pancakeRouter",
+        "pancakeSwap",
         list?.router?.address,
         walletProvider
       )

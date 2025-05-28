@@ -36,11 +36,7 @@ import {
 } from "../../../utils/OkxHelpers";
 import { toast } from "../Toasts/Toast";
 
-import TokenselectModal from "../TokenselectModal/TokenselectModal";
 
-import { setWalletAddress } from "../../../features/theme/user.slice";
-import ViewWallet from "./ConnectWallet/ViewWallet/ViewWallet";
-import menu from "../../../assets/icons/header/menu.svg";
 
 type propTypes = {
   active?: boolean;
