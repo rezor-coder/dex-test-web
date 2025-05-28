@@ -380,6 +380,7 @@ export const callGetMethod = async (
 
       console.log(contract,"contract");
       console.log(contractType);
+      console.log(contract?.methods,"contract.methods");
       
       
 
