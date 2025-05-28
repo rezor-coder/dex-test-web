@@ -403,7 +403,7 @@ const getAmountsInfunction = async (data: GET_AMOUNTS_DATA) => {
         "getAmountsIn",
         [amountIn, path],
         "pancakeSwap",
-        list?.router?.address,
+        list?.panCakeSwap?.address,
         walletProvider
       )
     );
