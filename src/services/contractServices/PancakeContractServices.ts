@@ -342,7 +342,7 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
         "getAmountsOut",
         [amountInput, path],
         "pancakeRouter",
-        list?.panCakeSwap?.address,
+        list?.panCake?.address,
         walletProvider
       )
     );
