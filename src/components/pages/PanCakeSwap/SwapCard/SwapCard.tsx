@@ -477,11 +477,11 @@ const SwapCard = () => {
   return (
     <>
       <div className="addCardBox">
-        <div className="addCard">
-          <div className="addCard_heading">
-            <h3 className="titleHeading">Swap</h3>
+            <div className="addCard_heading mx-auto">
+            <h1 className="titleHeading">Swap</h1>
             <SettingOverlay />
           </div>
+        <div className="addCard">
           <div className="addCard_tokenvalues">
             <ActiveTokenCard
               field="Field1"
@@ -559,7 +559,8 @@ const SwapCard = () => {
               )}
             </AnimatePresence>
           </ul>
-          <div className="addCard_footer">
+        </div>
+          <div className="addCard_footer ">
             <Button
               fluid
               className={`btnapprove mb-3 ${
@@ -610,7 +611,6 @@ const SwapCard = () => {
                   "Approve and Swap"}
             </Button>
           </div>
-        </div>
       </div>
       <ConnectWallet
         show={showConnectWallet}

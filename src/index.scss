@@ -87,7 +87,8 @@ span {
   }
 
   @media (max-width: 1499px) {
-    font-size: 1.8rem;
+    // font-size: 1.8rem;
+    font-size: 3rem;
   }
 
   @media (max-width: 1199px) {
@@ -131,6 +132,8 @@ span {
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2.5rem;
+      // new code start 
+      max-width: 55rem;
 
       .settingBtn {
         padding: 0 0.2rem;
@@ -152,7 +155,7 @@ span {
 
       .activeCardtoken {
         border-radius: 1rem;
-        background: $gradient;
+        // background: $gradient;
         padding: 2.3rem 1.8rem;
 
         @media (max-width: 575px) {
@@ -162,6 +165,9 @@ span {
         .listToken {
           display: flex;
           flex-direction: column;
+          border: 1px solid #1AF5AF;
+          border-radius: 10px;
+         padding: 1.5rem 3rem;
 
           li {
             display: flex;
@@ -278,7 +284,7 @@ span {
 
       .secondaryCardToken {
         border-radius: 1rem;
-        border: 1px solid #ffffff1a;
+        // border: 1px solid #ffffff1a;
         background-blend-mode: overlay;
         padding: 2.3rem 1.8rem;
 
@@ -287,12 +293,15 @@ span {
         }
 
         @include theme() {
-          background: theme-get("cardfieldBg");
+          // background: theme-get("cardfieldBg");
         }
 
         .listToken {
           display: flex;
           flex-direction: column;
+          background-color: #414141;
+          padding: 1.5rem 3rem;
+          border-radius: 10px;
 
           li {
             display: flex;
@@ -469,6 +478,9 @@ span {
 
     &_footer {
       margin-top: 3rem;
+       width: 36rem;
+       max-width: 475px;
+      justify-self: center;
 
       .btnapprove {
         height: 6rem;

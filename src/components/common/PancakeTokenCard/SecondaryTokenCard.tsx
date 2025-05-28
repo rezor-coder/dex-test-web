@@ -127,13 +127,30 @@ const SecondaryTokenCard = ({
   return (
     <>
       <div className="secondaryCardToken">
+        <div className="d-flex justify-content-end">
+          {showTokensSelectModal ? (
+            <TokenselectReceivedModal
+              setTokenTwoValue={setTokenTwoValue}
+              setTokenOneValue={setTokenOneValue}
+              tokenActive
+              field={field}
+              setTokenTwoIconnew={setTokenTwoIconnew}
+              setOkxTokenTwoAddress={setOkxTokenTwoAddress}
+              setTokenOneChainId={setTokenOneChainId}
+              setTwoDecinmal={setTwoDecinmal}
+              setCurrencyNameForTokenTwo={setCurrencyNameForTokenTwo}
+            />
+          ) : (
+            <TokensModal tokenActive field={field} />
+          )}
+        </div>
         <ul className="listToken">
           <li>
             {shimmer == "Tk2" ? (
               <Shimmer height={30} width={200} />
             ) : (
               <Input
-                placeholder="0"
+                placeholder="Enter Amount"
                 className="without_bg"
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK2")}
@@ -153,24 +170,10 @@ const SecondaryTokenCard = ({
               ) : (
                 ""
               )}
-              {showTokensSelectModal ? (
-                <TokenselectReceivedModal
-                  setTokenTwoValue={setTokenTwoValue}
-                  setTokenOneValue={setTokenOneValue}
-                  tokenActive
-                  field={field}
-                  setTokenTwoIconnew={setTokenTwoIconnew}
-                  setOkxTokenTwoAddress={setOkxTokenTwoAddress}
-                  setTokenOneChainId={setTokenOneChainId}
-                  setTwoDecinmal={setTwoDecinmal}
-                  setCurrencyNameForTokenTwo={setCurrencyNameForTokenTwo}
-                />
-              ) : (
-                <TokensModal tokenActive field={field} />
-              )}
+
             </div>
           </li>
-          <li>
+          {/* <li>
             <h6>
               ~$
               {cryptoDecimals(
@@ -184,8 +187,13 @@ const SecondaryTokenCard = ({
                 </h6>
               )}
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
-          </li>
+          </li> */}
         </ul>
+      </div>
+      <div className="d-flex">
+        <h6 className="balancevalue">
+          Balance: <span>{balancevalue ? balancevalue : "0"}</span>
+        </h6>
       </div>
     </>
   );

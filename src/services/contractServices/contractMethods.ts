@@ -383,21 +383,7 @@ export const callGetMethod = async (
       console.log(contract?.methods,"contract.methods");
       console.log(method,"method");
       
-
-       await contract.methods[method](...data)
-          .call({ blockNumber: 'latest'})
-          .then((result: any) => {
-            console.log("in then:", result);
-            resolve(result);
-          });
-        //   .catch((error: any) => {
-        //     console.log("in catch:", error);
-        //     reject(error);
-        // });
       
-
-      
-
       // await contract.methods
       // .getAmountsOut(...data).call().then((result: any) => {
       //       console.log("in then:", result);
@@ -415,7 +401,7 @@ export const callGetMethod = async (
         
         /**CALL GET METHOD */
         await contract.methods[method](...data)
-          .call()
+          .call({ blockNumber: 'latest'})
           .then((result: any) => {
             console.log("in then:", result);
             resolve(result);

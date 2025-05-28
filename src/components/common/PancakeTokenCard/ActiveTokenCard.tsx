@@ -64,13 +64,25 @@ const ActiveTokenCard = ({
   return (
     <>
       <div className="activeCardtoken">
+         <div className="d-flex justify-content-end">
+              {showTokensSelectModal ? (
+                <TokenselectModal
+                  field={field}
+                  setTokenOneChainId={setTokenOneChainId}
+                  setTokenOneValue={setTokenOneValue}
+                  setTokenTwoValue={setTokenTwoValue}
+                />
+              ) : (
+                <TokensModal field={field} />
+              )}
+            </div>
         <ul className="listToken">
           <li>
             {shimmer == "Tk1" ? (
               <Shimmer height={30} width={200} />
             ) : (
               <Input
-                placeholder="0"
+                placeholder="Enter Amount"
                 className="without_bg inputActive"
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK1")}
@@ -83,36 +95,26 @@ const ActiveTokenCard = ({
                 className="maxBtn without_bg_border"
                 onClick={() => maxFunction("TK1")}
               />
-              {showTokensSelectModal ? (
-                <TokenselectModal
-                  field={field}
-                  setTokenOneChainId={setTokenOneChainId}
-                  setTokenOneValue={setTokenOneValue}
-                  setTokenTwoValue={setTokenTwoValue}
-                />
-              ) : (
-                <TokensModal field={field} />
-              )}
             </div>
           </li>
-          <li>
-            <h6>
+        </ul>
+      </div>
+       <div className="d-flex">
+            {/* <h6>
               ~$
               {cryptoDecimals(
                 Number(dollarVal) * Number(value?.inputValue) || 0
               )}
-            </h6>
+            </h6> */}
             {keyokx == "okx" ? (
-              <h6 className="balancevalue">
-                Balance: <span>{balancevalue ? balancevalue : "0"}</span>
-              </h6>
+              <h2 className="balancevalue">
+                Balance: <span>{balancevalue ? balancevalue : " "}</span>
+              </h2>
             ) : (
               ""
             )}
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
-          </li>
-        </ul>
-      </div>
+          </div>
     </>
   );
 };
