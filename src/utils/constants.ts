@@ -72,7 +72,7 @@ export const NETWORKS: NetworkTypes[] =
           icon: bnbIcon,
           decimals: 18,
           explorerUrl: "https://testnet.bscscan.com",
-          rpcUrl: "https://data-seed-prebsc-1-s1.bnbchain.org:8545/",
+          rpcUrl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
      
       ]
