@@ -324,8 +324,10 @@ const getLPBalance = async (data: GET_LP_BALANCE_PARAM) => {
  */
 
 const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
-  try {
+  // try {
     const list = store.getState()?.user?.contractDetails;
+    console.log(list,"list");
+    
     const {
       amountIn,
       tokenOneAddress,
@@ -369,12 +371,12 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     
 
     return res;
-  } catch (error) {
+  // } catch (error) {
 
-    console.log("errorsdfdsfs", error);
+  //   console.log("error", error);
     
-    return ["0", "0"];
-  }
+  //   return ["0", "0"];
+  // }
 };
 
 /**
