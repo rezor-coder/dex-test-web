@@ -122,7 +122,7 @@ export const zeroAddress: string = "0x0000000000000000000000000000000000000000";
           decimals: 18,
         },
         {
-          name: "Binance",
+          name: "tBNB",
           currency: "tBNB",
           chainId: 97,
           label: "Binance",
