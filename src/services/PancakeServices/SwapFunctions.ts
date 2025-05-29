@@ -411,6 +411,8 @@ const swapTokensOrExactTokensWithTokens = async (data: any) => {
     walletProvider,
   } = data;
   let path = [tokenOneAddress, tokenTwoAddress];
+  console.log("path",path);
+  
   if (selectedField == "TK1") {
     const data = {
       walletAddress,
