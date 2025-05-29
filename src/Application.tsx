@@ -1,9 +1,10 @@
 import React from "react";
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, Router, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import { ROUTES } from "./utils/constants";
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
 import Errorpage from "./components/pages/ErrorPage/Errorpage";
+import HomePage from "./components/pages/HomePage/index";
 
 // Update the import path to the correct location of the PancakeSwap component
 import PancakeSwap from "./components/pages/PanCakeSwap/Swap";
@@ -18,10 +19,14 @@ const Application = () => {
       ErrorBoundary: Errorpage,
       element: <Layout />,
       children: [
-       {
+         {
       index: true, // Default child route for "/"
       element: <Navigate to={ROUTES.SWAP} replace />
        },
+        // {
+        //   path: ROUTES.HOME,
+        //   element: <HomePage/>,
+        // },
         // {
         //   path: ROUTES.SWAP,
         //   // index: true,

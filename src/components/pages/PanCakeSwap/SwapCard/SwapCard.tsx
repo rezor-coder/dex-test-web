@@ -482,7 +482,7 @@ const SwapCard = () => {
             <SettingOverlay />
           </div>
         <div className="addCard">
-          <div className="addCard_tokenvalues">
+          <div className="addCard_tokenvalues d-grid gap-3">
             <ActiveTokenCard
               field="Field1"
               balance={tokenBalance}

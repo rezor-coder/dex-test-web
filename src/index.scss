@@ -97,6 +97,7 @@ span {
 }
 
 .addCardBox {
+  padding: 10px 14px;
   @media (min-width: 1199px) {
     padding-inline: 0.75rem;
     // max-width: 109.425rem;
@@ -156,7 +157,7 @@ span {
       .activeCardtoken {
         border-radius: 1rem;
         // background: $gradient;
-        padding: 2.3rem 1.8rem;
+        // padding: 2.3rem 1.8rem;
 
         @media (max-width: 575px) {
           padding: 2.5rem 1.4rem;
@@ -167,7 +168,8 @@ span {
           flex-direction: column;
           border: 1px solid #1AF5AF;
           border-radius: 10px;
-         padding: 1.5rem 3rem;
+           padding: 1.5rem 3rem;
+           background-color: #F6F6F6;
 
           li {
             display: flex;
@@ -196,18 +198,18 @@ span {
 
               &.inputActive {
                 input {
-                  color: $white;
+                  color: $black;
 
                   &::placeholder {
-                    color: $white !important;
+                    color: #BDBDBD !important;
                   }
 
                   &::-webkit-input-placeholder {
-                    color: $white !important;
+                    color: #BDBDBD !important;
                   }
 
                   &:-moz-placeholder {
-                    color: $white !important;
+                    color: #BDBDBD !important;
                   }
                 }
               }
@@ -220,12 +222,13 @@ span {
               flex: 0 0 50%;
 
               .maxBtn {
-                padding: 0.2rem 0.8rem;
-                height: 2.2rem;
-                background: $white;
-                color: $black;
-                font-size: 1.2rem;
-                margin-right: 0.9rem;
+                // padding: 0.2rem 0.8rem;
+                // height: 2.2rem;
+                // background: $white;
+                color: #1DD49A;
+                font-size: 1.7rem;
+                padding: 0px;
+                // margin-right: 0.9rem;
               }
             }
 
@@ -260,7 +263,8 @@ span {
         padding: 0;
         border-radius: 50%;
         border: 1px solid $white;
-        background: $darkBlue;
+        // background: $darkBlue;
+        background: #1DD49A;
         z-index: 1;
 
         @media (max-width: 991px) {
@@ -286,7 +290,7 @@ span {
         border-radius: 1rem;
         // border: 1px solid #ffffff1a;
         background-blend-mode: overlay;
-        padding: 2.3rem 1.8rem;
+        // padding: 2.3rem 1.8rem;
 
         @media (max-width: 575px) {
           padding: 2.5rem 1.4rem;
@@ -299,7 +303,7 @@ span {
         .listToken {
           display: flex;
           flex-direction: column;
-          background-color: #414141;
+          background-color: #F6F6F6;
           padding: 1.5rem 3rem;
           border-radius: 10px;
 
@@ -330,11 +334,24 @@ span {
                   letter-spacing: 0.04rem;
                   padding: 0 1rem 0 0;
 
+                   &::placeholder {
+                    color: #BDBDBD !important;
+                  }
+
+                  &::-webkit-input-placeholder {
+                    color: #BDBDBD !important;
+                  }
+
+                  &:-moz-placeholder {
+                    color: #BDBDBD !important;
+                  }
+
                   @include theme() {
                     color: theme-get("textclr");
                   }
                 }
               }
+              
             }
 
             .listRight {
@@ -632,6 +649,7 @@ table {
     }
   }
 }
+
 
 /* rezor Swap Landing Page Css */
 
@@ -1531,6 +1549,13 @@ a.btn-download {
   font-size: 1.4rem !important;
 }
 
+
+.balancevalue{
+  font-size:16px;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+
 //dark mode css
 
 body.dark-theme .rezorSwap-wrapper .rezorswap-bg {
@@ -1653,6 +1678,16 @@ body.dark-theme .rezorSwap-wrapper .trading_chart_card {
   background: linear-gradient(101.82deg, #1b1b1b 7.15%, #262626 92.79%);
   border: 1px solid #262626;
 }
+
+
+body.dark-theme .addCardBox .addCard_tokenvalues .activeCardtoken .listToken li .common_input.inputActive input {
+    color: $white;
+}
+
+body.dark-theme .addCardBox .addCard_tokenvalues .activeCardtoken .listToken , body.dark-theme .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken{
+    background-color: #414141;
+}
+
 
 //resposive css
 

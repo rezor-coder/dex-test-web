@@ -191,9 +191,9 @@ const SecondaryTokenCard = ({
         </ul>
       </div>
       <div className="d-flex">
-        <h6 className="balancevalue">
+        <h2 className="balancevalue">
           Balance: <span>{balancevalue ? balancevalue : "0"}</span>
-        </h6>
+        </h2>
       </div>
     </>
   );

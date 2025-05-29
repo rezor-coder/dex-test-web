@@ -63,7 +63,7 @@ export const NETWORKS: NetworkTypes[] =
           decimals: 18,
         },
         {
-          name: "Binance",
+          name: "tBNB",
           currency: "tBNB",
           chainId: 97,
           label: "Binance",
@@ -72,7 +72,7 @@ export const NETWORKS: NetworkTypes[] =
           icon: bnbIcon,
           decimals: 18,
           explorerUrl: "https://testnet.bscscan.com",
-          rpcUrl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          rpcUrl: "https://bsc-testnet.drpc.org",
         },
      
       ]

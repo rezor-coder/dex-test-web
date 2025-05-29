@@ -120,11 +120,12 @@
 
         &:hover,
         &.active {
-          background: linear-gradient(
-            92.62deg,
-            rgba(143, 91, 255, 1) 0%,
-            rgba(0, 87, 255, 1) 100%
-          );
+          // background: linear-gradient(
+          //   92.62deg,
+          //   rgba(143, 91, 255, 1) 0%,
+          //   rgba(0, 87, 255, 1) 100%
+          // );
+          background-color: #1DD49A;
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

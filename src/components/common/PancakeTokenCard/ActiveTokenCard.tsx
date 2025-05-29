@@ -47,7 +47,7 @@ const ActiveTokenCard = ({
     return (
       <>
         {typeof balance?.token1Balance === "string" && keyokx != "okx" && (
-          <h6>
+          <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token1Balance == 0 ? (
               0
@@ -91,7 +91,7 @@ const ActiveTokenCard = ({
             )}
             <div className="listRight">
               <Button
-                text="MAX"
+                text="max"
                 className="maxBtn without_bg_border"
                 onClick={() => maxFunction("TK1")}
               />
@@ -106,13 +106,14 @@ const ActiveTokenCard = ({
                 Number(dollarVal) * Number(value?.inputValue) || 0
               )}
             </h6> */}
-            {keyokx == "okx" ? (
+            {/* {keyokx == "okx" ? (
               <h2 className="balancevalue">
                 Balance: <span>{balancevalue ? balancevalue : " "}</span>
               </h2>
             ) : (
               ""
-            )}
+            )} */}
+            
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
           </div>
     </>

@@ -3,7 +3,8 @@
 .tokenBtn {
   padding: 0 0.8rem;
   border-radius: 0.8rem;
-  background: #00000033;
+  // background: #00000033;
+  background: transparent;
   -webkit-backdrop-filter: blur(28px);
   backdrop-filter: blur(28px);
   display: flex;
@@ -31,7 +32,7 @@
     display: flex;
     align-items: center;
     padding-right: 0.8rem;
-    color: #fff;
+    color: black;
     text-align: center;
     font-family: $fontSecondry;
     font-size: 1.6rem;
