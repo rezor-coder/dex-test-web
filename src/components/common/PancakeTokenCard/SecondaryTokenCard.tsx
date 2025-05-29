@@ -82,7 +82,7 @@ const SecondaryTokenCard = ({
     return (
       <>
         {typeof balance?.token2Balance === "string" && keyokx != "okx" && (
-          <h6>
+          <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token2Balance == 0 ? (
               0
@@ -182,7 +182,7 @@ const SecondaryTokenCard = ({
             </h6>
             {keyokx == "okx" &&
               selectedFrom?.chainID === selectedTo?.chainID && (
-                <h6 className="balancevalue">
+                <h6 className="">
                   Balance: <span>{balancevalue ? balancevalue : "0"}</span>
                 </h6>
               )}
@@ -190,11 +190,7 @@ const SecondaryTokenCard = ({
           </li> */}
         </ul>
       </div>
-      <div className="d-flex">
-        <h2 className="balancevalue">
-          Balance: <span>{balancevalue ? balancevalue : "0"}</span>
-        </h2>
-      </div>
+       {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
     </>
   );
 };
