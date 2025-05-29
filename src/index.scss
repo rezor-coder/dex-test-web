@@ -1995,3 +1995,15 @@ body.dark-theme .tokenBtn .tokenIcon {
     font-size: 60px;
   }
 }
+
+.bg-image{
+  background: linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
+  // background-image: url('../public/swap_bg.png');
+  // background-repeat: no-repeat;
+  // background-position: bottom;
+  // background-size:60% ;
+}
+
+body.dark-theme .bg-image{
+  background: linear-gradient(141.68deg, #171717 3.52%, #08261F 96.69%);
+}

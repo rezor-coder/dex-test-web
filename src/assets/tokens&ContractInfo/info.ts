@@ -734,20 +734,20 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
 
     export const PANCAKE_TOKEN_LIST: TOKEN_DATA[] =
     [
+        // {
+        //   name: "BNB",
+        //   address: "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
+        //   isNative: true,
+        //   decimals: 18,
+        //   symbol: "BNB",
+        //   icon: BNB,
+        // },
         {
           name: "BNB",
-          address: "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
-          isNative: true,
-          decimals: 18,
-          symbol: "BNB",
-          icon: BNB,
-        },
-        {
-          name: "WBNB",
           address: "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
           isNative: false,
           decimals: 18,
-          symbol: "WBNB",
+          symbol: "BNB",
           icon: BNB,
         },
         {

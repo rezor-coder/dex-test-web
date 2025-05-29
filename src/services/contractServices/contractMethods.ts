@@ -401,7 +401,7 @@ export const callGetMethod = async (
         
         /**CALL GET METHOD */
         await contract.methods[method](...data)
-          .call({ blockNumber: 'latest'})
+          .call()
           .then((result: any) => {
             console.log("in then:", result);
             resolve(result);

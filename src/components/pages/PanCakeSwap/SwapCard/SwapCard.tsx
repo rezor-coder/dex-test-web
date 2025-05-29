@@ -205,10 +205,10 @@ const SwapCard = () => {
       tokenTwoAddress: tokenTwo?.address,
       tokenOneData: tokenOne,
       tokenTwoData: tokenTwo,
-      // isTokenOneNative:false,
-      // isTokenTwoNative:false,
-      isTokenOneNative: list[0]?.address == tokenOne?.address ? true : false,
-      isTokenTwoNative: list[0]?.address == tokenTwo?.address ? true : false,
+      isTokenOneNative:false,
+      isTokenTwoNative:false,
+      // isTokenOneNative: list[0]?.address == tokenOne?.address ? true : false,
+      // isTokenTwoNative: list[0]?.address == tokenTwo?.address ? true : false,
     };
   }, [tokenOne, tokenTwo]);
 
