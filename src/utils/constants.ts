@@ -122,10 +122,10 @@ export const zeroAddress: string = "0x0000000000000000000000000000000000000000";
           decimals: 18,
         },
         {
-          name: "tBNB",
+          name: "Binance",
           currency: "tBNB",
           chainId: 97,
-          label: "Binance",
+          label: "tBNB",
           chainIdHex: "0x61",
           symbol: "BSC",
           icon: bnbIcon,
