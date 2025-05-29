@@ -138,8 +138,6 @@ const swapExactTokensForToken = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const token = store.getState()?.token?.tokenList;
-  
   const routerAddress = list?.panCakeSwap?.address;
   try {
     console.log("in try");
@@ -159,41 +157,19 @@ const swapExactTokensForToken = async (data: any) => {
               )
           );
 
-          
-        
-        
-
        
           const gasPrice =  await calculateGasPrice(walletProvider);
-          
-          if(path[0] === token[0]?.address){
-            console.log("method1 ");
-            
-            return await callSendMethod(
-              "rezorSwapExactETHForTokens",
-              [amountOutMinWithSlippageTolerance, path, to, deadLine],
-                walletAddress,
-                "pancakeSwap",
-                amountIn,
-                routerAddress,
-                walletProvider,
-                gasPrice
-              );
-         }
 
-         else{
-             console.log("method2 ");
-           return await callSendMethod(
-             "rezorSwapExactTokensForTokens",
-             [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
-             walletAddress,
-             "pancakeSwap",
-             undefined,
-             routerAddress,
-             walletProvider,
-             gasPrice
+    return await callSendMethod(
+      "rezorSwapExactTokensForTokens",
+      [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
+      walletAddress,
+      "pancakeSwap",
+      undefined,
+      routerAddress,
+      walletProvider,
+      gasPrice
     );
-  }
   } catch (error: any) {
     console.log("in catch");
     
