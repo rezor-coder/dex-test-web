@@ -168,7 +168,7 @@ const SecondaryTokenCard = ({
                 }
               />
             )}
-            <div className="listRight">
+            {/* <div className="listRight">
               {false ? (
                 <Button
                   text="MAX"
@@ -179,7 +179,7 @@ const SecondaryTokenCard = ({
                 ""
               )}
 
-            </div>
+            </div> */}
           </li>
           {/* <li>
             <h6>
