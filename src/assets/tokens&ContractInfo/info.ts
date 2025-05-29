@@ -740,7 +740,7 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
         //   isNative: true,
         //   decimals: 18,
         //   symbol: "BNB",
-        //   icon: BNB,
+        //   icon: BNB, 
         // },
         {
           name: "BNB",

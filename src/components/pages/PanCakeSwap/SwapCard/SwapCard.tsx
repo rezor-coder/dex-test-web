@@ -207,6 +207,8 @@ const SwapCard = () => {
       tokenTwoData: tokenTwo,
       isTokenOneNative:false,
       isTokenTwoNative:false,
+      // isTokenOneNative: (list[0]?.address == tokenOne?.address && list[0]?.isNative) ? true : false,
+      // isTokenTwoNative: (list[0]?.address == tokenTwo?.address && list[0]?.isNative) ? true : false,
       // isTokenOneNative: list[0]?.address == tokenOne?.address ? true : false,
       // isTokenTwoNative: list[0]?.address == tokenTwo?.address ? true : false,
     };
@@ -309,10 +311,13 @@ const SwapCard = () => {
     amount: string,
     max: boolean
   ) => {
+
+       var amountInput = Number(amount) - (0.01)*Number(amount);
+    
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
       tokenTwoAddress: tokenTwo?.address,
-      amountIn: amount,
+      amountIn: amountInput.toString(),
       max: max,
       dispatch,
       walletProvider,

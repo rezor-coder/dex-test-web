@@ -335,7 +335,13 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     } = data;
 
     const path = [tokenOneAddress, tokenTwoAddress];
+    console.log(amountIn,"amountIN");
+    
     // var amountInput = Number(amountIn) - (0.01)*Number(amountIn);
+    
+    console.log(path,"path");
+
+    
     
     let res = await dispatch(
       callContractGetMethod(
@@ -347,20 +353,9 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
       )
     );
     console.log(res, "res1");
+
     
-
-   
-    // let res2 =  await dispatch(
-    //   callContractGetMethod(
-    //     "getAmountsOut",
-    //     [amountIn, path],
-    //     "panRouter",
-    //     list?.panRouter?.address,
-    //     walletProvider
-    //   )
-    // );
-
-
+    
     // let res = res1;
     // if(Number(res2[1]) > Number(res1[1])){
     //   res = res2;

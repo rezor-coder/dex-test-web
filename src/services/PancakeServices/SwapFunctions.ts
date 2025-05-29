@@ -23,7 +23,7 @@ const swapTokensForExactGTH = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const routerAddress = list?.panCake?.address;
+  const routerAddress = list?.panCakeSwap?.address;
   try {
     let amountInMaxWithSlippageTolerance =
       (amountInMax / hundred) * slippageTolerance == 0
@@ -33,13 +33,13 @@ const swapTokensForExactGTH = async (data: any) => {
               localeStringFunction((amountInMax / hundred) * slippageTolerance)
             ) + Number(amountInMax)
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
-      "swapTokensForExactETH",
+      "rezorSwapTokensForExactETH",
       [amountOut, amountInMaxWithSlippageTolerance, path, to, deadLine],
       walletAddress,
-      "pancakeRouter",
+      "pancakeSwap",
       undefined,
       routerAddress,
       walletProvider,
@@ -47,7 +47,7 @@ const swapTokensForExactGTH = async (data: any) => {
     );
   } catch (error) {
     return error;
-    //   errorHelperContract(error, "send", "swapTokensForExactETH");
+    //   errorHelperContract(error, "send", "rezorSwapTokensForExactETH");
   }
 };
 const swapExactTokensForGTH = async (data: any) => {
@@ -62,7 +62,7 @@ const swapExactTokensForGTH = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const routerAddress = list?.panCake?.address;
+  const routerAddress = list?.panCakeSwap?.address;
   try {
     let amountOutMinWithSlippageTolerance =
       (amountOutMin / hundred) * slippageTolerance == 0
@@ -77,13 +77,13 @@ const swapExactTokensForGTH = async (data: any) => {
                 )
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
-      "swapExactTokensForETH",
+      "rezorSwapExactTokensForETH",
       [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
       walletAddress,
-      "pancakeRouter",
+      "pancakeSwap",
       undefined,
       routerAddress,
       walletProvider,
@@ -102,13 +102,13 @@ const swapExactTokensForGTH = async (data: any) => {
                 )
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
-            "swapExactTokensForETHSupportingFeeOnTransferTokens",
+            "rezorSwapExactTokensForETHSupportingFeeOnTransferTokens",
             [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
             walletAddress,
-            "pancakeRouter",
+            "pancakeSwap",
             undefined,
             routerAddress,
             walletProvider,
@@ -116,7 +116,6 @@ const swapExactTokensForGTH = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
         }
       } else {
         return error;
@@ -138,11 +137,13 @@ const swapExactTokensForToken = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
+  const token = store.getState()?.token?.tokenList;
+
   const routerAddress = list?.panCakeSwap?.address;
   try {
     console.log("in try");
     // var amountInput = amountIn - (0.01)*amountIn;
-    
+
     let amountOutMinWithSlippageTolerance =
       (amountOutMin / hundred) * slippageTolerance == 0
         ? amountOutMin
@@ -156,21 +157,36 @@ const swapExactTokensForToken = async (data: any) => {
                 )
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
 
-    return await callSendMethod(
-      "rezorSwapExactTokensForTokens",
-      [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
-      walletAddress,
-      "pancakeSwap",
-      undefined,
-      routerAddress,
-      walletProvider,
-      gasPrice
-    );
+    const gasPrice = await calculateGasPrice(walletProvider);
+
+    var meth = "rezorSwapExactTokensForTokens";
+    if (path[0] === token[0]?.address) {
+      return await callSendMethod(
+        "rezorSwapExactETHForTokens",
+        [amountOutMinWithSlippageTolerance, path, to, deadLine],
+        walletAddress,
+        "pancakeSwap",
+        amountIn,
+        routerAddress,
+        walletProvider,
+        gasPrice
+      );
+    } else {
+      return await callSendMethod(
+        meth,
+        [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
+        walletAddress,
+        "pancakeSwap",
+        undefined,
+        routerAddress,
+        walletProvider,
+        gasPrice
+      );
+    }
   } catch (error: any) {
     console.log("in catch");
-    
+
     if (error?.code !== 5000) {
       if (error?.code !== 4001) {
         let taxPercentage = 50;
@@ -184,7 +200,7 @@ const swapExactTokensForToken = async (data: any) => {
                 )
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
             // "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
@@ -199,7 +215,6 @@ const swapExactTokensForToken = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
         }
       } else {
         return error;
@@ -223,9 +238,9 @@ const swapExactGTHForToken = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const routerAddress = list?.panCake?.address;
-  console.log("path2",path);
-  
+  const routerAddress = list?.panCakeSwap?.address;
+  console.log("path2", path);
+
   try {
     let amountOutMinWithSlippageTolerance =
       (amountOutMin / hundred) * slippageTolerance == 0
@@ -240,12 +255,12 @@ const swapExactGTHForToken = async (data: any) => {
                 )
               )
           );
-    const gasPrice =  await calculateGasPrice(walletProvider);
+    const gasPrice = await calculateGasPrice(walletProvider);
     return await callSendMethod(
-      "swapExactETHForTokens",
+      "rezorSwapExactETHForTokens",
       [amountOutMinWithSlippageTolerance, path, to, deadLine],
       walletAddress,
-      "pancakeRouter",
+      "pancakeSwap",
       amountIn,
       routerAddress,
       walletProvider,
@@ -264,13 +279,13 @@ const swapExactGTHForToken = async (data: any) => {
                 )
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
-            "swapExactETHForTokensSupportingFeeOnTransferTokens",
+            "rezorSwapExactETHForTokensSupportingFeeOnTransferTokens",
             [amountOutMinWithSlippageTolerance, path, to, deadLine],
             walletAddress,
-            "pancakeRouter",
+            "pancakeSwap",
             amountIn,
             routerAddress,
             walletProvider,
@@ -278,7 +293,6 @@ const swapExactGTHForToken = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
         }
       } else {
         return error;
@@ -301,7 +315,7 @@ const swapGTHForExactToken = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const routerAddress = list?.panCake?.address;
+  const routerAddress = list?.panCakeSwap?.address;
   try {
     let amountOutMaxWithSlippageTolerance =
       (amountOut / hundred) * slippageTolerance == 0
@@ -311,13 +325,13 @@ const swapGTHForExactToken = async (data: any) => {
               (amountOut / hundred) * slippageTolerance + Number(amountOut)
             )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
-      "swapETHForExactTokens",
+      "rezorSwapETHForExactTokens",
       [amountOutMaxWithSlippageTolerance, path, to, deadLine],
       walletAddress,
-      "pancakeRouter",
+      "pancakeSwap",
       amountInMax,
       routerAddress,
       walletProvider,
@@ -339,7 +353,7 @@ const swapTokensForExactToken = async (data: any) => {
     walletProvider,
   } = data;
   const list = store.getState()?.user?.contractDetails;
-  const routerAddress = list?.panCake?.address;
+  const routerAddress = list?.panCakeSwap?.address;
   try {
     let amountInMaxWithSlippageTolerance =
       (amountInMax / hundred) * slippageTolerance == 0
@@ -349,13 +363,13 @@ const swapTokensForExactToken = async (data: any) => {
               localeStringFunction((amountInMax / hundred) * slippageTolerance)
             ) + Number(amountInMax)
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
-      "swapTokensForExactTokens",
+      "rezorSwapTokensForExactTokens",
       [amountOut, amountInMaxWithSlippageTolerance, path, to, deadLine],
       walletAddress,
-      "pancakeRouter",
+      "pancakeSwap",
       undefined,
       routerAddress,
       walletProvider,
@@ -373,18 +387,17 @@ const swapTokensForExactToken = async (data: any) => {
                 localeStringFunction((amountInMax / hundred) * taxPercentage)
               )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
-            "swapExactTokensForTokensSupportingFeeOnTransferTokens",
+            "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
             [amountOut, amountOutMinWithSlippageTolerance, path, to, deadLine],
             walletAddress,
-            "pancakeRouter",
+            "pancakeSwap",
             undefined,
             routerAddress,
             walletProvider,
-            gasPrice 
-
+            gasPrice
           );
         } catch (error) {
           return error;
@@ -411,8 +424,8 @@ const swapTokensOrExactTokensWithTokens = async (data: any) => {
     walletProvider,
   } = data;
   let path = [tokenOneAddress, tokenTwoAddress];
-  console.log("path",path);
-  
+  console.log("path", path);
+
   if (selectedField == "TK1") {
     const data = {
       walletAddress,
@@ -511,8 +524,8 @@ const swapGTHOrExactGTHWithTokens = async (data: any) => {
       slippageTolerance,
       walletProvider,
     };
-    console.log(path,"path1");
-    
+    console.log(path, "path1");
+
     const res: any = await swapExactGTHForToken(data);
     return res;
   } else {
