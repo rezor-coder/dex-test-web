@@ -46,9 +46,68 @@ export const daysToValueMap: DAYS_TO_VALUE_MAP = {
 };
 export const zeroAddress: string = "0x0000000000000000000000000000000000000000";
 
-export const NETWORKS: NetworkTypes[] =
-  envType !== "production"
-    ? [
+// export const NETWORKS: NetworkTypes[] =
+//   envType !== "production"
+//     ? [
+//         {
+//           name: "Sepolia",
+//           currency: "ETH",
+//           chainId: 11155111,
+//           chainIdHex: "0xaa36a7",
+//           symbol: "ETH",
+//           label: "Sepolia",
+//           icon: EthIcon,
+//           explorerUrl: "https://sepolia.etherscan.io/",
+//           rpcUrl:
+//            "https://ethereum-sepolia.blockpi.network/v1/rpc/public",
+//           decimals: 18,
+//         },
+//         {
+//           name: "Binance",
+//           currency: "tBNB",
+//           chainId: 97,
+//           label: "Binance",
+//           chainIdHex: "0x61",
+//           symbol: "BSC",
+//           icon: bnbIcon,
+//           decimals: 18,
+//           explorerUrl: "https://testnet.bscscan.com",
+//           rpcUrl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+//         },
+     
+//       ]
+//     : [
+//         {
+//           name: "Binance",
+//           currency: "BSC",
+//           chainId: 56,
+//           label: "BSC",
+//           chainIdHex: "0x38",
+//           symbol: "BSC",
+//           icon: bnbIcon,
+//           decimals: 18,
+//           explorerUrl: "https://bscscan.com",
+//           // rpcUrl:
+//           //   "https://bsc.nodes.fastnode.io/mainnet/fn-dedic-43b2-ba81-8c3f3d4fd5db/",
+//           rpcUrl: "https://bsc.publicnode.com",
+//         },
+//         {
+//           name: "Ethereum",
+//           currency: "ETH",
+//           chainId: 1,
+//           label: "Ethereum",
+//           chainIdHex: "0x1",
+//           symbol: "ETH",
+//           icon: EthIcon,
+//           explorerUrl: "https://etherscan.io",
+//           rpcUrl:
+//             "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+//           decimals: 18,
+//         }
+//       ];
+
+      export const NETWORKS: NetworkTypes[] =
+      [
         {
           name: "Sepolia",
           currency: "ETH",
@@ -63,7 +122,7 @@ export const NETWORKS: NetworkTypes[] =
           decimals: 18,
         },
         {
-          name: "tBNB",
+          name: "Binance",
           currency: "tBNB",
           chainId: 97,
           label: "Binance",
@@ -72,39 +131,11 @@ export const NETWORKS: NetworkTypes[] =
           icon: bnbIcon,
           decimals: 18,
           explorerUrl: "https://testnet.bscscan.com",
-          rpcUrl: "https://bsc-testnet.drpc.org",
+          rpcUrl: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
      
-      ]
-    : [
-        {
-          name: "Binance",
-          currency: "BSC",
-          chainId: 56,
-          label: "BSC",
-          chainIdHex: "0x38",
-          symbol: "BSC",
-          icon: bnbIcon,
-          decimals: 18,
-          explorerUrl: "https://bscscan.com",
-          // rpcUrl:
-          //   "https://bsc.nodes.fastnode.io/mainnet/fn-dedic-43b2-ba81-8c3f3d4fd5db/",
-          rpcUrl: "https://bsc.publicnode.com",
-        },
-        {
-          name: "Ethereum",
-          currency: "ETH",
-          chainId: 1,
-          label: "Ethereum",
-          chainIdHex: "0x1",
-          symbol: "ETH",
-          icon: EthIcon,
-          explorerUrl: "https://etherscan.io",
-          rpcUrl:
-            "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-          decimals: 18,
-        }
       ];
+    
 
 export const networkConfig = (chainId: number = NETWORKS[0].chainId) => {
   const network = NETWORKS.find((network) => network.chainId === chainId);
