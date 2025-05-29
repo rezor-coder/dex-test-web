@@ -82,7 +82,7 @@ const RezorSwapNavBar = () => {
               </div>
               <div className="offcanvas-body align-items-center "  >
                 <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-5 gap-3 align-items-lg-center rezorSwapNavBarUl">
-                  <li className="nav-item">
+                  <li className="nav-item ">
                     <a className={`nav-link fw-medium font-geist ${location.pathname == '/'? "active":''}`}  href="/">
                       Home
                     </a>
@@ -92,11 +92,11 @@ const RezorSwapNavBar = () => {
                       Swap
                     </a>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className={`nav-link fw-medium font-geist ${location.pathname == '/liquidity'? "active":''}`} href="/liquidity">
                       Liquidity
                     </a>
-                  </li>
+                  </li> */}
                  
 
                   {/* <li className="nav-item dropdown "

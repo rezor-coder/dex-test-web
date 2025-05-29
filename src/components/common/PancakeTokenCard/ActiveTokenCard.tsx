@@ -8,6 +8,7 @@ import Shimmer from "../Shimmer/Shimmer";
 import useIsWrongNetwork from "../../../CustomHook/useisWrongNetwork";
 import TokensModal from "../Modals/TokensModal/TokensModal";
 import { storeReduxInstance } from "../../../App";
+import { TOKEN_DATA } from "../../../interfaces/Liquidity";
 
 const ActiveTokenCard = ({
   field,
@@ -43,10 +44,13 @@ const ActiveTokenCard = ({
     (state: any) => state?.user
   );
 
+    const { tokenOne }: { tokenOne: TOKEN_DATA; } =
+      useAppSelector((store: any) => store?.token);
+
   const modifyTokenBalance = () => {
     return (
       <>
-        {typeof balance?.token1Balance === "string" && keyokx != "okx" && (
+        {typeof balance?.token1Balance === "string" && keyokx != "okx" ? (
           <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token1Balance == 0 ? (
@@ -56,15 +60,19 @@ const ActiveTokenCard = ({
             ) : (
               <Shimmer height={10} width={50} />
             )}
+              <span className="ms-2">{tokenOne?.name} </span>
           </h6>
-        )}
+        ) : (<h6 className="balancevalue"> <Shimmer height={30} width={200} /> </h6>)}
       </>
     );
   };
   return (
     <>
       <div className="activeCardtoken">
-         <div className="d-flex justify-content-end">
+         
+         <div className="d-flex">
+          <h4><span className="input_label">From: </span>  {tokenOne?.name} Coin </h4>
+            <div className="d-flex ms-auto">
               {showTokensSelectModal ? (
                 <TokenselectModal
                   field={field}
@@ -75,6 +83,7 @@ const ActiveTokenCard = ({
               ) : (
                 <TokensModal field={field} />
               )}
+              </div>
             </div>
         <ul className="listToken">
           <li>

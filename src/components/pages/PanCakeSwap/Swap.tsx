@@ -3,6 +3,7 @@ import HeadCard from "../../common/HeadCard/HeadCard";
 import "./Swap.scss";
 import { useState } from "react";
 import TxnModal from "../../common/Modals/TxnModal/TxnModal";
+import Footer from "../HomePage/components/Footer";
 const Swap = () => {
   console.log('Dex');
   const [show, setShow] = useState(false);
@@ -12,6 +13,7 @@ const Swap = () => {
       <section className="swapPage">
         <Outlet />
       </section>
+        <Footer />
     </>
   );
 };

@@ -98,6 +98,7 @@ span {
 
 .addCardBox {
   padding: 10px 14px;
+  margin-bottom: 10rem;
   @media (min-width: 1199px) {
     padding-inline: 0.75rem;
     // max-width: 109.425rem;
@@ -262,10 +263,11 @@ span {
         height: 5rem;
         padding: 0;
         border-radius: 50%;
-        border: 1px solid $white;
+        border: 7px solid #DFFFF5;
         // background: $darkBlue;
-        background: #1DD49A;
+        // background: #1DD49A;
         z-index: 1;
+        
 
         @media (max-width: 991px) {
           width: 4rem;
@@ -945,7 +947,7 @@ table {
 .rezorSwap-wrapper .copyright_content a {
   color: #1dd49a;
 }
-.rezorSwap-wrapper .back-to-top img {
+.rezorSwap-wrapper .back-to-top img , .back-to-top img {
   content: url(/assets/images/rezorSwapImages/footer/back-to-top.png);
 }
 
@@ -1479,7 +1481,7 @@ a.btn-download {
   --primary-color: #f5f7fa;
   --primary-font: "Geist";
   --black-color-theme: #0d0f1a;
-  --buttons-bg-color: #3d84ff;
+  --buttons-bg-color: #1DD49A;
   --border-radius: 10px;
   --text-color-first: rgba(65, 65, 65, 1);
   --text-color-second: #262626;
@@ -1997,13 +1999,81 @@ body.dark-theme .tokenBtn .tokenIcon {
 }
 
 .bg-image{
-  background: linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
+  background: url('../public/swap_bg.png'),linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
   // background-image: url('../public/swap_bg.png');
-  // background-repeat: no-repeat;
-  // background-position: bottom;
-  // background-size:contain ;
+  background-repeat: no-repeat;
+  background-position: 40% 21%;
+  // background-size: 67%;
 }
 
 body.dark-theme .bg-image{
-  background: linear-gradient(141.68deg, #171717 3.52%, #08261F 96.69%);
+  // background-image: url('../public/swap_bg.png');
+  background: url('../public/swap_bg.png'),
+  linear-gradient(141.68deg, #171717 3.52%, #08261F 96.69%);
+  background-repeat: no-repeat;
+  background-position: 40% 21%;
+}
+
+
+.addCardBox .addCard_tokenvalues .swapbt::before, .addCardBox .addCard_tokenvalues .swapbt::after
+ {
+    background: #E5E5E5;
+}
+
+.addCardBox .addCard_tokenvalues .swapbt::after {
+    content: "";
+    width: 15%;
+    z-index: 0;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    // transform: translate(-50%, -50%);
+}
+
+.addCardBox .addCard_tokenvalues .swapbt::before {
+    content: "";
+    width: 15%;
+    z-index: 0;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    right: 60%;
+    // transform: translate(-50%, -50%);
+}
+
+
+.input_label{
+  color:#414141;
+  font-size: 16px;
+  font-weight: 400;
+   font-family: var(--primary-font);
+  
+}
+
+body.dark-theme .input_label{
+  color: white;
+}
+
+.copyright_content a{
+color: #1dd49a;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #1DD49A;
+}
+
+ .dropdown-custom p {
+    color: white !important;
+}
+
+ .dropdown-item{
+  color:white !important;
+}
+
+.backtotop_m {
+    bottom: 1%;
+    width: 100%;
+    left: 0%;
+    position: absolute;
 }

@@ -19,14 +19,14 @@ const Application = () => {
       ErrorBoundary: Errorpage,
       element: <Layout />,
       children: [
-         {
-      index: true, // Default child route for "/"
-      element: <Navigate to={ROUTES.SWAP} replace />
-       },
-        // {
-        //   path: ROUTES.HOME,
-        //   element: <HomePage/>,
-        // },
+      //    {
+      // index: true, // Default child route for "/"
+      // element: <Navigate to={ROUTES.SWAP} replace />
+      //  },
+        {
+          path: ROUTES.HOME,
+          element: <HomePage/>,
+        },
         // {
         //   path: ROUTES.SWAP,
         //   // index: true,

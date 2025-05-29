@@ -21,6 +21,7 @@ import {
   setOkxTokenListUpdate,
   setSaveSelectedTo,
 } from "../../../features/theme/Okx.slice";
+import { TOKEN_DATA } from "../../../interfaces/Liquidity";
 
 const SecondaryTokenCard = ({
   field,
@@ -68,6 +69,9 @@ const SecondaryTokenCard = ({
     (state: any) => state?.user
   );
 
+    const { tokenTwo }: { tokenTwo: TOKEN_DATA } =
+        useAppSelector((store: any) => store?.token);
+
   const [tokenList, setTokenList] = useState([]);
   const isWrongNetwork = useIsWrongNetwork();
 
@@ -81,7 +85,7 @@ const SecondaryTokenCard = ({
   const modifyTokenBalance = () => {
     return (
       <>
-        {typeof balance?.token2Balance === "string" && keyokx != "okx" && (
+        {typeof balance?.token2Balance === "string" && keyokx != "okx" ? (
           <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token2Balance == 0 ? (
@@ -91,8 +95,9 @@ const SecondaryTokenCard = ({
             ) : (
               <Shimmer height={10} width={50} />
             )}
+              <span className="ms-2">{tokenTwo?.name} </span>
           </h6>
-        )}
+        ) : (<h6 className="balancevalue"> <Shimmer height={30} width={200} /> </h6>)}
       </>
     );
   };
@@ -127,22 +132,25 @@ const SecondaryTokenCard = ({
   return (
     <>
       <div className="secondaryCardToken">
-        <div className="d-flex justify-content-end">
-          {showTokensSelectModal ? (
-            <TokenselectReceivedModal
-              setTokenTwoValue={setTokenTwoValue}
-              setTokenOneValue={setTokenOneValue}
-              tokenActive
-              field={field}
-              setTokenTwoIconnew={setTokenTwoIconnew}
-              setOkxTokenTwoAddress={setOkxTokenTwoAddress}
-              setTokenOneChainId={setTokenOneChainId}
-              setTwoDecinmal={setTwoDecinmal}
-              setCurrencyNameForTokenTwo={setCurrencyNameForTokenTwo}
-            />
-          ) : (
-            <TokensModal tokenActive field={field} />
-          )}
+        <div className="d-flex">
+          <h4 ><span className="input_label">To:</span> {tokenTwo?.name} Coin  </h4>
+          <div className="d-flex ms-auto">
+            {showTokensSelectModal ? (
+              <TokenselectReceivedModal
+                setTokenTwoValue={setTokenTwoValue}
+                setTokenOneValue={setTokenOneValue}
+                tokenActive
+                field={field}
+                setTokenTwoIconnew={setTokenTwoIconnew}
+                setOkxTokenTwoAddress={setOkxTokenTwoAddress}
+                setTokenOneChainId={setTokenOneChainId}
+                setTwoDecinmal={setTwoDecinmal}
+                setCurrencyNameForTokenTwo={setCurrencyNameForTokenTwo}
+              />
+            ) : (
+              <TokensModal tokenActive field={field} />
+            )}
+          </div>
         </div>
         <ul className="listToken">
           <li>
@@ -190,7 +198,9 @@ const SecondaryTokenCard = ({
           </li> */}
         </ul>
       </div>
-       {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
+      
+      {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()} 
+      
     </>
   );
 };

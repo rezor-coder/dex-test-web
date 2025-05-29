@@ -40,6 +40,7 @@ import { TradeData } from "../../../../services/ApiServices/apiService";
 import { setTransactionCounter } from "../../../../features/theme/user.slice";
 import ConnectWallet from "../../../common/Header/ConnectWallet/ConnectWallet";
 import useIsWrongNetwork from "../../../../CustomHook/useisWrongNetwork";
+import Footer from "../../HomePage/components/Footer";
 
 var oldTknVal = "";
 
@@ -497,9 +498,12 @@ const SwapCard = () => {
               dollarVal={tk1DollarValue}
               shimmer={shimmerState}
             />
-            <Button className="swapBtn" onClick={() => handleSwitchTokens()}>
+            <div className="swapbt">
+              
+            <Button className="swapBtn my-3" onClick={() => handleSwitchTokens()}>
               <DropUpswapIcon />
             </Button>
+            </div>
             <SecondaryTokenCard
               field="Field2"
               balance={tokenBalance}
@@ -615,7 +619,7 @@ const SwapCard = () => {
                   // ? "Trade will be Live Soon!"
                   "Approve and Swap"}
             </Button>
-          </div>
+          </div>          
       </div>
       <ConnectWallet
         show={showConnectWallet}
