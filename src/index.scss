@@ -498,7 +498,7 @@ span {
 
     &_footer {
       margin-top: 3rem;
-       width: 36rem;
+      //  width: 36rem;
        max-width: 475px;
       justify-self: center;
 
@@ -1952,6 +1952,9 @@ body.dark-theme .tokenBtn .tokenIcon {
 }
 
 @media (min-width: 952px) {
+  .addCardBox .addCard_footer {
+     width: 36rem;
+  }
   .rezorSwap-wrapper .mobile_footer_parent {
     display: none;
   }
