@@ -55,7 +55,7 @@ export const callWeb3 = async (walletProvider: any) => {
       return provider;
     }
     else{
-      const provider = new Web3("https://bsc-dataseed.binance.org/");
+      const provider = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
       web3Object = provider;
       return provider;
     }
