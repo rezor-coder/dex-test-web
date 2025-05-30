@@ -2,10 +2,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
   const [formData, setFormData] = useState({ email: "" });
   const [status, setStatus] = useState({ status: "", msg: "" });
   const [loading, setLoading] = useState("");
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -406,15 +410,16 @@ const Footer = () => {
                   data-bs-target="#p&u"
                   aria-expanded="false"
                   aria-controls="p&u"
+                  onClick={() => setIsOpen1(!isOpen1)}
                 >
                   <p className="m-0 p-0">Products & Utilities</p>
                   <img
-                    src="/assets/images/footericons/footerDropdownIcon.png"
+                    src="/assets/images/footericons/arrow-square-down.png"
                     className="img-fluid"
                     alt=""
                   />
                 </div>
-                <ul className="collapse" id="p&u">
+                <ul className={`collapse ${isOpen1 ? 'show':''}`} id="p&u">
                   <li>
                     <Link to="https://www.rezor.org/rezorwallet" className="dropdown-item">
                       Rezor Wallet
@@ -438,16 +443,17 @@ const Footer = () => {
                <div
                  className="dropdown-custom dropdown-toggle"
                  type="button" data-bs-toggle="collapse" data-bs-target="#resources" aria-expanded="false" aria-controls="resources"
+                onClick={() => setIsOpen2(!isOpen2)}
                 >
                   <p className="m-0 p-0"> Resources</p>
-                  <img
-                    src="/assets/images/footericons/footerDropdownIcon.png"
+                 <img
+                    src="/assets/images/footericons/arrow-square-down.png"
                     className="img-fluid"
                     alt=""
                   />
                 </div> 
 
-                <ul className="collapse" id="resources">
+                <ul className={`collapse ${isOpen2 ? 'show':''}`} id="resources">
                   <li>
                     
                     <a className="dropdown-item" href="/getintouch">
@@ -504,15 +510,16 @@ const Footer = () => {
                   data-bs-target="#ktw"
                   aria-expanded="false"
                   aria-controls="ktw"
+                 onClick={() => setIsOpen3(!isOpen3)}
                 >
                   <p className="m-0 p-0"> Keep in touch with</p>
-                  <img
-                    src="/assets/images/footericons/footerDropdownIcon.png"
+                 <img
+                    src="/assets/images/footericons/arrow-square-down.png"
                     className="img-fluid"
                     alt=""
                   />
                 </div>
-                <ul className="collapse social-icon" id="ktw">
+                <ul className={`collapse social-icon ${isOpen3?'show':''}`} id="ktw">
                   <li>
                     <a
                       href="https://x.com/rezor_official?s=21&t=Pqj041XnLLBjILHh9nKyzg"

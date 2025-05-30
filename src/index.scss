@@ -1202,6 +1202,7 @@ a.btn-download {
 }
 
 .footer_logo img {
+  min-width: 20px;
   width: 40%;
 }
 .footer_logo h2 {
@@ -1329,7 +1330,7 @@ a.btn-download {
   background-color: #151617;
   width: 100%;
 }
-.main-wrapper .dropdown-toggle::after {
+.main-wrapper .dropdown-toggle::after , .mobile_footer .dropdown-toggle::after {
   display: none;
 }
 .main-wrapper .dropdown-item,
@@ -1510,7 +1511,7 @@ a.btn-download {
   font-family: var(--primary-font);
 }
 
-.rezorSwap-wrapper .dropdown-custom {
+.rezorSwap-wrapper .dropdown-custom , .dropdown-custom {
   /* background-color: orangered; */
   /* padding: 10px 15px; */
   border-radius: 5px;
