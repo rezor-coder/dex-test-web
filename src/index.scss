@@ -1944,6 +1944,10 @@ body.dark-theme .tokenBtn .tokenIcon {
   .footer {
     display: none;
   }
+
+  .header .header_in .header_logo img{
+    min-width: 10rem;
+  }
 }
 
 @media (min-width: 952px) {
@@ -1960,6 +1964,7 @@ body.dark-theme .tokenBtn .tokenIcon {
   .slider_dots {
     display: none !important;
   }
+  
 }
 
 @media (max-width: 552px) {

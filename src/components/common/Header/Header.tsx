@@ -133,7 +133,7 @@ const Header = (props: propTypes) => {
                 src={theme === "light" ? lightLogo : logo}
                 alt="logo"
               />
-              <img src={smallLogo} alt="logo" className="d-sm-none" />
+              <img src={theme === "light" ? lightLogo : logo} alt="logo" className="d-sm-none" />
             </Link>
             <Sidebar
               handleActive={props.handleActive}
