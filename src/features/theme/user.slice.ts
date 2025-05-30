@@ -17,7 +17,7 @@ export interface userState {
 const initialState: userState = {
   walletAddress: "",
   walletType: "",
-  chainValues: NETWORKS[0],
+  chainValues: NETWORKS[1],
   contractDetails: "",
   slippage:50,
   deadline: 10,
