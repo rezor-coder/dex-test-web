@@ -20,7 +20,7 @@ import TxnModal from "../../../common/Modals/TxnModal/TxnModal";
 import { TOKEN_DATA } from "../../../../interfaces/Liquidity";
 import useIsWrongNetwork from "../../../../CustomHook/useisWrongNetwork";
 
-const ReviewSwap = () => {
+const ReviewSwap = (props:any) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { walletProvider } = useWalletConnect();
@@ -33,7 +33,11 @@ const ReviewSwap = () => {
   }: { walletAddress: string; chainValues: any } = useAppSelector(
     (store: any) => store?.user
   );
-  const { state } = useLocation();
+  // const { state } = useLocation();
+  const { state } = props?.state;
+
+  console.log(state);
+  
 
   const [show, setShow] = useState<boolean>(false);
   const [previousChain, setPreviousChain] = useState<string>(
@@ -102,9 +106,9 @@ const ReviewSwap = () => {
           <div className="addCard_tokenvalues">
             <div className="token_mainSelected">
               <div className="token_mainSelected_leftSide">
-                <h6>You Pay</h6>
-                <div className="amount">
-                  <h3>{state?.inputOne?.inputValue}</h3>
+                <h6 className="mb-2">You Pay</h6>
+                <div className="amount d-grid gap-2">
+                  <h3>{state?.inputOne?.inputValue} {tokenOne?.symbol}</h3> 
                   <p>
                     ~$
                     {cryptoDecimals(
@@ -113,18 +117,18 @@ const ReviewSwap = () => {
                   </p>
                 </div>
               </div>
-              <div className="token_mainSelected_rightSide">
+              {/* <div className="token_mainSelected_rightSide">
                 <span className="tokenDetails">
                   <img src={tokenOne.icon} alt="" />
                   {tokenOne?.symbol}
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="token_receive">
               <div className="token_receive_leftSide">
-                <h6>You Receive</h6>
-                <div className="amount">
-                  <h3>{state?.inputTwo?.inputValue}</h3>
+                <h6 className="mb-2">You Receive</h6>
+                <div className="amount d-grid gap-2">
+                  <h3>{state?.inputTwo?.inputValue} {tokenTwo?.symbol}</h3>
                   <p>
                     ~$
                     {cryptoDecimals(
@@ -133,15 +137,15 @@ const ReviewSwap = () => {
                   </p>
                 </div>
               </div>
-              <div className="token_receive_rightSide">
+              {/* <div className="token_receive_rightSide">
                 <span className="tokenDetails">
                   <img src={tokenTwo.icon} alt="" />
                   {tokenTwo?.symbol}
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
-          <hr className="reviewLine" />
+          {/* <hr className="reviewLine" /> */}
          
           <Button
             fluid

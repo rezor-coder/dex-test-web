@@ -41,6 +41,9 @@ import { setTransactionCounter } from "../../../../features/theme/user.slice";
 import ConnectWallet from "../../../common/Header/ConnectWallet/ConnectWallet";
 import useIsWrongNetwork from "../../../../CustomHook/useisWrongNetwork";
 import Footer from "../../HomePage/components/Footer";
+import TxnModal from "../../../common/Modals/TxnModal/TxnModal";
+import CommonModal from "../../../common/Modals/CommonModal/CommonModal";
+import ReviewSwap from "../ReviewSwap/ReviewSwap";
 
 var oldTknVal = "";
 
@@ -57,6 +60,14 @@ const SwapCard = () => {
   }: { walletAddress: string; transactionCounter: boolean; slippage: number } =
     useAppSelector((store: any) => store?.user);
   const { walletProvider } = useWalletConnect();
+  const [show, setShow] = useState<boolean>(false);
+
+    const [modalData, setModalData] = useState<any>({
+      status: "",
+      bodyText: "",
+      title: "",
+      txHash: "",
+      });
 
   const [showMore, setShowMore] = useState<boolean>(false);
   const [priceImpact, setPriceImpact] = useState<string | undefined>("");
@@ -591,16 +602,18 @@ const SwapCard = () => {
                 if (!walletAddress) {
                   setConnectWallet(true);
                 } else {
-                  navigate("review-swap", {
-                    state: {
-                      tokenDetails,
-                      selectedField,
-                      inputOne,
-                      inputTwo,
-                      tk1DollarValue,
-                      tk2DollarValue,
-                    },
-                  });
+
+                  setShow(true);
+                  // navigate("review-swap", {
+                  //   state: {
+                  //     tokenDetails,
+                  //     selectedField,
+                  //     inputOne,
+                  //     inputTwo,
+                  //     tk1DollarValue,
+                  //     tk2DollarValue,
+                  //   },
+                  // });
                 }
               }}
               disabled={
@@ -629,6 +642,22 @@ const SwapCard = () => {
         show={showConnectWallet}
         handleClose={() => setConnectWallet(false)}
       />
+
+       <CommonModal
+        className="txn_modal"
+        show={show}
+        handleClose={() => {
+            setShow(false);
+            navigate("/");
+          }}
+        heading=""
+        status=""
+      >
+     <ReviewSwap state={
+        {tokenDetails,selectedField,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
+     } />
+       
+      </CommonModal>
     </>
   );
 };
