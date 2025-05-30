@@ -717,7 +717,7 @@ table {
 .rezorSwap-wrapper .statistics_overview {
   padding-left: 10%;
 }
-.rezorSwap-wrapper .saitascan_row {
+.rezorSwap-wrapper .rezorscan_row {
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -832,7 +832,7 @@ table {
   color: #414141;
   margin-top: 0.875%;
 }
-.rezorSwap-wrapper .saitascan_bg {
+.rezorSwap-wrapper .rezorscan_bg {
   background: linear-gradient(108.54deg, #fbfbfb 6.47%, #fafafa 79.34%);
   border-radius: 20px;
   padding: 4.5em 3em;
@@ -845,21 +845,21 @@ table {
   color: #fff;
   border: 0px;
 }
-.rezorSwap-wrapper .heading_saitascan {
+.rezorSwap-wrapper .heading_rezorscan {
   margin-bottom: 32.5em;
 }
-.rezorSwap-wrapper .saitascan_row {
+.rezorSwap-wrapper .rezorscan_row {
   margin-top: 8%;
 }
 
 .marg-1em {
   margin-top: 6em !important;
 }
-.rezorSwap-wrapper .saitascan_bg_globe {
+.rezorSwap-wrapper .rezorscan_bg_globe {
   bottom: 0px;
   right: 0px;
 }
-.rezorSwap-wrapper .heading_saitascan_h2 {
+.rezorSwap-wrapper .heading_rezorscan_h2 {
   font-size: 2.2em;
   color: #000;
 }
@@ -1131,12 +1131,12 @@ a.btn-download {
   font-size: 1.4em;
 }
 
-.rezorSwap-wrapper .heading_saitascan_h2 {
+.rezorSwap-wrapper .heading_rezorscan_h2 {
   font-size: 3.5em;
   font-weight: 500 !important;
 }
 
-.rezorSwap-wrapper .heading_saitascan p {
+.rezorSwap-wrapper .heading_rezorscan p {
   font-size: 1.4em;
   font-weight: 400 !important;
 }
@@ -1580,7 +1580,7 @@ body.dark-theme
   .our_products_paragraph_p {
   color: #fff !important;
 }
-body.dark-theme .rezorSwap-wrapper .rezorSwap-wrapper .heading_saitascan_h2 {
+body.dark-theme .rezorSwap-wrapper .rezorSwap-wrapper .heading_rezorscan_h2 {
   color: white;
 }
 body.dark-theme .rezorSwap-wrapper .all-time-value {
@@ -1592,7 +1592,7 @@ body.dark-theme .rezorSwap-wrapper .all-time-swappers {
 body.dark-theme .rezorSwap-wrapper .rezor_swap_div {
   background: linear-gradient(101.82deg, #1b1b1b 7.15%, #262626 92.79%);
 }
-body.dark-theme .rezorSwap-wrapper .rezorSwap-wrapper .saitascan_bg {
+body.dark-theme .rezorSwap-wrapper .rezorSwap-wrapper .rezorscan_bg {
   background: linear-gradient(101.82deg, #1b1b1b 7.15%, #262626 92.79%);
 }
 body.dark-theme .rezorSwap-wrapper .rezorSwap-wrapper .trading_chart_card {
@@ -1665,11 +1665,11 @@ body.dark-theme .rezorSwap-wrapper .navbar-brand img {
   content: url(/assets/images/logo-main-white.png);
 }
 
-body.dark-theme .rezorSwap-wrapper .saitascan_bg {
+body.dark-theme .rezorSwap-wrapper .rezorscan_bg {
   background: linear-gradient(101.82deg, #1b1b1b 7.15%, #262626 92.79%);
 }
 
-body.dark-theme .rezorSwap-wrapper .heading_saitascan_h2 {
+body.dark-theme .rezorSwap-wrapper .heading_rezorscan_h2 {
   color: white;
 }
 
@@ -1708,7 +1708,7 @@ body.dark-theme .tokenBtn .tokenIcon {
     padding: 1.25em 0.65em 2.25em;
   }
 
-  .rezorSwap-wrapper .heading_saitascan {
+  .rezorSwap-wrapper .heading_rezorscan {
     margin-bottom: 22.5em;
   }
   .rezorSwap-wrapper .heading-all-time-swappers {
@@ -1739,7 +1739,7 @@ body.dark-theme .tokenBtn .tokenIcon {
   .rezorSwap-wrapper .statistics_overview {
     padding-left: 5%;
   }
-  .rezorSwap-wrapper .saitascan_row {
+  .rezorSwap-wrapper .rezorscan_row {
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -1772,16 +1772,16 @@ body.dark-theme .tokenBtn .tokenIcon {
     padding: 1.25em 1em 2.25em;
     /* height: 60vh; */
   }
-  .rezorSwap-wrapper .saitascan_bg_globe img {
+  .rezorSwap-wrapper .rezorscan_bg_globe img {
     width: 100%;
   }
-  .rezorSwap-wrapper .saitascan_bg {
+  .rezorSwap-wrapper .rezorscan_bg {
     padding: 2.5em 2em;
   }
-  .rezorSwap-wrapper .heading_saitascan_h2 {
+  .rezorSwap-wrapper .heading_rezorscan_h2 {
     font-size: 1.75em;
   }
-  .rezorSwap-wrapper .heading_saitascan {
+  .rezorSwap-wrapper .heading_rezorscan {
     margin-bottom: 34.5em;
   }
   .rezorSwap-wrapper .heading-all-time-swappers {
@@ -1818,7 +1818,7 @@ body.dark-theme .tokenBtn .tokenIcon {
   .rezorSwap-wrapper .statistics_overview {
     padding-left: 0%;
   }
-  .rezorSwap-wrapper .saitascan_row {
+  .rezorSwap-wrapper .rezorscan_row {
     padding-left: 0%;
     padding-right: 0%;
   }
@@ -1888,8 +1888,8 @@ body.dark-theme .tokenBtn .tokenIcon {
   .rezorSwap-wrapper .our-products {
     margin-top: 12.5%;
   }
-  .rezorSwap-wrapper .saitascan_bg_globe img {
-    content: url(assets/images/rezorSwapImages/third-section/saitascan_ipad.png);
+  .rezorSwap-wrapper .rezorscan_bg_globe img {
+    content: url(assets/images/rezorSwapImages/third-section/rezorscan_ipad.png);
     width: 100%;
     border-bottom-right-radius: 20px;
   }
@@ -1904,7 +1904,7 @@ body.dark-theme .tokenBtn .tokenIcon {
   .rezorSwap-wrapper .statistics_overview {
     margin-top: 13.75%;
   }
-  .rezorSwap-wrapper .heading_saitascan_h2 {
+  .rezorSwap-wrapper .heading_rezorscan_h2 {
     font-size: 2.25em;
   }
   .rezorSwap-wrapper .rezor_swap_div {

@@ -295,12 +295,12 @@ const RezorSwap = () => {
                   </p>
                 </div>
               </div>
-              <div className="row saitascan_row mx-lg-auto">
+              <div className="row rezorscan_row mx-lg-auto">
                 <div className="col-lg-5 col-xl-6">
-                  <div className="saitascan_bg position-relative">
+                  <div className="rezorscan_bg position-relative">
                     <div className="col-lg-12 col-xl-9 ">
-                      <div className="heading_saitascan">
-                        <h2 className="primary-font fw-bold heading_saitascan_h2">
+                      <div className="heading_rezorscan">
+                        <h2 className="primary-font fw-bold heading_rezorscan_h2">
                           RezorScan
                           <br /> Explore the Network
                         </h2>
@@ -315,8 +315,8 @@ const RezorSwap = () => {
                       </div>
                     </div>
 
-                    <div className="saitascan_bg_globe position-absolute">
-                      <img src="assets/images/rezorSwapImages/third-section/saitascan.png" />
+                    <div className="rezorscan_bg_globe position-absolute">
+                      <img src="assets/images/rezorSwapImages/third-section/rezorscan.png" />
                     </div>
                   </div>
                 </div>
