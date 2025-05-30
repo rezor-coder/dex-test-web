@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { NETWORKS } from "../../utils/constants";
 import { NetworkTypes } from "../../interfaces/common";
+import { BSC_CONTRACT_LIST } from "../../assets/tokens&ContractInfo/info";
 
 export interface userState {
   walletAddress: string;
@@ -18,7 +19,7 @@ const initialState: userState = {
   walletAddress: "",
   walletType: "",
   chainValues: NETWORKS[1],
-  contractDetails: "",
+  contractDetails: BSC_CONTRACT_LIST,
   slippage:50,
   deadline: 10,
   transactionCounter: false,

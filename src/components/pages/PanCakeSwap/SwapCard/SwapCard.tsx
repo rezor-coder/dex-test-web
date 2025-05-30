@@ -329,9 +329,6 @@ const SwapCard = () => {
       walletProvider,
     };
 
-    
-
-
     const tokenValue: string[2] | undefined =
       fieldCondition == "TK1"
         ? await getAmountsOutfunction(data)
@@ -348,6 +345,7 @@ const SwapCard = () => {
         fieldCondition == "TK1" ? tokenTwo : tokenOne,
         fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0]
       );
+      
       
       if (Number(calculatedBalance)) {
         // const res: string = await getPriceImpact(
