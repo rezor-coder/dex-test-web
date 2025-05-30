@@ -1972,6 +1972,9 @@ body.dark-theme .tokenBtn .tokenIcon {
 }
 
 @media (max-width: 552px) {
+
+  
+
   .mobile_footer {
     background-image: url("assets/images/footer_bg_mobile.png");
     background-repeat: no-repeat;
@@ -2095,6 +2098,14 @@ color: #1dd49a;
 }
 
 @media (max-width: 767px) {
+  .bg-image{
+   background: url('../public/swap_bg_mobile.png'),
+        linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
+      background-repeat:no-repeat ;
+        background-size: 100% 80%;
+        background-position: 26% 55%;
+  }
+
   .addCardBox .addCard_tokenvalues .activeCardtoken .listToken li .common_input_inner input, .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li .common_input_inner input {
     font-size: 1.5rem;
   }
