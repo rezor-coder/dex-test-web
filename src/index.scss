@@ -325,7 +325,7 @@ span {
               flex: 0 0 50%;
 
               @media (max-width: 479px) {
-                flex: 0 0 35%;
+                flex: 0 0 100%;
               }
 
               &_inner {
@@ -2088,9 +2088,9 @@ color: #1dd49a;
   .addCardBox .addCard_tokenvalues .activeCardtoken .listToken li .common_input_inner input, .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li .common_input_inner input {
     font-size: 1.5rem;
   }
-  .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li{
-    width: 200%;
-  }
+  // .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li{
+  //   width: 200%;
+  // }
 
   .swapbt{
     position: relative;

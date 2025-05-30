@@ -644,18 +644,17 @@ const SwapCard = () => {
       />
 
        <CommonModal
-        className="txn_modal"
+       className="addCardBox"
         show={show}
         handleClose={() => {
             setShow(false);
-            navigate("/");
           }}
-        heading=""
+        heading="Confirmation"
         status=""
       >
      <ReviewSwap state={
         {tokenDetails,selectedField,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
-     } />
+     } isShow={setShow} />
        
       </CommonModal>
     </>

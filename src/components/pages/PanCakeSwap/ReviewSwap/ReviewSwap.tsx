@@ -34,9 +34,11 @@ const ReviewSwap = (props:any) => {
     (store: any) => store?.user
   );
   // const { state } = useLocation();
-  const { state } = props?.state;
+  const  state  = props?.state;
 
-  console.log(state);
+  
+
+  console.log(state,"state");
   
 
   const [show, setShow] = useState<boolean>(false);
@@ -92,9 +94,10 @@ const ReviewSwap = (props:any) => {
 
   return (
     <>
-      <div className="addCardBox">
-        <div className="addCard">
-          <div className="addCard_heading">
+      <div className="addCardBox mb-0">
+        {/* <div className="addCard"> */}
+        <div >
+          {/* <div className="addCard_heading">
             <h3 className="titleHeading">Swap</h3>
             <Button
               className="without_bg_border settingBtn"
@@ -102,13 +105,13 @@ const ReviewSwap = (props:any) => {
             >
               <CloseIcon />
             </Button>
-          </div>
+          </div> */}
           <div className="addCard_tokenvalues">
             <div className="token_mainSelected">
               <div className="token_mainSelected_leftSide">
                 <h6 className="mb-2">You Pay</h6>
                 <div className="amount d-grid gap-2">
-                  <h3>{state?.inputOne?.inputValue} {tokenOne?.symbol}</h3> 
+                  <h1>{state?.inputOne?.inputValue} {tokenOne?.symbol}</h1> 
                   <p>
                     ~$
                     {cryptoDecimals(
@@ -128,7 +131,7 @@ const ReviewSwap = (props:any) => {
               <div className="token_receive_leftSide">
                 <h6 className="mb-2">You Receive</h6>
                 <div className="amount d-grid gap-2">
-                  <h3>{state?.inputTwo?.inputValue} {tokenTwo?.symbol}</h3>
+                  <h1>{state?.inputTwo?.inputValue} {tokenTwo?.symbol}</h1>
                   <p>
                     ~$
                     {cryptoDecimals(
@@ -166,8 +169,9 @@ const ReviewSwap = (props:any) => {
         <TxnModal
           show={show}
           handleClose={() => {
+            props?.isShow(false);
             setShow(false);
-            navigate("/");
+            // navigate("/");
           }}
           data={modalData}
         />

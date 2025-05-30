@@ -15,10 +15,10 @@ const Layout = () => {
     document.body.clientWidth < 1199 && setActive(!active);
   return (
     <>
-      <div className={`layout ${location.pathname =='/swap'?'bg-image':''}`}>
-        {location.pathname !== '/' && (
+      <div className={`layout}`}>
+        {/* {location.pathname !== '/' && (
         <Header handleActive={handleActive} active={active} />
-        )}
+        )} */}
         <>
           <Outlet />
         </>
