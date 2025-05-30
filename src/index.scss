@@ -134,7 +134,7 @@ span {
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2.5rem;
-      // new code start 
+      // new code start
       max-width: 55rem;
 
       .settingBtn {
@@ -167,10 +167,10 @@ span {
         .listToken {
           display: flex;
           flex-direction: column;
-          border: 1px solid #1AF5AF;
+          border: 1px solid #1af5af;
           border-radius: 10px;
-           padding: 1.5rem 3rem;
-           background-color: #F6F6F6;
+          padding: 1.5rem 3rem;
+          background-color: #f6f6f6;
 
           li {
             display: flex;
@@ -202,15 +202,15 @@ span {
                   color: $black;
 
                   &::placeholder {
-                    color: #BDBDBD !important;
+                    color: #bdbdbd !important;
                   }
 
                   &::-webkit-input-placeholder {
-                    color: #BDBDBD !important;
+                    color: #bdbdbd !important;
                   }
 
                   &:-moz-placeholder {
-                    color: #BDBDBD !important;
+                    color: #bdbdbd !important;
                   }
                 }
               }
@@ -226,7 +226,7 @@ span {
                 // padding: 0.2rem 0.8rem;
                 // height: 2.2rem;
                 // background: $white;
-                color: #1DD49A;
+                color: #1dd49a;
                 font-size: 1.7rem;
                 padding: 0px;
                 // margin-right: 0.9rem;
@@ -263,11 +263,10 @@ span {
         height: 5rem;
         padding: 0;
         border-radius: 50%;
-        border: 7px solid #DFFFF5;
+        border: 7px solid #dffff5;
         // background: $darkBlue;
         // background: #1DD49A;
         z-index: 1;
-        
 
         @media (max-width: 991px) {
           width: 4rem;
@@ -281,7 +280,7 @@ span {
           padding: 1rem;
           height: 3.4rem;
           margin: -1.2rem auto;
-          border:none;
+          border: none;
         }
 
         &::before {
@@ -306,7 +305,7 @@ span {
         .listToken {
           display: flex;
           flex-direction: column;
-          background-color: #F6F6F6;
+          background-color: #f6f6f6;
           padding: 1.5rem 3rem;
           border-radius: 10px;
 
@@ -337,16 +336,16 @@ span {
                   letter-spacing: 0.04rem;
                   padding: 0 1rem 0 0;
 
-                   &::placeholder {
-                    color: #BDBDBD !important;
+                  &::placeholder {
+                    color: #bdbdbd !important;
                   }
 
                   &::-webkit-input-placeholder {
-                    color: #BDBDBD !important;
+                    color: #bdbdbd !important;
                   }
 
                   &:-moz-placeholder {
-                    color: #BDBDBD !important;
+                    color: #bdbdbd !important;
                   }
 
                   @include theme() {
@@ -354,7 +353,6 @@ span {
                   }
                 }
               }
-              
             }
 
             .listRight {
@@ -499,7 +497,7 @@ span {
     &_footer {
       margin-top: 3rem;
       //  width: 36rem;
-       max-width: 475px;
+      max-width: 475px;
       justify-self: center;
 
       .btnapprove {
@@ -652,7 +650,6 @@ table {
     }
   }
 }
-
 
 /* rezor Swap Landing Page Css */
 
@@ -948,7 +945,8 @@ table {
 .rezorSwap-wrapper .copyright_content a {
   color: #1dd49a;
 }
-.rezorSwap-wrapper .back-to-top img , .back-to-top img {
+.rezorSwap-wrapper .back-to-top img,
+.back-to-top img {
   content: url(/assets/images/rezorSwapImages/footer/back-to-top.png);
 }
 
@@ -1330,7 +1328,8 @@ a.btn-download {
   background-color: #151617;
   width: 100%;
 }
-.main-wrapper .dropdown-toggle::after , .mobile_footer .dropdown-toggle::after {
+.main-wrapper .dropdown-toggle::after,
+.mobile_footer .dropdown-toggle::after {
   display: none;
 }
 .main-wrapper .dropdown-item,
@@ -1483,7 +1482,7 @@ a.btn-download {
   --primary-color: #f5f7fa;
   --primary-font: "Geist";
   --black-color-theme: #0d0f1a;
-  --buttons-bg-color: #1DD49A;
+  --buttons-bg-color: #1dd49a;
   --border-radius: 10px;
   --text-color-first: rgba(65, 65, 65, 1);
   --text-color-second: #262626;
@@ -1511,7 +1510,8 @@ a.btn-download {
   font-family: var(--primary-font);
 }
 
-.rezorSwap-wrapper .dropdown-custom , .dropdown-custom {
+.rezorSwap-wrapper .dropdown-custom,
+.dropdown-custom {
   /* background-color: orangered; */
   /* padding: 10px 15px; */
   border-radius: 5px;
@@ -1553,9 +1553,8 @@ a.btn-download {
   font-size: 1.4rem !important;
 }
 
-
-.balancevalue{
-  font-size:16px;
+.balancevalue {
+  font-size: 16px;
   margin-top: 0.5em;
   margin-left: 0.5em;
 }
@@ -1683,13 +1682,24 @@ body.dark-theme .rezorSwap-wrapper .trading_chart_card {
   border: 1px solid #262626;
 }
 
-
-body.dark-theme .addCardBox .addCard_tokenvalues .activeCardtoken .listToken li .common_input.inputActive input {
-    color: $white;
+body.dark-theme
+  .addCardBox
+  .addCard_tokenvalues
+  .activeCardtoken
+  .listToken
+  li
+  .common_input.inputActive
+  input {
+  color: $white;
 }
 
-body.dark-theme .addCardBox .addCard_tokenvalues .activeCardtoken .listToken , body.dark-theme .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken{
-    background-color: #414141;
+body.dark-theme .addCardBox .addCard_tokenvalues .activeCardtoken .listToken,
+body.dark-theme
+  .addCardBox
+  .addCard_tokenvalues
+  .secondaryCardToken
+  .listToken {
+  background-color: #414141;
 }
 
 body.dark-theme .tokenBtn .tokenIcon {
@@ -1946,14 +1956,14 @@ body.dark-theme .tokenBtn .tokenIcon {
     display: none;
   }
 
-  .header .header_in .header_logo img{
+  .header .header_in .header_logo img {
     min-width: 10rem;
   }
 }
 
 @media (min-width: 952px) {
   .addCardBox .addCard_footer {
-     width: 36rem;
+    width: 36rem;
   }
   .rezorSwap-wrapper .mobile_footer_parent {
     display: none;
@@ -1968,13 +1978,9 @@ body.dark-theme .tokenBtn .tokenIcon {
   .slider_dots {
     display: none !important;
   }
-  
 }
 
 @media (max-width: 552px) {
-
-  
-
   .mobile_footer {
     background-image: url("assets/images/footer_bg_mobile.png");
     background-repeat: no-repeat;
@@ -2011,109 +2017,130 @@ body.dark-theme .tokenBtn .tokenIcon {
   }
 }
 
-.bg-image{
-  margin-bottom:10rem;
+.bg-image {
+  margin-bottom: 10rem;
   border-bottom-left-radius: 20px;
-border-bottom-right-radius: 20px;
-  background: url('../public/swap_bg.png'),linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
+  border-bottom-right-radius: 20px;
+  background: url("../public/swap_bg.png"),
+    linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
   // background-image: url('../public/swap_bg.png');
   background-repeat: no-repeat;
   background-position: 40% 60%;
   // background-size: 67%;
 }
 
-body.dark-theme .bg-image{
-    margin-bottom:10rem;
-border-bottom-left-radius: 20px;
-border-bottom-right-radius: 20px;
+body.dark-theme .bg-image {
+  margin-bottom: 10rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   // background-image: url('../public/swap_bg.png');
-  background: url('../public/swap_bg.png'),
-  linear-gradient(141.68deg, #171717 3.52%, #08261F 96.69%);
+  background: url("../public/swap_bg.png"),
+    linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
   background-repeat: no-repeat;
   background-position: 40% 21%;
 }
 
-
-.addCardBox .addCard_tokenvalues .swapbt::before, .addCardBox .addCard_tokenvalues .swapbt::after
- {
-    background: #E5E5E5;
+.addCardBox .addCard_tokenvalues .swapbt::before,
+.addCardBox .addCard_tokenvalues .swapbt::after {
+  background: #e5e5e5;
 }
 
 .addCardBox .addCard_tokenvalues .swapbt::after {
-    content: "";
-    width: 15%;
-    z-index: 0;
-    height: 1px;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    // transform: translate(-50%, -50%);
+  content: "";
+  width: 15%;
+  z-index: 0;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  // transform: translate(-50%, -50%);
 }
 
 .addCardBox .addCard_tokenvalues .swapbt::before {
-    content: "";
-    width: 15%;
-    z-index: 0;
-    height: 1px;
-    position: absolute;
-    top: 50%;
-    right: 60%;
-    // transform: translate(-50%, -50%);
+  content: "";
+  width: 15%;
+  z-index: 0;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  // transform: translate(-50%, -50%);
 }
 
-
-.input_label{
-  color:#414141;
+.input_label {
+  color: #414141;
   font-size: 16px;
   font-weight: 400;
-   font-family: var(--primary-font);
-  
+  font-family: var(--primary-font);
 }
 
-body.dark-theme .input_label{
+body.dark-theme .input_label {
   color: white;
 }
 
-.copyright_content a{
-color: #1dd49a;
+.copyright_content a {
+  color: #1dd49a;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: #1DD49A;
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #1dd49a;
 }
 
- .dropdown-custom p {
-    color: white !important;
+.dropdown-custom p {
+  color: white !important;
 }
 
- .dropdown-item{
-  color:white !important;
+.dropdown-item {
+  color: white !important;
 }
 
 .backtotop_m {
-    bottom: 1%;
-    width: 100%;
-    left: 0%;
-    position: absolute;
+  bottom: 1%;
+  width: 100%;
+  left: 0%;
+  position: absolute;
 }
 
 @media (max-width: 767px) {
-  .bg-image{
-   background: url('../public/swap_bg_mobile.png'),
-        linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
-      background-repeat:no-repeat ;
-        background-size: 100% 80%;
-        background-position: 26% 55%;
+  .bg-image {
+    background: url("../public/swap_bg_mobile.png"),
+      linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+    background-position: 26% 55%;
   }
 
-  .addCardBox .addCard_tokenvalues .activeCardtoken .listToken li .common_input_inner input, .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li .common_input_inner input {
+  body.dark-theme .bg-image {
+  // background-image: url('../public/swap_bg.png');
+  background: url("../public/swap_bg_mobile.png"),
+    linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-position: 26% 55%;
+}
+
+  .addCardBox
+    .addCard_tokenvalues
+    .activeCardtoken
+    .listToken
+    li
+    .common_input_inner
+    input,
+  .addCardBox
+    .addCard_tokenvalues
+    .secondaryCardToken
+    .listToken
+    li
+    .common_input_inner
+    input {
     font-size: 1.5rem;
   }
   // .addCardBox .addCard_tokenvalues .secondaryCardToken .listToken li{
   //   width: 200%;
   // }
 
-  .swapbt{
+  .swapbt {
     position: relative;
   }
-  }
+}
