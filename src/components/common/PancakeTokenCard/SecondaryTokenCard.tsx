@@ -163,9 +163,9 @@ const SecondaryTokenCard = ({
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK2")}
                 value={keyokx == "okx" ? value : value?.inputValue}
-                disabled={
-                  keyokx == "okx" ? true : isWrongNetwork || !walletAddress
-                }
+                // disabled={
+                //   keyokx == "okx" ? true : isWrongNetwork || !walletAddress
+                // }
               />
             )}
             {/* <div className="listRight">

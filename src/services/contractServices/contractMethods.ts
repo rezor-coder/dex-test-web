@@ -40,10 +40,10 @@ export const callWeb3 = async (walletProvider: any) => {
                 window?.location?.pathname != "/cross-chain"
                   ? network?.chainIdHex
                   : Web3.utils.toHex(
-                      network?.chainId == okxDefaultChain?.chainID
-                        ? network?.chainId
-                        : okxDefaultChain?.chainID
-                    ),
+                    network?.chainId == okxDefaultChain?.chainID
+                      ? network?.chainId
+                      : okxDefaultChain?.chainID
+                  ),
             },
           ],
         });
@@ -93,7 +93,7 @@ export function callContractSendMethod(
   value: any,
   dynamicAddress: string,
   walletProvider: any,
-  gasPrice:any
+  gasPrice: any
 ) {
   return async (dispatch = useDispatch(), getState: any) => {
     try {
@@ -122,8 +122,8 @@ export function callGasMethod(
   value: any,
   dynamicAddress: string,
   walletProvider: any,
-  gasPrice:any
-){
+  gasPrice: any
+) {
   return async (dispatch = useDispatch(), getState: any) => {
     try {
       const result = await callGasFindMethod(
@@ -164,9 +164,44 @@ export const getContractInstance = async (
   dynamicAddress: string,
   walletProvider: any
 ) => {
-  if (!walletProvider) return;
+
   const list = store.getState()?.user?.contractDetails;
-  
+
+  if (!walletProvider) {
+    try {
+      if (list) {
+        return new Promise(async (resolve, reject) => {
+          switch (contractType) {
+            case "pancakeSwap":
+              dynamicInstance = web3Instance
+                ? await new web3Instance.eth.Contract(
+                  JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
+                  dynamicAddress
+                )
+                : await createInstance(walletProvider).then(
+                  async (provider: any) => {
+                    return await new provider.eth.Contract(
+                      JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
+                      dynamicAddress
+                    );
+                  }
+                );
+              resolve(dynamicInstance);
+              break;
+            default:
+              return null;
+          }
+        });
+      }
+    }
+    catch (error) {
+      console.error(error);
+      throw error;
+    }
+
+  }
+  else{
+
   try {
     if (list) {
       return new Promise(async (resolve, reject) => {
@@ -175,10 +210,10 @@ export const getContractInstance = async (
             return icoInstance
               ? resolve(icoInstance)
               : createInstance(walletProvider)
-                  .then(() => {
-                    resolve(icoInstance);
-                  })
-                  .catch(reject);
+                .then(() => {
+                  resolve(icoInstance);
+                })
+                .catch(reject);
           case "dynamic":
             dynamicInstance = await createInstance(walletProvider).then(
               async (provider: any) => {
@@ -193,161 +228,161 @@ export const getContractInstance = async (
           case "factory":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON?.parse(JSON?.stringify(list?.factory?.abi)),
-                  dynamicAddress
-                )
+                JSON?.parse(JSON?.stringify(list?.factory?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.factory?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.factory?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "marketTokenContract":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON?.parse(JSON?.stringify(tokenAabi)),
-                  dynamicAddress
-                )
+                JSON?.parse(JSON?.stringify(tokenAabi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(tokenAabi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(tokenAabi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "marketExchangeContract":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON?.parse(JSON?.stringify(exchangeABI)),
-                  dynamicAddress
-                )
+                JSON?.parse(JSON?.stringify(exchangeABI)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(exchangeABI)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(exchangeABI)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "router":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.router?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.router?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.router?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.router?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "panRouter":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.panRouter?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.panRouter?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.router?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.router?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "pancakeRouter":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.panCake?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.panCake?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.panCake?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.panCake?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "pancakeSwap":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "staking":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.stakingFactory?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.stakingFactory?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.stakingFactory?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.stakingFactory?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "farm":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.farm?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.farm?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.farm?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.farm?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           case "pair":
             dynamicInstance = web3Instance
               ? await new web3Instance.eth.Contract(
-                  JSON.parse(JSON.stringify(list?.pair?.abi)),
-                  dynamicAddress
-                )
+                JSON.parse(JSON.stringify(list?.pair?.abi)),
+                dynamicAddress
+              )
               : await createInstance(walletProvider).then(
-                  async (provider: any) => {
-                    return await new provider.eth.Contract(
-                      JSON.parse(JSON.stringify(list?.pair?.abi)),
-                      dynamicAddress
-                    );
-                  }
-                );
+                async (provider: any) => {
+                  return await new provider.eth.Contract(
+                    JSON.parse(JSON.stringify(list?.pair?.abi)),
+                    dynamicAddress
+                  );
+                }
+              );
             resolve(dynamicInstance);
             break;
           default:
@@ -359,6 +394,7 @@ export const getContractInstance = async (
     console.error(error);
     throw error;
   }
+}
 };
 
 /**CALL CONTRACT GET METHODS. ALL PARAMS WILL BE DYNAMIC */
@@ -378,12 +414,12 @@ export const callGetMethod = async (
         walletProvider
       );
 
-      console.log(contract,"contract");
+      console.log(contract, "contract");
       console.log(contractType);
-      console.log(contract?.methods,"contract.methods");
-      console.log(method,"method");
-      
-      
+      console.log(contract?.methods, "contract.methods");
+      console.log(method, "method");
+
+
       // await contract.methods
       // .getAmountsOut(...data).call().then((result: any) => {
       //       console.log("in then:", result);
@@ -398,7 +434,7 @@ export const callGetMethod = async (
       if (contract && contract?.methods) {
 
 
-        
+
         /**CALL GET METHOD */
         await contract.methods[method](...data)
           .call()
@@ -439,12 +475,12 @@ export const callSendMethod = async (
   value: any,
   dynamicAddress: string,
   walletProvider: any,
-  gasPrice:any
+  gasPrice: any
 ) => {
   const chainValues = store.getState()?.user?.chainValues;
   // console.log('ffsdsfsdfs');
   // console.log(chainValues);
-  
+
   return new Promise(async (resolve, reject) => {
     try {
       /**CHECK WALLET IS CONNECTED */
@@ -453,7 +489,7 @@ export const callSendMethod = async (
       }
 
       /**CREATE DATA FOR CALL SEND METHOD */
-      let dataForSend: any = method=="deposit"?{ from: walletAddress, value: validateVal(value),gasPrice:gasPrice }:{ from: walletAddress, value: validateVal(value) };
+      let dataForSend: any = method == "deposit" ? { from: walletAddress, value: validateVal(value), gasPrice: gasPrice } : { from: walletAddress, value: validateVal(value) };
 
       /**GET SELECTED CONTRACT INSTANCE */
       let contract: any = await getContractInstance(
@@ -463,14 +499,14 @@ export const callSendMethod = async (
       );
       if (contract.methods) {
         /**ESTIMATE GAS FOR TRANSACTION */
- console.log("------");
+        console.log("------");
         console.log(data);
         console.log(dataForSend);
         console.log(contractType);
         console.log(method);
         console.log("------");
-        
-        
+
+
 
         const gasLimit = await contract.methods[method]
           .apply(null, Array.prototype.slice.call(data))
@@ -480,7 +516,7 @@ export const callSendMethod = async (
           dataForSend.gasLimit = Number(gasLimit?.toFixed());
         } else {
           dataForSend.gasLimit = Number((gasLimit * 1.2)?.toFixed());
-          
+
         }
 
         /**CALL SEND METHOD */
@@ -504,49 +540,49 @@ export const callSendMethod = async (
     }
   });
 };
-export const callGasFindMethod=async(method: string,
+export const callGasFindMethod = async (method: string,
   data: any,
   walletAddress: string,
   contractType: string,
   value: any,
   dynamicAddress: string,
   walletProvider: any,
-  gasPrice:any)=>{
+  gasPrice: any) => {
   const chainValues = store.getState()?.user?.chainValues;
-    return new Promise(async (resolve, reject) => {
-      try {
-        /**CHECK WALLET IS CONNECTED */
-        if (walletAddress === "") {
-          reject(new Error("Please connect wallet"));
-        }
-  
-        /**CREATE DATA FOR CALL SEND METHOD */
-        let dataForSend: any = { from: walletAddress, value: validateVal(value), gasPrice:gasPrice};
-        /**GET SELECTED CONTRACT INSTANCE */
-        let contract: any = await getContractInstance(
-          contractType,
-          dynamicAddress,
-          walletProvider
-        );
-        if (contract.methods) {
-          /**ESTIMATE GAS FOR TRANSACTION */
-         contract?.methods[method]
-          .apply(null, Array.prototype.slice.call(data))  
-            .estimateGas(dataForSend)
-            .then((result: any) => {
-              resolve(result);
-              return result;
-            })
-         
-        } else {
-          reject(new Error("Contract not found."));
-        }
-      } catch (error) {
-        console.log("error", error);
-        reject(error);
-        return error;
+  return new Promise(async (resolve, reject) => {
+    try {
+      /**CHECK WALLET IS CONNECTED */
+      if (walletAddress === "") {
+        reject(new Error("Please connect wallet"));
       }
-    });
+
+      /**CREATE DATA FOR CALL SEND METHOD */
+      let dataForSend: any = { from: walletAddress, value: validateVal(value), gasPrice: gasPrice };
+      /**GET SELECTED CONTRACT INSTANCE */
+      let contract: any = await getContractInstance(
+        contractType,
+        dynamicAddress,
+        walletProvider
+      );
+      if (contract.methods) {
+        /**ESTIMATE GAS FOR TRANSACTION */
+        contract?.methods[method]
+          .apply(null, Array.prototype.slice.call(data))
+          .estimateGas(dataForSend)
+          .then((result: any) => {
+            resolve(result);
+            return result;
+          })
+
+      } else {
+        reject(new Error("Contract not found."));
+      }
+    } catch (error) {
+      console.log("error", error);
+      reject(error);
+      return error;
+    }
+  });
 
 
 

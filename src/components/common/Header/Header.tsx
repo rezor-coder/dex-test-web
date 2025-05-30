@@ -13,6 +13,7 @@ import {
   CheckIcon,
   CurrencyEthereum,
   Menu,
+  LightMenu,
   MoonIcon,
   SunIcon,
 } from "../../../assets/icons/svgicons";
@@ -291,7 +292,8 @@ const Header = (props: propTypes) => {
                 className={`${props.active ? "active" : ""} toggler d-xl-none`}
                 onClick={props.handleActive}
               >
-                <Menu />
+                {theme === 'light'? <LightMenu /> : <Menu /> }
+               
                 {/* <span></span>
                 <span></span>
                 <span></span> */}

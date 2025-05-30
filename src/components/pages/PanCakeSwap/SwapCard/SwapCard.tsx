@@ -110,11 +110,12 @@ const SwapCard = () => {
   }, [transactionCounter]);
 
   useEffect(() => {
+    console.log(selectedField,"selectedField");
+    
     if (
       selectedField == "TK1" &&
       !isSwitched &&
-      inputOne?.convertedValue != "" &&
-      walletAddress
+      inputOne?.convertedValue != "" 
     ) {
      
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
@@ -128,8 +129,7 @@ const SwapCard = () => {
     if (
       selectedField == "TK2" &&
       !isSwitched &&
-      inputTwo?.convertedValue != "" &&
-      walletAddress
+      inputTwo?.convertedValue != "" 
     ) {
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK2", inputTwo?.convertedValue, false);
@@ -242,6 +242,7 @@ const SwapCard = () => {
       max,
       emptyValues
     );
+
     
     if (response) {
       setselectedField(field);
@@ -314,6 +315,10 @@ const SwapCard = () => {
   ) => {
 
        var amountInput = Number(amount) - (0.01)*Number(amount);
+
+       
+       
+       
     
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
@@ -331,7 +336,7 @@ const SwapCard = () => {
       fieldCondition == "TK1"
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
-
+        
     if (tokenValue == undefined || (tokenValue[0] && tokenValue[1] == "0")) {
       setSufficientLiquidityCheck(true);
       setShimmerState("null");
@@ -343,15 +348,16 @@ const SwapCard = () => {
         fieldCondition == "TK1" ? tokenTwo : tokenOne,
         fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0]
       );
+      
       if (Number(calculatedBalance)) {
-        const res: string = await getPriceImpact(
-          fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0],
-          tokenOne?.address,
-          tokenTwo?.address,
-          dispatch,
-          walletProvider
-        );
-        setPriceImpact(cryptoDecimals(res));
+        // const res: string = await getPriceImpact(
+        //   fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0],
+        //   tokenOne?.address,
+        //   tokenTwo?.address,
+        //   dispatch,
+        //   walletProvider
+        // );
+        // setPriceImpact(cryptoDecimals(res));
         fieldCondition == "TK1"
           ? setinputTwo({
               convertedValue: tokenValue[1],
