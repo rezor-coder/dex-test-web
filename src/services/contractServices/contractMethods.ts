@@ -54,6 +54,11 @@ export const callWeb3 = async (walletProvider: any) => {
       web3Object = provider;
       return provider;
     }
+    else{
+      const provider = new Web3("https://bsc-dataseed.binance.org/");
+      web3Object = provider;
+      return provider;
+    }
   } catch (error) {
     console.log("callweb3 error", error);
     throw error;
@@ -173,8 +178,8 @@ export const getContractInstance = async (
         return new Promise(async (resolve, reject) => {
           switch (contractType) {
             case "pancakeSwap":
-              dynamicInstance = web3Instance
-                ? await new web3Instance.eth.Contract(
+              dynamicInstance = web3Instance?
+                dynamicInstance= await new web3Instance.eth.Contract(
                   JSON.parse(JSON.stringify(list?.panCakeSwap?.abi)),
                   dynamicAddress
                 )
