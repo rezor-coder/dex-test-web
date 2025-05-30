@@ -2005,6 +2005,9 @@ body.dark-theme .tokenBtn .tokenIcon {
 }
 
 .bg-image{
+  margin-bottom:10rem;
+  border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
   background: url('../public/swap_bg.png'),linear-gradient(149.47deg, #FFFFFF 3.23%, #DFF9FF 90.15%);
   // background-image: url('../public/swap_bg.png');
   background-repeat: no-repeat;
@@ -2013,6 +2016,9 @@ body.dark-theme .tokenBtn .tokenIcon {
 }
 
 body.dark-theme .bg-image{
+    margin-bottom:10rem;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
   // background-image: url('../public/swap_bg.png');
   background: url('../public/swap_bg.png'),
   linear-gradient(141.68deg, #171717 3.52%, #08261F 96.69%);
