@@ -2117,20 +2117,18 @@ body.dark-theme .input_label {
 
 @media (max-width: 767px) {
   .bg-image {
-    background: url("../public/swap_bg_mobile.png"),
-      linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
+    background: url("../public/swap_bg_mobile.png");
     background-repeat: no-repeat;
-    background-size: 100% 80%;
-    background-position: 26% 55%;
+    background-size: 100% 73%;
+    background-position: 30% 70%;
   }
 
   body.dark-theme .bg-image {
   // background-image: url('../public/swap_bg.png');
-  background: url("../public/swap_bg_mobile.png"),
-    linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
+  background: url("../public/swap_bg_mobile.png");
   background-repeat: no-repeat;
-  background-size: 100% 80%;
-  background-position: 26% 55%;
+  background-size: 100% 73%;
+  background-position: 30% 70%;
 }
 
   .addCardBox
