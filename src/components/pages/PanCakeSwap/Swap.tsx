@@ -14,10 +14,12 @@ const Swap = () => {
 
   return (
     <>
+    <div className="bg-color">
       <section className="swapPage bg-image ">
         <Header handleActive={handleActive} active={active} />
         <Outlet />
       </section>
+      </div>
         <Footer />
     </>
   );

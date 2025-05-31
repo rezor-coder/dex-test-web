@@ -2017,27 +2017,40 @@ body.dark-theme .tokenBtn .tokenIcon {
   }
 }
 
-.bg-image {
-  margin-bottom: 10rem;
-  border-bottom-left-radius: 20px;
+.bg-color{
+    border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  background: url("../public/swap_bg.png"),
-    linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
+    margin-bottom: 10rem;
+  background: linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
+}
+
+.bg-image {
+
+  background: url("../public/swap_bg.png");
+    // linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
   // background-image: url('../public/swap_bg.png');
   background-repeat: no-repeat;
-  background-position: 40% 60%;
-  // background-size: 67%;
+  background-position: 39% 80%;
+  background-size: 65% 70%;
+
+}
+
+body.dark-theme .bg-color{
+    border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+    margin-bottom: 10rem;
+  background: linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
 }
 
 body.dark-theme .bg-image {
-  margin-bottom: 10rem;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+
   // background-image: url('../public/swap_bg.png');
-  background: url("../public/swap_bg.png"),
-    linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
+  background: url("../public/swap_bg.png");
+    // linear-gradient(141.68deg, #171717 3.52%, #08261f 96.69%);
   background-repeat: no-repeat;
-  background-position: 40% 21%;
+ background-position: 39% 80%;
+background-size: 65% 70%;
+
 }
 
 .addCardBox .addCard_tokenvalues .swapbt::before,
