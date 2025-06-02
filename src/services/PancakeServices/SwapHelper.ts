@@ -37,6 +37,7 @@ export const swapHelperFunction = async (
     }
     
     if (tokenDetails?.isTokenOneNative) {
+       console.log("isonenative");
       const data = {
         input1: inputOne?.convertedValue,
         input2: inputTwo?.convertedValue,
@@ -48,6 +49,9 @@ export const swapHelperFunction = async (
         slippageTolerance: slippage,
         walletProvider,
       };
+
+      console.log(data,"data");
+      
       setModalData({
         title: "Swap",
         bodyText: `Please confirm transaction to Swap ${tokenDetails?.tokenOneData?.symbol} - ${tokenDetails?.tokenTwoData?.symbol}`,
@@ -88,6 +92,8 @@ export const swapHelperFunction = async (
         return "SWAP FAILED";
       }
     } else if (tokenDetails?.isTokenTwoNative) {
+      console.log("istwonative");
+      
       const data = {
         customToken: tokenDetails?.tokenOneAddress,
         tokenOneAddress: 0,

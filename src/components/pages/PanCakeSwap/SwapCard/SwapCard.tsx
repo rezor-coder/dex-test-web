@@ -327,10 +327,6 @@ const SwapCard = () => {
 
        var amountInput = Number(amount) - (0.01)*Number(amount);
 
-       
-       
-       
-    
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
       tokenTwoAddress: tokenTwo?.address,
@@ -359,14 +355,16 @@ const SwapCard = () => {
       
       
       if (Number(calculatedBalance)) {
-        // const res: string = await getPriceImpact(
-        //   fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0],
-        //   tokenOne?.address,
-        //   tokenTwo?.address,
-        //   dispatch,
-        //   walletProvider
-        // );
-        // setPriceImpact(cryptoDecimals(res));
+        if(walletAddress){
+        const res: string = await getPriceImpact(
+          fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0],
+          tokenOne?.address,
+          tokenTwo?.address,
+          dispatch,
+          walletProvider
+        );
+        setPriceImpact(cryptoDecimals(res));
+      }
         fieldCondition == "TK1"
           ? setinputTwo({
               convertedValue: tokenValue[1],
@@ -430,6 +428,7 @@ const SwapCard = () => {
     if (inputTwo?.convertedValue) {
       setIsSwitched(true);
       setShimmerState("Tk2");
+      
 
       setinputOne({
         convertedValue: inputTwo?.convertedValue,
@@ -452,25 +451,32 @@ const SwapCard = () => {
         dispatch,
         walletProvider,
       };
+
+      
       const tokenTwoValue: string[2] | undefined  = await getAmountsOutfunction(
         data
       );
+
+      
       if (tokenTwoValue == undefined) {
         setSufficientLiquidityCheck(true);
         setShimmerState("null");
       } else {
+        
         const calculatedBalance: string = await convertUsingTokenDecimals(
           tokenOne,
           tokenTwoValue[1]
         );
-        const response: string = await getPriceImpact(
-          tokenTwoValue[1],
-          tokenTwo?.address,
-          tokenOne?.address,
-          dispatch,
-          walletProvider
-        );
-        setPriceImpact(cryptoDecimals(response));
+        if(walletAddress){
+            const response: string = await getPriceImpact(
+              tokenTwoValue[1],
+              tokenTwo?.address,
+              tokenOne?.address,
+              dispatch,
+              walletProvider
+            );
+            setPriceImpact(cryptoDecimals(response));
+        }
         if (Number(calculatedBalance)) {
           setinputTwo({
             convertedValue: tokenTwoValue[1],
@@ -500,7 +506,9 @@ const SwapCard = () => {
       <div className="addCardBox">
             <div className="addCard_heading mx-auto">
             <h1 className="titleHeading">Swap</h1>
+            <div className={`p-3 seticon-bg`}>
             <SettingOverlay />
+            </div>
           </div>
         <div className="addCard">
           <div className="addCard_tokenvalues d-grid gap-3">

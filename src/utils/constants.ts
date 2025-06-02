@@ -108,19 +108,19 @@ export const zeroAddress: string = "0x0000000000000000000000000000000000000000";
 
       export const NETWORKS: NetworkTypes[] =
       [
-        {
-          name: "Sepolia",
-          currency: "ETH",
-          chainId: 11155111,
-          chainIdHex: "0xaa36a7",
-          symbol: "ETH",
-          label: "Sepolia",
-          icon: EthIcon,
-          explorerUrl: "https://sepolia.etherscan.io/",
-          rpcUrl:
-           "https://ethereum-sepolia.blockpi.network/v1/rpc/public",
-          decimals: 18,
-        },
+        // {
+        //   name: "Sepolia",
+        //   currency: "ETH",
+        //   chainId: 11155111,
+        //   chainIdHex: "0xaa36a7",
+        //   symbol: "ETH",
+        //   label: "Sepolia",
+        //   icon: EthIcon,
+        //   explorerUrl: "https://sepolia.etherscan.io/",
+        //   rpcUrl:
+        //    "https://ethereum-sepolia.blockpi.network/v1/rpc/public",
+        //   decimals: 18,
+        // },
         {
           name: "Binance",
           currency: "tBNB",

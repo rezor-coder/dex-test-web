@@ -335,11 +335,9 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     } = data;
 
     const path = [tokenOneAddress, tokenTwoAddress];
-    console.log(amountIn,"amountIN");
     
     // var amountInput = Number(amountIn) - (0.01)*Number(amountIn);
     
-    console.log(path,"path");
 
     
     
@@ -352,7 +350,6 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
         walletProvider
       )
     );
-    console.log(res, "res1");
 
     
     
@@ -393,6 +390,10 @@ const getAmountsInfunction = async (data: GET_AMOUNTS_DATA) => {
       walletProvider,
     } = data;
     const path = [tokenOneAddress, tokenTwoAddress];
+    console.log(amountIn,"amountIn");
+    console.log(path,"path");
+    
+    
     const res = await dispatch(
       callContractGetMethod(
         "getAmountsIn",

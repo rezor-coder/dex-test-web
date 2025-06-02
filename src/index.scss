@@ -2030,8 +2030,8 @@ body.dark-theme .tokenBtn .tokenIcon {
     // linear-gradient(149.47deg, #ffffff 3.23%, #dff9ff 90.15%);
   // background-image: url('../public/swap_bg.png');
   background-repeat: no-repeat;
-  background-position: 39% 80%;
-  background-size: 65% 70%;
+  background-position: 40% 90%;
+  background-size: 65% 80%;
 
 }
 
@@ -2154,4 +2154,12 @@ body.dark-theme .input_label {
   .swapbt {
     position: relative;
   }
+}
+
+.seticon-bg {
+  background-color: white;
+}
+
+body.dark-theme .seticon-bg{
+  background-color: #000;
 }
