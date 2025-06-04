@@ -29,11 +29,11 @@ const swapTokensForExactGTH = async (data: any) => {
       (amountInMax / hundred) * slippageTolerance == 0
         ? amountInMax
         : localeStringFunction(
-            slicedValue(
-              localeStringFunction((amountInMax / hundred) * slippageTolerance)
-            ) + Number(amountInMax)
-          );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          slicedValue(
+            localeStringFunction((amountInMax / hundred) * slippageTolerance)
+          ) + Number(amountInMax)
+        );
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
       "rezorSwapTokensForExactETH",
@@ -68,16 +68,16 @@ const swapExactTokensForGTH = async (data: any) => {
       (amountOutMin / hundred) * slippageTolerance == 0
         ? amountOutMin
         : localeStringFunction(
-            amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction(
-                    (amountOutMin / hundred) * slippageTolerance
-                  )
-                )
+          amountOutMin -
+          Number(
+            slicedValue(
+              localeStringFunction(
+                (amountOutMin / hundred) * slippageTolerance
               )
-          );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+            )
+          )
+        );
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
       "rezorSwapExactTokensForETH",
@@ -96,13 +96,13 @@ const swapExactTokensForGTH = async (data: any) => {
         try {
           let amountOutMinWithSlippageTolerance = localeStringFunction(
             amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction((amountOutMin / hundred) * taxPercentage)
-                )
+            Number(
+              slicedValue(
+                localeStringFunction((amountOutMin / hundred) * taxPercentage)
               )
+            )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
             "rezorSwapExactTokensForETHSupportingFeeOnTransferTokens",
@@ -116,7 +116,7 @@ const swapExactTokensForGTH = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
+
         }
       } else {
         return error;
@@ -142,23 +142,23 @@ const swapExactTokensForToken = async (data: any) => {
   try {
     console.log("in try");
     // var amountInput = amountIn - (0.01)*amountIn;
-    
+
     let amountOutMinWithSlippageTolerance =
       (amountOutMin / hundred) * slippageTolerance == 0
         ? amountOutMin
         : localeStringFunction(
-            amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction(
-                    (amountOutMin / hundred) * slippageTolerance
-                  )
-                )
+          amountOutMin -
+          Number(
+            slicedValue(
+              localeStringFunction(
+                (amountOutMin / hundred) * slippageTolerance
               )
-          );
+            )
+          )
+        );
 
-       
-          const gasPrice =  await calculateGasPrice(walletProvider);
+
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
       "rezorSwapExactTokensForTokens",
@@ -172,7 +172,7 @@ const swapExactTokensForToken = async (data: any) => {
     );
   } catch (error: any) {
     console.log("in catch");
-    
+
     if (error?.code !== 5000) {
       if (error?.code !== 4001) {
         let taxPercentage = 50;
@@ -180,13 +180,13 @@ const swapExactTokensForToken = async (data: any) => {
         try {
           let amountOutMinWithSlippageTolerance = localeStringFunction(
             amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction((amountOutMin / hundred) * taxPercentage)
-                )
+            Number(
+              slicedValue(
+                localeStringFunction((amountOutMin / hundred) * taxPercentage)
               )
+            )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
             // "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
@@ -201,7 +201,7 @@ const swapExactTokensForToken = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
+
         }
       } else {
         return error;
@@ -226,23 +226,23 @@ const swapExactGTHForToken = async (data: any) => {
   } = data;
   const list = store.getState()?.user?.contractDetails;
   const routerAddress = list?.panCakeSwap?.address;
-  console.log("path2",path);
-  
+  console.log("path2", path);
+
   try {
     let amountOutMinWithSlippageTolerance =
       (amountOutMin / hundred) * slippageTolerance == 0
         ? amountOutMin
         : localeStringFunction(
-            amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction(
-                    (amountOutMin / hundred) * slippageTolerance
-                  )
-                )
+          amountOutMin -
+          Number(
+            slicedValue(
+              localeStringFunction(
+                (amountOutMin / hundred) * slippageTolerance
               )
-          );
-    const gasPrice =  await calculateGasPrice(walletProvider);
+            )
+          )
+        );
+    const gasPrice = await calculateGasPrice(walletProvider);
     return await callSendMethod(
       "rezorSwapExactETHForTokens",
       [amountOutMinWithSlippageTolerance, path, to, deadLine],
@@ -260,13 +260,13 @@ const swapExactGTHForToken = async (data: any) => {
         try {
           let amountOutMinWithSlippageTolerance = localeStringFunction(
             amountOutMin -
-              Number(
-                slicedValue(
-                  localeStringFunction((amountOutMin / hundred) * taxPercentage)
-                )
+            Number(
+              slicedValue(
+                localeStringFunction((amountOutMin / hundred) * taxPercentage)
               )
+            )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
             "rezorSwapExactETHForTokensSupportingFeeOnTransferTokens",
@@ -280,7 +280,7 @@ const swapExactGTHForToken = async (data: any) => {
           );
         } catch (error) {
           return error;
-          
+
         }
       } else {
         return error;
@@ -309,11 +309,11 @@ const swapGTHForExactToken = async (data: any) => {
       (amountOut / hundred) * slippageTolerance == 0
         ? amountOut
         : slicedValue(
-            localeStringFunction(
-              (amountOut / hundred) * slippageTolerance + Number(amountOut)
-            )
-          );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          localeStringFunction(
+            (amountOut / hundred) * slippageTolerance + Number(amountOut)
+          )
+        );
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
       "rezorSwapETHForExactTokens",
@@ -347,11 +347,11 @@ const swapTokensForExactToken = async (data: any) => {
       (amountInMax / hundred) * slippageTolerance == 0
         ? amountInMax
         : localeStringFunction(
-            slicedValue(
-              localeStringFunction((amountInMax / hundred) * slippageTolerance)
-            ) + Number(amountInMax)
-          );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          slicedValue(
+            localeStringFunction((amountInMax / hundred) * slippageTolerance)
+          ) + Number(amountInMax)
+        );
+    const gasPrice = await calculateGasPrice(walletProvider);
 
     return await callSendMethod(
       "rezorSwapTokensForExactTokens",
@@ -371,11 +371,11 @@ const swapTokensForExactToken = async (data: any) => {
         try {
           let amountOutMinWithSlippageTolerance = localeStringFunction(
             Number(amountInMax) +
-              slicedValue(
-                localeStringFunction((amountInMax / hundred) * taxPercentage)
-              )
+            slicedValue(
+              localeStringFunction((amountInMax / hundred) * taxPercentage)
+            )
           );
-          const gasPrice =  await calculateGasPrice(walletProvider);
+          const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
             "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
@@ -385,7 +385,7 @@ const swapTokensForExactToken = async (data: any) => {
             undefined,
             routerAddress,
             walletProvider,
-            gasPrice 
+            gasPrice
 
           );
         } catch (error) {
@@ -413,8 +413,8 @@ const swapTokensOrExactTokensWithTokens = async (data: any) => {
     walletProvider,
   } = data;
   let path = [tokenOneAddress, tokenTwoAddress];
-  console.log("path",path);
-  
+  console.log("path", path);
+
   if (selectedField == "TK1") {
     const data = {
       walletAddress,
@@ -513,15 +513,24 @@ const swapGTHOrExactGTHWithTokens = async (data: any) => {
       slippageTolerance,
       walletProvider,
     };
-    console.log(path,"path1");
-    
+    console.log(path, "path1");
+
     const res: any = await swapExactGTHForToken(data);
     return res;
   } else {
+
+    var inpt = input1;
+    // var value:any= BigInt(10000);
+    // var per:any= BigInt(1);
+    // var inpt:any = BigInt((Number(inpt1) * Number((value+per)))/value);
+
+    console.log(inpt,"inpt");
+    
+
     const data = {
       walletAddress,
       amountOut: input2,
-      amountInMax: input1,
+      amountInMax: inpt,
       path,
       to: walletAddress,
       deadLine,

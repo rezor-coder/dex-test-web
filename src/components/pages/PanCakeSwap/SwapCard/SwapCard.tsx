@@ -121,7 +121,7 @@ const SwapCard = () => {
   }, [transactionCounter]);
 
   useEffect(() => {
-    console.log(selectedField,"selectedField");
+    // console.log(selectedField,"selectedField");
     
     if (
       selectedField == "TK1" &&
@@ -326,6 +326,7 @@ const SwapCard = () => {
   ) => {
 
        var amountInput = Number(amount) - (0.01)*Number(amount);
+    // var amountInput = amount;
 
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
@@ -336,7 +337,7 @@ const SwapCard = () => {
       walletProvider,
     };
 
-    const tokenValue: string[2] | undefined =
+    const tokenValue: string[2] | undefined | any =
       fieldCondition == "TK1"
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
@@ -348,6 +349,13 @@ const SwapCard = () => {
     } else {
       setSufficientLiquidityCheck(false);
 
+      //maxEthAmount
+      // var value:any= BigInt(10000);
+      // var per:any= BigInt(1);
+      // var tv:any = Number(tokenValue[0]) * Number((value+per)/value);
+
+      // tv= tv.toString();
+      
       const calculatedBalance: string = await convertUsingTokenDecimals(
         fieldCondition == "TK1" ? tokenTwo : tokenOne,
         fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0]
@@ -357,7 +365,7 @@ const SwapCard = () => {
       if (Number(calculatedBalance)) {
         if(walletAddress){
         const res: string = await getPriceImpact(
-          fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0],
+          fieldCondition == "TK1" ? tokenValue[1] :tokenValue[0],
           tokenOne?.address,
           tokenTwo?.address,
           dispatch,
