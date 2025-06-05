@@ -343,7 +343,7 @@ const SwapCard = () => {
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
         
-    if (tokenValue == undefined || (tokenValue[0] && tokenValue[1] == "0")) {
+    if (tokenValue == undefined || (tokenValue[0] &&  tokenValue[1] == "0")) {
       setSufficientLiquidityCheck(true);
       setShimmerState("null");
       setPriceImpact("0");
@@ -356,17 +356,27 @@ const SwapCard = () => {
       // var tv:any = Number(tokenValue[0]) * Number((value+per)/value);
 
       // tv= tv.toString();
+
+     var tokenValue1 = tokenValue[1];
+     
+     console.log(tokenValue1,"tokenValue1");
+     
+
+      if(tokenTwo?.name === 'REZOR'){
+          tokenValue1 = Math.floor(tokenValue[1] -  0.02* tokenValue[1]);
+      }
+      
       
       const calculatedBalance: string = await convertUsingTokenDecimals(
         fieldCondition == "TK1" ? tokenTwo : tokenOne,
-        fieldCondition == "TK1" ? tokenValue[1] : tokenValue[0]
+        fieldCondition == "TK1" ? tokenValue1 : tokenValue[0]
       );
       
       
       if (Number(calculatedBalance)) {
         if(walletAddress){
         const res: string = await getPriceImpact(
-          fieldCondition == "TK1" ? tokenValue[1] :tokenValue[0],
+          fieldCondition == "TK1" ? tokenValue1 :tokenValue[0],
           tokenOne?.address,
           tokenTwo?.address,
           dispatch,
@@ -376,7 +386,7 @@ const SwapCard = () => {
       }
         fieldCondition == "TK1"
           ? setinputTwo({
-              convertedValue: tokenValue[1],
+              convertedValue: tokenValue1,
               inputValue: toCustomFixed(calculatedBalance, 4),
               toolTipValue: calculatedBalance,
             })
