@@ -44,6 +44,7 @@ import Footer from "../../HomePage/components/Footer";
 import TxnModal from "../../../common/Modals/TxnModal/TxnModal";
 import CommonModal from "../../../common/Modals/CommonModal/CommonModal";
 import ReviewSwap from "../ReviewSwap/ReviewSwap";
+import { IoIosArrowDropdownCircle, IoIosArrowDropupCircle } from "react-icons/io";
 
 var oldTknVal = "";
 
@@ -548,6 +549,7 @@ const SwapCard = () => {
           <div className="showBtn">
             <button onClick={toggleVisibility}>
               {!showMore ? "Show More" : "Show Less"}
+               {!showMore ? <IoIosArrowDropdownCircle  className="ms-2 fs-3" /> : <IoIosArrowDropupCircle className="ms-2 fs-3" /> }
             </button>
           </div>
           <ul className="addCard_valuesList">

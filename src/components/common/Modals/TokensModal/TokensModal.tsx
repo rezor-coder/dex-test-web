@@ -12,7 +12,7 @@ import {
   DownArrowIcon,
   SearchIcon,
 } from "../../../../assets/icons/svgicons";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { AiOutlineCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformation } from "react-icons/io";
 import "./TokensModal.scss";
 import { callContractGetMethod } from "../../../../services/contractServices/contractMethods";
@@ -168,13 +168,13 @@ const TokensModal = ({
           <span className="tokenIcon">
             {readOnly ? data?.tokenName : tokenOne?.name}
           </span>
-          {!readOnly ? <DownArrowIcon /> : null}
+          {!readOnly ? <AiOutlineCaretDown className="text-dark" /> : null}
         </Button>
       ) : (
         <Button className="tokenBtn " onClick={() => setShowToken(true)}>
           <img src={tokenTwo.icon} alt="" />
           <span className="tokenIcon">{tokenTwo?.name}</span>
-          <DownArrowIcon />
+          <AiOutlineCaretDown className="text-dark" />
         </Button>
       )}
 
