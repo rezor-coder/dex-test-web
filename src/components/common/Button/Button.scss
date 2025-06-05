@@ -1,9 +1,11 @@
 @import "../../../assets/theme/_var.scss";
 
+
+
 .common_btn {
     flex-shrink: 0;
     padding: 0 3.5rem;
-    height: 4.2rem;
+    height: 6rem;
     letter-spacing: 0.02rem;
     border-radius: 1rem;
     display: inline-flex;
@@ -16,6 +18,10 @@
     position: relative;
     z-index: 1;
     color: $white;
+    &.maxBtn{
+        height: 4.2rem !important;
+    }
+
 
     &::before {
         content: "";
