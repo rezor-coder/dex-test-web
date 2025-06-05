@@ -1961,6 +1961,28 @@ body.dark-theme .tokenBtn .tokenIcon {
   }
 }
 
+@media (min-width: 520px) and (max-width:992px) {
+      .bg-image {
+        background: url("../public/swap_bg_tablet.png") !important;
+        background-repeat: no-repeat !important;
+        background-size: 100% 73% !important;
+        background-position: 30% 70% !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width:1180px) {
+      .bg-image {
+      background-position:20% 79% !important;
+      background-size: 90% 76% !important;
+    }
+}
+
+@media (min-width: 1700px) {
+      .bg-image {
+        background-size: 50% 76% !important;
+    }
+}
+
 @media (min-width: 952px) {
   .addCardBox .addCard_footer {
     width: 36rem;
@@ -2115,8 +2137,8 @@ body.dark-theme .input_label {
   position: absolute;
 }
 
-@media (max-width: 767px) {
-  .bg-image {
+@media (max-width: 520px) {
+.bg-image {
     background: url("../public/swap_bg_mobile.png");
     background-repeat: no-repeat;
     background-size: 100% 73%;
@@ -2130,6 +2152,25 @@ body.dark-theme .input_label {
   background-size: 100% 73%;
   background-position: 30% 70%;
 }
+}
+
+
+
+@media (max-width: 767px) {
+//   .bg-image {
+//     background: url("../public/swap_bg_mobile.png");
+//     background-repeat: no-repeat;
+//     background-size: 100% 73%;
+//     background-position: 30% 70%;
+//   }
+
+//   body.dark-theme .bg-image {
+//   // background-image: url('../public/swap_bg.png');
+//   background: url("../public/swap_bg_mobile.png");
+//   background-repeat: no-repeat;
+//   background-size: 100% 73%;
+//   background-position: 30% 70%;
+// }
 
   .addCardBox
     .addCard_tokenvalues

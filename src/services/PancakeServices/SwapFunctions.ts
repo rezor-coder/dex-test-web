@@ -521,8 +521,8 @@ const swapGTHOrExactGTHWithTokens = async (data: any) => {
 
     var inpt = input1;
     // var value:any= BigInt(10000);
-    // var per:any= BigInt(1);
-    // var inpt:any = BigInt((Number(inpt1) * Number((value+per)))/value);
+    // var per:any= BigInt(100);
+    // var inpt:any = Number(inpt1) * Number((value+per)/value);
 
     console.log(inpt,"inpt");
     

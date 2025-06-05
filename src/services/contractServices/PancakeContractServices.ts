@@ -351,6 +351,9 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
       )
     );
 
+    console.log(res,"sssssssssss");
+    
+
     
     
     // let res = res1;
@@ -403,8 +406,22 @@ const getAmountsInfunction = async (data: GET_AMOUNTS_DATA) => {
         walletProvider
       )
     );
+
+  // const val1 = BigInt(res[0]);  // Ensure this is BigInt
+  //       const value = BigInt(10000);
+  //       const per = BigInt(100);
+
+  //       // Calculate with BigInt only
+  //       const result = (val1 * (value + per)) / value;
+
+  //       const ress = [result.toString(), res[1]];
+  //       console.log(ress, "ress1");
+      
+
+    
     return res;
   } catch (error) {
+    
     return 0;
   }
 };

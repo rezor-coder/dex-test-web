@@ -62,6 +62,7 @@ const ReviewSwap = (props:any) => {
     }
   }, [currentChain]);
   const handleSwap = async () => {
+  
     try {
       if (!walletAddress) return;
       setModalData({
@@ -70,9 +71,24 @@ const ReviewSwap = (props:any) => {
         status: "pending",
         txHash: null,
       });
+
+      var inputOne = state?.inputOne;
+      
+      if(state?.selectedField !== 'TK1'){
+         const value = BigInt(10000);
+        const per = BigInt(1000);
+        const inpt = BigInt( state?.inputOne?.convertedValue);
+
+        // Calculate with BigInt only
+         inputOne.convertedValue = (inpt * (value + per)) / value;
+
+      }
+
+      console.log(inputOne,"inputOne");
+      
       const swapResult: any = await swapHelperFunction(
         state?.tokenDetails,
-        state?.inputOne,
+        inputOne,
         state?.inputTwo,
         state?.selectedField,
         walletProvider,
