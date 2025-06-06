@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import cross from "../../../../assets/animations/error.json";
 import loading from "../../../../assets/animations/loading.json";
+import loader from "../../../../assets/animations/rs_loader_.json";
 import tick from "../../../../assets/animations/tick.json";
 import CommonModal from "../CommonModal/CommonModal";
 import "./TxnModal.scss";
@@ -35,7 +36,7 @@ const TxnModal = (props: propTypes) => {
               ? cross
               : props.data?.status === "success"
               ? tick
-              : loading
+              : loader
           }
           className={`lottie_animation ${
             props.data?.status === "failed"

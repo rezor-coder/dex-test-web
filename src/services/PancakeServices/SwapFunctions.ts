@@ -1,4 +1,3 @@
-import { getGasPrice } from "@wagmi/core";
 import { store } from "../../app/store";
 import { slicedValue } from "../../utils/helpers";
 import { calculateGasPrice } from "../contractServices/OkxContractServices";
