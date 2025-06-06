@@ -242,8 +242,14 @@ const swapExactGTHForToken = async (data: any) => {
           )
         );
     const gasPrice = await calculateGasPrice(walletProvider);
+
+    var method = "rezorSwapExactETHForTokens";
+    if(path[1] === "0x2111F1f5A8383F27a9f089abB1926dc00eb6beF3" ){
+      method = "rezorSwapExactETHForTokensSupportingFeeOnTransferTokens";
+    }
+    
     return await callSendMethod(
-      "rezorSwapExactETHForTokens",
+      method,
       [amountOutMinWithSlippageTolerance, path, to, deadLine],
       walletAddress,
       "pancakeSwap",
