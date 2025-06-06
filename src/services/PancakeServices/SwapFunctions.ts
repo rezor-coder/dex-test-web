@@ -161,7 +161,7 @@ const swapExactTokensForToken = async (data: any) => {
 
     return await callSendMethod(
       "rezorSwapExactTokensForTokens",
-      [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
+      [amountIn, 0, path, to, deadLine],
       walletAddress,
       "pancakeSwap",
       undefined,
@@ -188,8 +188,8 @@ const swapExactTokensForToken = async (data: any) => {
           const gasPrice = await calculateGasPrice(walletProvider);
 
           return await callSendMethod(
-            // "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
-            "rezorSwapExactTokensForTokens",
+            "rezorSwapExactTokensForTokensSupportingFeeOnTransferTokens",
+            // "rezorSwapExactTokensForTokens",
             [amountIn, amountOutMinWithSlippageTolerance, path, to, deadLine],
             walletAddress,
             "pancakeSwap",
