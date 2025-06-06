@@ -422,7 +422,7 @@ const getRemoveLiquiditySignature = async (data: REMOVE_LIQUIDITY_SIG) => {
   const contractInfo = store?.getState()?.user?.contractDetails;
   try {
     const owner: string = walletAddress;
-    const spender: string | undefined = contractInfo?.router?.address;
+    const spender: string | undefined = contractInfo?.panCakeSwap?.address;
     const value: string = liquidity;
     const web3: any = await callWeb3(walletProvider);
     let chainIdtrue = await web3.eth.getChainId();
@@ -626,9 +626,9 @@ const removeLiquidityEthWithPermitService = async (data: any) => {
         s,
       ],
       walletAddress,
-      "router",
+      "panCakeSwap",
       undefined,
-      contractInfo?.router?.address,
+      contractInfo?.panCakeSwap?.address,
       walletProvider,
       gasPrice
     );
@@ -659,9 +659,9 @@ const removeLiquidityEthWithPermitService = async (data: any) => {
             s,
           ],
           walletAddress,
-          "router",
+          "panCakeSwap",
           undefined,
-          contractInfo?.router?.address,
+          contractInfo?.panCakeSwap?.address,
           walletProvider,
           gasPrice
         );
@@ -733,9 +733,9 @@ const removeLiquidityWithPermitService = async (data: any) => {
         s,
       ],
       walletAddress,
-      "router",
+      "panCakeSwap",
       undefined,
-      contractInfo?.router?.address,
+      contractInfo?.panCakeSwap?.address,
       walletProvider,
       gasPrice
     );

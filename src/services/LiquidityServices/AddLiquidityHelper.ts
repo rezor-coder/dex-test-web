@@ -385,7 +385,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
       allowanceResultB = await getTokenAllowance({
         tokenAddress: customToken,
         dispatch,
-        spender: spender ? spender : list?.router?.address,
+        spender: spender ? spender : list?.panCakeSwap?.address,
         walletAddress,
         walletProvider,
       });
@@ -397,7 +397,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
           tokenAddress: customToken,
           dispatch,
           walletAddress,
-          spender: spender ? spender : list?.router?.address,
+          spender: spender ? spender : list?.panCakeSwap?.address,
           walletProvider,
         });
         const result = approval?.code != 4001 ? true : false;
@@ -408,7 +408,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
         tokenAddress: tokenOneAddress,
         dispatch,
         walletAddress,
-        spender: list?.router?.address,
+        spender: list?.panCakeSwap?.address,
         walletProvider,
       });
 
@@ -416,7 +416,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
         tokenAddress: tokenTwoAddress,
         dispatch,
         walletAddress,
-        spender: list?.router?.address,
+        spender: list?.panCakeSwap?.address,
         walletProvider,
       });
 
@@ -440,7 +440,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
           tokenAddress: tokenOneAddress,
           dispatch,
           walletAddress,
-          spender: list?.router?.address,
+          spender: list?.panCakeSwap?.address,
           walletProvider,
         });
         const result = approval?.code != 4001 ? true : false;
@@ -454,7 +454,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
           tokenAddress: tokenTwoAddress,
           dispatch,
           walletAddress,
-          spender: list?.router?.address,
+          spender: list?.panCakeSwap?.address,
           walletProvider,
         });
         const result = approval?.code != 4001 ? true : false;
@@ -466,7 +466,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
           tokenAddress: tokenOneAddress,
           dispatch,
           walletAddress,
-          spender: list?.router?.address,
+          spender: list?.panCakeSwap?.address,
           walletProvider,
         });
         if (!swap) {
@@ -474,7 +474,7 @@ const getAllowanceAndApprovalHelper = async (data: any) => {
             tokenAddress: tokenTwoAddress,
             dispatch,
             walletAddress,
-            spender: list?.router?.address,
+            spender: list?.panCakeSwap?.address,
             walletProvider,
           });
         }
@@ -587,9 +587,9 @@ const addLiquidityEthService = async (data: any) => {
           deadLine,
         ],
         walletAddress,
-        "router",
+        "panCakeSwap",
         inputOne?.toString(),
-        list?.router?.address,
+        list?.panCakeSwap?.address,
         walletProvider,
         gasPrice
       )
@@ -647,9 +647,9 @@ const addLiquidityService = async (data: any) => {
           deadLine,
         ],
         walletAddress,
-        "router",
+        "panCakeSwap",
         "0",
-        list?.router?.address,
+        list?.panCakeSwap?.address,
         walletProvider,
         gasPrice
       )
