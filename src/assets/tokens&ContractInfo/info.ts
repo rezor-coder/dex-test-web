@@ -796,6 +796,14 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           icon: BNB,
         },
         {
+          name: "REZOR",
+          address: "0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707",
+          isNative: false,
+          decimals: 9,
+          symbol: "RZR",
+          icon: DUBX,
+        },
+        {
           name: "Mazimatic",
           address: "0x5B8650Cd999B23cF39Ab12e3213fbC8709c7f5CB",
           isNative: false,
@@ -850,5 +858,6 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           decimals: 8,
           symbol: "DOGE",
           icon: DOGE,
-        },
+        }
+         
       ];
