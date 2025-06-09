@@ -733,6 +733,8 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
 
 
     export const PANCAKE_TOKEN_LIST: TOKEN_DATA[] =
+    envType !== "production"
+      ? 
     [
         // {
         //   name: "BNB",
@@ -783,4 +785,70 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           icon: DUBX,
         },
         
+      ]:
+      [
+        {
+          name: "BNB",
+          address: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+          isNative: true,
+          decimals: 18,
+          symbol: "BNB",
+          icon: BNB,
+        },
+        {
+          name: "Mazimatic",
+          address: "0x5B8650Cd999B23cF39Ab12e3213fbC8709c7f5CB",
+          isNative: false,
+          decimals: 18,
+          symbol: "MAZI",
+          icon: MAZI,
+        },
+        {
+          name: "TruMaga",
+          address: "0x328Ea6e5Ba4cc4B58799F2AEC3d8BA839f4314Ba",
+          isNative: false,
+          decimals: 18,
+          symbol: "TruMaga",
+          icon: MAGA,
+        },
+        {
+          name: "Blokdefi",
+          address: "0xE078118Fd1EC3E96750ab30bb32bB7aaF95d42D4",
+          isNative: false,
+          decimals: 18,
+          symbol: "BDEFI",
+          icon: BDEFI,
+        },
+        {
+          name: "Flame Of Floki",
+          address: "0xf0fcf7602c4722ad4cbc1b1d8bf8b3a79ee4c8e1",
+          isNative: false,
+          decimals: 18,
+          symbol: "FOF",
+          icon: FOF,
+        },
+        {
+          name: "USDT",
+          address: "0x55d398326f99059fF775485246999027B3197955",
+          isNative: false,
+          decimals: 18,
+          symbol: "USDT",
+          icon: BUSD,
+        },
+        {
+          name: "MotionToken",
+          address: "0x5dEF381F3A069ECD90AE69361F61d96Bd9f3Ad70",
+          isNative: false,
+          decimals: 18,
+          symbol: "MOTN",
+          icon: motionToken,
+        },
+        {
+          name: "DogeCoin",
+          address: "0xba2ae424d960c26247dd6c32edc70b295c744c43",
+          isNative: false,
+          decimals: 8,
+          symbol: "DOGE",
+          icon: DOGE,
+        },
       ];
