@@ -37,7 +37,7 @@ import FOF from "../icons/FOFIconNewSmall.svg"
 
 export const envType: string = process.env.REACT_APP_ENV_TYPE || "production";
 export const BSC_CONTRACT_LIST =
-  // envType !== "production" ?
+  envType !== "production" ?
      {
         router: {
           address: "0x6B3cc5c352647B6a9fdEBc0BDE187ca457d0c25c",
@@ -80,48 +80,48 @@ export const BSC_CONTRACT_LIST =
           abi: stakingABI,
         },
       }
-    // : {
-    //     panRouter: {
-    //       address: "0x10ED43C718714eb63d5aA57B78B54704E256024E",
-    //       Block: 6615558,
-    //       abi: routerABI,
-    //     },
-    //     router: {
-    //       address: "0x9aAC13697a077B23Af8826789AF7B9fdBd13111f",
-    //       Block: 6615558,
-    //       abi: routerABI,
-    //     },
-    //     panCakeRouter: {
-    //       address: "0x9aAC13697a077B23Af8826789AF7B9fdBd13111f",
-    //       blockNumber: 6810080,
-    //       abi: routerABI,
-    //     },
-    //     panCake: {
-    //       address: "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
-    //       blockNumber: 6810080,
-    //       abi: routerABI,
-    //     },
-    //      panCakeSwap: {
-    //       address: "0xE2c9D8fFD248eE2FA9190574696A81FdDEa9E88e",
-    //       blockNumber: 6810080,
-    //       abi: panCakeAbi,
-    //     },
-    //     factory: {
-    //       address: "0x6a6DeA0cd52689819eb3Bf2c15594Beafb646CB7",
-    //       blockNumber: 6430279,
-    //       abi: factoryABI,
-    //     },
-    //     pair: {
-    //       address: "",
-    //       blockNumber: 0,
-    //       abi: pairABI,
-    //     },
-    //     stakingFactory: {
-    //       address: "0x55aAe309FC26820c825254cB9b93b94Cb46d99CC",
-    //       blockNumber: 0,
-    //       abi: stakingABI,
-    //     },
-    //   };
+    : {
+        panRouter: {
+          address: "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+          Block: 6615558,
+          abi: routerABI,
+        },
+        router: {
+          address: "0x9aAC13697a077B23Af8826789AF7B9fdBd13111f",
+          Block: 6615558,
+          abi: routerABI,
+        },
+        panCakeRouter: {
+          address: "0x9aAC13697a077B23Af8826789AF7B9fdBd13111f",
+          blockNumber: 6810080,
+          abi: routerABI,
+        },
+        panCake: {
+          address: "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
+          blockNumber: 6810080,
+          abi: routerABI,
+        },
+         panCakeSwap: {
+          address: "0x88559d5B6663df517cdA0732Ea768FAE1d258eD5",
+          blockNumber: 6810080,
+          abi: panCakeAbi,
+        },
+        factory: {
+          address: "0x6a6DeA0cd52689819eb3Bf2c15594Beafb646CB7",
+          blockNumber: 6430279,
+          abi: factoryABI,
+        },
+        pair: {
+          address: "",
+          blockNumber: 0,
+          abi: pairABI,
+        },
+        stakingFactory: {
+          address: "0x55aAe309FC26820c825254cB9b93b94Cb46d99CC",
+          blockNumber: 0,
+          abi: stakingABI,
+        },
+      };
 
 export const ETHEREUM_CONTRACT_LIST =
   envType !== "production"
