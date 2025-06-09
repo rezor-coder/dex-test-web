@@ -402,6 +402,7 @@ const SwapCard = () => {
 
   const handleMaximumFunction = async (data: string) => {
     setmaxValueCheck(true);
+    
     if (data == "TK1" && tokenBalance?.token1BalanceConverted > 0) {
       if (tokenDetails?.isTokenOneNative) {
         const newBalance: number =
