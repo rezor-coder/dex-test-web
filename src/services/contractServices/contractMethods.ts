@@ -21,6 +21,8 @@ export const callWeb3 = async (walletProvider: any) => {
       const okxDefaultChain = store?.getState()?.okx?.selectedFrom;
       const { network }: any = await networkConfig(chainValues?.chainId);
 
+      
+
       if (
         (window?.location?.pathname != "/cross-chain" &&
           chainId != network?.chainId) ||
@@ -55,7 +57,8 @@ export const callWeb3 = async (walletProvider: any) => {
       return provider;
     }
     else{
-      const provider = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+      // const provider = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+      const provider = new Web3(store.getState()?.user?.chainValues?.rpcUrl);
       web3Object = provider;
       return provider;
     }
