@@ -201,18 +201,7 @@ export const APIURL = {
 };
 export const OKX = "https://api-okx.rezormacard.ai/token/"; //localOKx
 
-export const feePercentOkx = 1;
-export const referrerAddressOwnerOkx =
-  "0xfAAfb263328eD6D3c07C2D376deCd9B723a72B7f";
-//Huobi
-export const MARKET_URL = "https://api-huobi.rezormacard.ai"; // for Production server
-export const SWAP_CONTRACT_ADDRESS =
-  "0x28C4b64A442a31C9E743d65c7FECAC9E7B8D3Dcd";
-export const feePerSwap = 0.005;
-export const feeForSpot = 0.002;
-export const sellFeePrice = 5;
-export const buyFeePrice = 10;
-export const buyMinimumAmount = 20;
+
 ///TODO
 export const SITE_URL =
   envType !== "production"
@@ -223,4 +212,3 @@ export const SITE_URL =
 
 export const projectId: string = "f71492b62c17fee4f9bd300208c408ad";
 
-export const nativeTokenAddress = "0x0000000000000000000000000000000000000001";
