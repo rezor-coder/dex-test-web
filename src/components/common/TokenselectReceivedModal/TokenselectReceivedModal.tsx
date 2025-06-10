@@ -37,7 +37,7 @@ import {
   apiCallPost,
   apiCallPostHeader,
 } from "../../../services/ApiServices/axios.service";
-import { APIURL, OKX } from "../../../utils/constants";
+import { APIURL } from "../../../utils/constants";
 import axios from "axios";
 import { debounce } from "debounce.lodash";
 

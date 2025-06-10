@@ -326,7 +326,7 @@ const SwapCard = () => {
     max: boolean
   ) => {
 
-       var amountInput = Number(amount) - (0.01)*Number(amount);
+       var amountInput = Math.floor(Number(amount) - (0.01)*Number(amount)) ;
     // var amountInput = amount;
 
     const data: GET_AMOUNTS_DATA = {
@@ -406,7 +406,7 @@ const SwapCard = () => {
     if (data == "TK1" && tokenBalance?.token1BalanceConverted > 0) {
       if (tokenDetails?.isTokenOneNative) {
         const newBalance: number =
-          tokenBalance?.token1BalanceConverted - 10000000000000000; // deduct 0.001 as gas fees for native currency
+          tokenBalance?.token1BalanceConverted - 1000000000000000; // deduct 0.001 as gas fees for native currency
         handleInputOne(
           newBalance > 0 ? newBalance.toString() : "0",
           true,
@@ -422,7 +422,7 @@ const SwapCard = () => {
     } else if (data === "TK2" && tokenBalance?.token2BalanceConverted > 0) {
       if (tokenDetails?.isTokenTwoNative) {
         const newBalance: number =
-          tokenBalance?.token2BalanceConverted - 10000000000000000; // deduct 0.001 as gas fees for natve currency
+          tokenBalance?.token2BalanceConverted - 1000000000000000; // deduct 0.001 as gas fees for natve currency
         handleInputTwo(
           newBalance > 0 ? newBalance.toString() : "0",
           true,

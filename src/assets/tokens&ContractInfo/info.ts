@@ -795,6 +795,14 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           symbol: "BNB",
           icon: BNB,
         },
+         {
+          name: "USDC",
+          address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+          isNative: false,
+          decimals: 18,
+          symbol: "USDC",
+          icon: BUSD,
+        },
         {
           name: "REZOR",
           address: "0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707",
@@ -802,38 +810,6 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           decimals: 9,
           symbol: "RZR",
           icon: DUBX,
-        },
-        {
-          name: "Mazimatic",
-          address: "0x5B8650Cd999B23cF39Ab12e3213fbC8709c7f5CB",
-          isNative: false,
-          decimals: 18,
-          symbol: "MAZI",
-          icon: MAZI,
-        },
-        {
-          name: "TruMaga",
-          address: "0x328Ea6e5Ba4cc4B58799F2AEC3d8BA839f4314Ba",
-          isNative: false,
-          decimals: 18,
-          symbol: "TruMaga",
-          icon: MAGA,
-        },
-        {
-          name: "Blokdefi",
-          address: "0xE078118Fd1EC3E96750ab30bb32bB7aaF95d42D4",
-          isNative: false,
-          decimals: 18,
-          symbol: "BDEFI",
-          icon: BDEFI,
-        },
-        {
-          name: "Flame Of Floki",
-          address: "0xf0fcf7602c4722ad4cbc1b1d8bf8b3a79ee4c8e1",
-          isNative: false,
-          decimals: 18,
-          symbol: "FOF",
-          icon: FOF,
         },
         {
           name: "USDT",
@@ -844,14 +820,6 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           icon: BUSD,
         },
         {
-          name: "MotionToken",
-          address: "0x5dEF381F3A069ECD90AE69361F61d96Bd9f3Ad70",
-          isNative: false,
-          decimals: 18,
-          symbol: "MOTN",
-          icon: motionToken,
-        },
-        {
           name: "DogeCoin",
           address: "0xba2ae424d960c26247dd6c32edc70b295c744c43",
           isNative: false,
@@ -859,5 +827,5 @@ export const ETHEREUM_TOKEN_LIST: TOKEN_DATA[] =
           symbol: "DOGE",
           icon: DOGE,
         }
-         
+
       ];

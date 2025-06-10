@@ -199,7 +199,7 @@ export const APIURL = {
   CROSS_CHAIN_SWAP: "crossChainSwap",
   CROSS_CHAIN_TXN_STATUS: "crossChainTxnStatus",
 };
-export const OKX = "https://api-okx.rezormacard.ai/token/"; //localOKx
+// export const OKX = "https://api-okx.saitamacard.ai/token/"; //localOKx
 
 
 ///TODO
@@ -207,8 +207,6 @@ export const SITE_URL =
   envType !== "production"
     ? "https://api.stage-rezormask.com/api/v1/admin/"
     : "https://api.rezormacard.ai/api/v1/admin/";
-// export const SITE_URL = "https://api.stage-rezormask.com/api/v1/admin/";
-// export const SITE_URL = "https://api.rezormacard.ai/api/v1/admin/";
 
 export const projectId: string = "f71492b62c17fee4f9bd300208c408ad";
 

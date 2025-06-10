@@ -1,15 +1,15 @@
 // import axios from "axios";
 import axios, { AxiosInstance } from "axios";
-import { OKX, SITE_URL } from "../../utils/constants";
+import {  SITE_URL } from "../../utils/constants";
 
 const axiosInstance1: AxiosInstance = axios.create({
   baseURL: SITE_URL,
 });
 
 // Create an axios instance for the second base URL
-const axiosInstance2: AxiosInstance = axios.create({
-  baseURL: OKX,
-});
+// const axiosInstance2: AxiosInstance = axios.create({
+//   baseURL: OKX,
+// });
 
 // axios.defaults.baseURL = SITE_URL;
 // axios request interceptor~~~~~~~~~~~~
@@ -36,26 +36,26 @@ axiosInstance1.interceptors.response.use(
   }
 );
 
-axiosInstance2.interceptors.request.use(
-  (config) => {
-    //   config.headers["api-access-token"] = token;
-    return config;
-  },
-  (error) => {
-    return error;
-  }
-);
+// axiosInstance2.interceptors.request.use(
+//   (config) => {
+//     //   config.headers["api-access-token"] = token;
+//     return config;
+//   },
+//   (error) => {
+//     return error;
+//   }
+// );
 
 // axios response interceptor~~~~~~~~~~~~~~~
 
-axiosInstance2.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    return error.response;
-  }
-);
+// axiosInstance2.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   (error) => {
+//     return error.response;
+//   }
+// );
 // function to format url as and if params
 
 function formatUrl(url: any, params: any) {
@@ -73,9 +73,9 @@ function formatUrl(url: any, params: any) {
 export const apiCallGet = (url: any, params = {}) =>
   new Promise((resolve, reject) => {
     let ax =
-      window?.location?.pathname == "/cross-chain"
-        ? axiosInstance2
-        : axiosInstance1;
+      // window?.location?.pathname == "/cross-chain"
+      //   ? axiosInstance2: 
+        axiosInstance1;
     ax.get(formatUrl(url, params))
       .then((res) => {
         resolve(res.data);
@@ -95,9 +95,9 @@ export const apiCallPostHeader = (
 ) =>
   new Promise((resolve, reject) => {
     let ax =
-      window?.location?.pathname == "/cross-chain"
-        ? axiosInstance2
-        : axiosInstance1;
+      // window?.location?.pathname == "/cross-chain"
+      //   ? axiosInstance2: 
+        axiosInstance1;
     const headers = {
       "Content-Type": "application/json",
       authorization: jwt,
@@ -119,9 +119,9 @@ export const apiCallPostHeader = (
 export const apiCallPost = (url: any, data: any, params: any) =>
   new Promise((resolve, reject) => {
     let ax =
-      window?.location?.pathname == "/cross-chain"
-        ? axiosInstance2
-        : axiosInstance1;
+      // window?.location?.pathname == "/cross-chain"
+      //   ? axiosInstance2: 
+        axiosInstance1;
     ax.post(formatUrl(url, params), Object.keys(data).length ? data : null)
       .then((res) => {
         resolve(res);

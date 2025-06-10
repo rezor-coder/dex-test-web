@@ -12,7 +12,7 @@ import TokenselectReceivedModal from "../TokenselectReceivedModal/TokenselectRec
 // import axios from "axios";
 import axios, { AxiosInstance } from "axios";
 
-import { APIURL, OKX } from "../../../utils/constants";
+// import { APIURL, OKX } from "../../../utils/constants";
 import {
   apiCallPost,
   apiCallPostHeader,
