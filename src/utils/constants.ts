@@ -208,5 +208,6 @@ export const SITE_URL ="";
   //   ? "https://api.stage-rezormask.com/api/v1/admin/"
   //   : "https://api.rezormacard.ai/api/v1/admin/";
 
-export const projectId: string = "f71492b62c17fee4f9bd300208c408ad";
+// export const projectId: string = "f71492b62c17fee4f9bd300208c408ad";
+export const projectId: string = "a9d7c8d07b81ba50fa96d6670edc1afb";
 

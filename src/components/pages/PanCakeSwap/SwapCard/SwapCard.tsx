@@ -362,9 +362,9 @@ const SwapCard = () => {
      console.log(tokenValue1,"tokenValue1");
      
 
-      if(tokenTwo?.name === 'REZOR'){
-          tokenValue1 = Math.floor(tokenValue[1] -  0.02* tokenValue[1]);
-      }
+      // if(tokenTwo?.name === 'REZOR'){
+      //     tokenValue1 = Math.floor(tokenValue[1] -  0.02* tokenValue[1]);
+      // }
       
       
       const calculatedBalance: string = await convertUsingTokenDecimals(
