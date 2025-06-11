@@ -203,11 +203,28 @@ const SwapCard = () => {
     if (reserveData == undefined) {
       setRate("0");
     } else {
-      setRate(
-        cryptoDecimals(
-          Number(reserveData[1]) / 10 ** tokenTwo?.decimals
-        ).toString()
-      );
+
+      var rates = 
+       await convertUsingTokenDecimals(
+        tokenTwo,
+        reserveData[1]);
+        var fixed = 0;
+
+        if(rates < 1){
+          fixed=10;
+        }
+        
+       rates=  Number(rates).toFixed(fixed);
+
+       
+      // setRate(
+
+      //   cryptoDecimals(
+      //     Number(reserveData[1]) / 10 ** tokenTwo?.decimals
+      //   ).toString()
+      // );
+      setRate(rates);
+     
     }
   };
 
