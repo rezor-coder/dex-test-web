@@ -410,6 +410,21 @@ const TokensModal = ({
            {/* <div className="import-tokens">
             <Button className="tokenBtn text-primary ms-auto mt-2" onClick={() => setShowModel(true)}>Import Token</Button>
           </div> */}
+          <div className="ms-5 my-3 h4">
+           
+                      
+                        <span className="my-auto">
+                          <img src={field === "Field1" ? tokenOne?.icon:tokenTwo?.icon} alt="" width={20}  onError={(e) => {
+                      e.currentTarget.onerror = null; // prevent infinite loop
+                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
+                    }}
+                    />
+                        </span>
+                        <span className="ms-3  my-auto">
+                        {field === "Field1" ? tokenOne?.name:tokenTwo?.name} </span>
+                       
+                      
+          </div>
           <div className="modal_input">
             <div className="search_icon">
               <SearchIcon />
@@ -424,7 +439,7 @@ const TokensModal = ({
           </div>
          
           <ul className="modal_coins">
-            {tokenList?.slice(0, 3).map((token: any, index: any) => (
+            {tokenList?.slice(0, 4).map((token: any, index: any) => (
               <li className="modal_coins_in" key={index}>
                 <button onClick={() => handleTokenSelect(token)} >
                   <span>
