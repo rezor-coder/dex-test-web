@@ -203,10 +203,10 @@ export const APIURL = {
 
 
 ///TODO
-export const SITE_URL =
-  envType !== "production"
-    ? "https://api.stage-rezormask.com/api/v1/admin/"
-    : "https://api.rezormacard.ai/api/v1/admin/";
+export const SITE_URL ="";
+  // envType !== "production"
+  //   ? "https://api.stage-rezormask.com/api/v1/admin/"
+  //   : "https://api.rezormacard.ai/api/v1/admin/";
 
 export const projectId: string = "f71492b62c17fee4f9bd300208c408ad";
 

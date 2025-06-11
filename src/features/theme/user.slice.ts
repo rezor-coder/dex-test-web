@@ -20,7 +20,7 @@ const initialState: userState = {
   walletType: "",
   chainValues: NETWORKS[1],
   contractDetails: BSC_CONTRACT_LIST,
-  slippage:50,
+  slippage:2,
   deadline: 10,
   transactionCounter: false,
   importedLp: [], 

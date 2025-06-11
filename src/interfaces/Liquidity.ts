@@ -12,7 +12,7 @@ export interface GET_RESERVES {
 }
 
 export interface TOKEN_DATA {
-  icon: string;
+  icon: string| undefined;
   name: string;
   address: string;
   isNative: boolean;
