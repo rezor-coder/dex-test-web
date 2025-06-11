@@ -797,7 +797,7 @@ export const PANCAKE_TOKEN_LIST: TOKEN_DATA[] =
           isNative: false,
           decimals: 9,
           symbol: "RZR",
-          icon: DUBX,
+          icon: "https://assets.coingecko.com/coins/images/55692/thumb/1000444573.jpg?1747037831",
         },
         {
           name: "USDT",
