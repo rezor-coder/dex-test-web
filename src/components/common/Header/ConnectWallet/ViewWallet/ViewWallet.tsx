@@ -8,6 +8,7 @@ import {
   SettingSecIcon,
 } from "../../../../../assets/icons/svgicons";
 import accountIcon from "../../../../../assets/icons/accountIcon.svg";
+import rezorIcon from "../../../../../assets/icons/rezorchain.svg";
 import metamask from "../../../../../assets/icons/metamask.svg";
 import "./ViewWallet.scss";
 import TabListdata from "./TabListdata";
@@ -33,10 +34,10 @@ const ViewWallet = ({ logoutOnCick, justClose, address }: any) => {
         </button>
         <div className="viewWallet_tophead">
           <div className="viewWallet_tophead_connectIcon">
-            <img src={accountIcon} alt="accountIcon" />
-            <span className="walletIcon">
+            <img src={rezorIcon} alt="rezorIcon" />
+            {/* <span className="walletIcon">
               <img src={metamask} alt="wallet" />
-            </span>
+            </span> */}
             <h6>{customizeAddress(address)}</h6>
           </div>
           <div className="viewWallet_tophead_rightBtn">

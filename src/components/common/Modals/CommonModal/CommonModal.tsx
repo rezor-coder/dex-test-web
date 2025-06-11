@@ -10,6 +10,7 @@ interface propTypes {
   hideCloseButton?: boolean;
   children?: ReactNode;
   status?: string;
+  footer?: ReactNode | undefined;
 }
 
 const CommonModal = (props: propTypes) => {
@@ -34,6 +35,11 @@ const CommonModal = (props: propTypes) => {
           </Modal.Header>
         )}
         <Modal.Body>{props.children}</Modal.Body>
+         {props.footer && (
+          <Modal.Footer className="d-flex justify-content-center">
+           { props.footer }
+          </Modal.Footer> 
+        )}
       </Modal>
     </>
   );

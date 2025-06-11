@@ -302,7 +302,8 @@ const TokensModal = ({
     }
   };
   const handleInfoIconClick = (symbol: string, address: string) => {
-    navigate(`/token/${symbol}/${address}`);
+    // navigate(`/token/${symbol}/${address}`);
+    window.open(`https://bscscan.com/address/${address}`,"_blank");
   };
 
   return (
@@ -400,10 +401,15 @@ const TokensModal = ({
             setShowToken(false);
           }}
           heading="Select Token"
+          footer={
+            <div className="import-tokens">
+                  <Button className="tokenBtn text-primary" onClick={() => setShowModel(true)}>Import Token</Button>
+              </div>
+          }
         >
-           <div className="import-tokens">
+           {/* <div className="import-tokens">
             <Button className="tokenBtn text-primary ms-auto mt-2" onClick={() => setShowModel(true)}>Import Token</Button>
-          </div>
+          </div> */}
           <div className="modal_input">
             <div className="search_icon">
               <SearchIcon />
@@ -464,8 +470,9 @@ const TokensModal = ({
                         <span
                           className="info-icon"
                           onClick={() => handleInfoIconClick(value.symbol, value.address)}
+                          
                         >
-                          <AiOutlineInfoCircle fontSize={20} />
+                          <AiOutlineInfoCircle fontSize={20}  />
                         </span>
                       )}
                     </li>

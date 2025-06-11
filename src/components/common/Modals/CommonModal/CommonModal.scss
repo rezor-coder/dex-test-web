@@ -4,8 +4,8 @@
     font-family: $fontSecondry;
 
     .modal-content {
-        border-radius: .9rem;
-        border: 1px solid $border2;
+        border-radius: 3rem;
+        // border: 1px solid $border2;
         overflow: hidden;
 
         @include theme() {
@@ -14,7 +14,8 @@
 
         .modal-header {
             border-bottom: 0;
-            padding: 2.4rem 1.4rem 1rem 2rem;
+            // padding: 2.4rem 1.4rem 1rem 2rem;
+            padding:3rem 4rem;
 
             .btn-close {
                 width: 2.4rem;
@@ -24,7 +25,7 @@
 
                 @include theme() {
                     // background-color: rgba(theme-get("textclr"), 0.1);
-                    border: 2px solid $black;
+                    // border: 2px solid $black;
                     filter: theme-get("filter");
                 }
             }
@@ -45,11 +46,9 @@
         }
 
         .modal-body {
-            padding: 0rem;
+            // padding: 0rem;
+             padding:0rem 2rem;
         }
     }
 }
 
-.import_token_modal{
-    height: auto !important;
-}
