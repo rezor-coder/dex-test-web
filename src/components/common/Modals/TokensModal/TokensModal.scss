@@ -235,7 +235,8 @@
 
   ul:not(.modal_coins) {
     overflow: auto;
-    max-height: 38rem;
+    // max-height: 38rem;
+    max-height: 26rem;
 
     li {
       &:not(:last-child) {
