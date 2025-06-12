@@ -789,7 +789,7 @@ export const PANCAKE_TOKEN_LIST: TOKEN_DATA[] =
           isNative: false,
           decimals: 18,
           symbol: "USDC",
-          icon: BUSD,
+          icon: "https://tokens.pancakeswap.finance/images/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.png",
         },
         {
           name: "REZOR",

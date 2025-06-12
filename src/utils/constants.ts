@@ -171,7 +171,7 @@ export const networkConfig = (chainId: number = NETWORKS[0].chainId) => {
 export const metadata = {
   name: "rezor swap",
   description: "rezor swap WalletConnect",
-  url: "https://dex.rezor.pro/",
+  url: "https://main.d2ntv08wzoldtg.amplifyapp.com/swap",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 

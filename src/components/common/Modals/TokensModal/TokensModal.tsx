@@ -12,9 +12,9 @@ import {
   DownArrowIcon,
   SearchIcon,
 } from "../../../../assets/icons/svgicons";
-import 
-  NotFoundIcon
- from "../../../../assets/icons/tokens/notFound.svg";
+import
+NotFoundIcon
+  from "../../../../assets/icons/tokens/notFound.svg";
 import { AiOutlineCaretDown, AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformation } from "react-icons/io";
 import "./TokensModal.scss";
@@ -28,13 +28,10 @@ import axios from "axios";
 import { ethers } from "ethers";
 
 import DynamicABI from "../../../../assets/abi/erc20.json";
-
-
-
+import { Tab, Tabs } from "react-bootstrap";
 
 
 const PANCAKE_API = "https://tokens.pancakeswap.finance/pancakeswap-extended.json";
-
 
 const TokensModal = ({
   tokenActive,
@@ -64,41 +61,41 @@ const TokensModal = ({
 
   useEffect(() => {
 
-    
+
     axios.get(PANCAKE_API)
       .then(res => {
-      const apiTokens = res.data.tokens.map((token: any) => ({
-        name: token.name,
-        symbol: token.symbol,
-        address: token.address,
-        decimals: token.decimals,
-        icon: token.logoURI,
-        isNative: false,
-      }));
+        const apiTokens = res.data.tokens.map((token: any) => ({
+          name: token.name,
+          symbol: token.symbol,
+          address: token.address,
+          decimals: token.decimals,
+          icon: token.logoURI,
+          isNative: false,
+        }));
         setPancakeTokens(apiTokens)
       })
       .catch(err => console.error("Failed to fetch PancakeSwap tokens", err));
   }, []);
 
-//   function isValidImageUrl(url:any) {
-//   return new Promise((resolve) => {
-//     const img = new Image();
-//     img.onload = () => resolve(true);   // Image loaded successfully
-//     img.onerror = () => resolve(false); // Failed to load
-//     img.src = url;
-//   });
-// }
+  //   function isValidImageUrl(url:any) {
+  //   return new Promise((resolve) => {
+  //     const img = new Image();
+  //     img.onload = () => resolve(true);   // Image loaded successfully
+  //     img.onerror = () => resolve(false); // Failed to load
+  //     img.src = url;
+  //   });
+  // }
 
-  const searchToken = async(e: React.ChangeEvent<HTMLInputElement>) => {
+  const searchToken = async (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
 
-       const key = e.target.value.toLowerCase();
-        setQuery(key);
+      const key = e.target.value.toLowerCase();
+      setQuery(key);
 
-        if (!key) {
-          setFiltered([]);
-          return;
-        }
+      if (!key) {
+        setFiltered([]);
+        return;
+      }
 
       const provider = new ethers.JsonRpcProvider("https://bsc-dataseed.binance.org/");
       const contract = new ethers.Contract(key, DynamicABI, provider);
@@ -108,23 +105,20 @@ const TokensModal = ({
         contract.decimals(),
       ]);
 
-  
+
       const checksummed = ethers.getAddress(key);
 
 
-          // Usage
-      var imageUrl = 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/'+checksummed+'/logo.png';
-     
-    
-      if(name ==="Rezor"){
-        imageUrl= "https://assets.coingecko.com/coins/images/55692/thumb/1000444573.jpg?1747037831";
+      // Usage
+      var imageUrl = 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/' + checksummed + '/logo.png';
+
+
+      if (name === "Rezor") {
+        imageUrl = "https://assets.coingecko.com/coins/images/55692/thumb/1000444573.jpg?1747037831";
       }
       // var isValid = await isValidImageUrl(imageUrl);
       // console.log(isValid, "isValidImageUrl");
 
-
-      
-    
       const tokenData = {
         name,
         symbol,
@@ -167,19 +161,19 @@ const TokensModal = ({
 
   const handleImportTokens = () => {
     const unique = selectedTokens.filter(sel =>
-    !tokenList.some(existing => existing.address === sel.address)
+      !tokenList.some(existing => existing.address === sel.address)
     );
 
-  if (unique.length > 0) {
-    
-    dispatch(setTokenList([...tokenList, ...unique]));
-  }
+    if (unique.length > 0) {
 
-  // Optional cleanup
-  setSelectedTokens([]);
-  setFiltered([]);
-  setQuery("");
-  setShowModel(false); // close the modal
+      dispatch(setTokenList([...tokenList, ...unique]));
+    }
+
+    // Optional cleanup
+    setSelectedTokens([]);
+    setFiltered([]);
+    setQuery("");
+    setShowModel(false); // close the modal
   };
 
   // const location = useLocation();
@@ -303,17 +297,35 @@ const TokensModal = ({
   };
   const handleInfoIconClick = (symbol: string, address: string) => {
     // navigate(`/token/${symbol}/${address}`);
-    window.open(`https://bscscan.com/address/${address}`,"_blank");
+    window.open(`https://bscscan.com/address/${address}`, "_blank");
   };
+
+  const searchTokenbyName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const key = e.target.value.toLowerCase();
+  setQuery(key);
+
+  if (!key) {
+    setFiltered([]);
+    return;
+  }
+
+  const matches = pancakeTokens.filter(token =>
+    token.name.toLowerCase().includes(key) ||
+    token.symbol.toLowerCase().includes(key) ||
+    token.address.toLowerCase() === key
+  );
+
+  setFiltered(matches.slice(0, 15)); // optional limit
+};
 
   return (
     <>
       {!tokenActive ? (
         <Button className="tokenBtn " onClick={() => setShowToken(true)}>
-          <img src={readOnly ? data?.tokenLogo : tokenOne.icon} alt=""  onError={(e) => {
-                      e.currentTarget.onerror = null; // prevent infinite loop
-                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
-                    }}/>
+          <img src={readOnly ? data?.tokenLogo : tokenOne.icon} alt="" onError={(e) => {
+            e.currentTarget.onerror = null; // prevent infinite loop
+            e.currentTarget.src = NotFoundIcon; // your fallback image URL
+          }} />
           <span className="tokenIcon">
             {readOnly ? data?.tokenName : tokenOne?.name}
           </span>
@@ -322,73 +334,121 @@ const TokensModal = ({
       ) : (
         <Button className="tokenBtn " onClick={() => setShowToken(true)}>
           <img src={tokenTwo.icon} alt="" onError={(e) => {
-                      e.currentTarget.onerror = null; // prevent infinite loop
-                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
-                    }} />
+            e.currentTarget.onerror = null; // prevent infinite loop
+            e.currentTarget.src = NotFoundIcon; // your fallback image URL
+          }} />
           <span className="tokenIcon">{tokenTwo?.name}</span>
           <AiOutlineCaretDown className="text-dark" />
         </Button>
       )}
 
-      {/* 
-      <CommonModal
-          className="tokens_modal_custom"
-          show={showModel}
-          handleClose={() => {
-            setShowModel(false);
-          }}
-          heading="Select Token"
-        ></CommonModal> */}
+
 
       <CommonModal
         className="tokens_modal_custom import_token_modal"
         show={showModel}
-        handleClose={() => {setShowModel(false); setQuery(""); setFiltered([]); setSelectedTokens([])}}
+        handleClose={() => { setShowModel(false); setQuery(""); setFiltered([]); setSelectedTokens([]) }}
         heading="Import Token"
       >
-        <div className="modal_input">
-          <div className="search_icon">
-            <SearchIcon />
-          </div>
-          <input
-            placeholder="Paste token address"
-            value={query}
-            onChange={searchToken}
-          />
-        </div>
 
-        <div className="search-results">
-          {filtered.map(token => {
-            const isChecked = selectedTokens.some(t => t.address === token.address);
-            return (
-              <div key={token.address} className="token-row d-flex align-items-center w-100 my-4 ms-5">
-                <input
-                  name={token.symbol}
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={() => toggleTokenSelect(token)}
-                />
-                <img src={token.icon} alt={token.symbol} width={20} style={{ margin: '0 8px' }}
-                  onError={(e) => {
-                      e.currentTarget.onerror = null; // prevent infinite loop
-                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
-                    }}/>
-                <div>
-                  <div className="h4">{token.symbol}</div>
-                  <div className="h5">{token.name}</div>
-                  </div>
-                
+        <Tabs
+          defaultActiveKey="search"
+          className="mb-3 center-tabs"
+          justify
+        >
+          <Tab eventKey="search" title="Search">
+            <div className="modal_input">
+              <div className="search_icon">
+                <SearchIcon />
               </div>
-            );
-          })}
-        </div>
+              <input
+                placeholder="Search by token name"
+                value={query}
+                onChange={searchTokenbyName}
+              />
+            </div>
+
+            <div className="search-results">
+              {filtered.map(token => {
+                const isChecked = selectedTokens.some(t => t.address === token.address);
+                return (
+                  <div key={token.address} className="token-row d-flex align-items-center w-100 my-4 ms-5">
+                    <input
+                      name={token.symbol}
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={() => toggleTokenSelect(token)}
+                    />
+                    <img src={token.icon} alt={token.symbol} width={20} style={{ margin: '0 8px' }}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null; // prevent infinite loop
+                        e.currentTarget.src = NotFoundIcon; // your fallback image URL
+                      }} />
+                    <div>
+                      <div className="h4">{token.symbol}</div>
+                      <div className="h5">{token.name}</div>
+                    </div>
+
+                  </div>
+                );
+              })}
+            </div>
 
 
-        <div className=" my-5 d-flex justify-content-center">
-          <Button onClick={handleImportTokens} disabled={selectedTokens.length === 0}>
-            Import Token{selectedTokens.length > 1 ? 's' : ''}
-          </Button>
-        </div>
+            <div className=" my-5 d-flex justify-content-center">
+              <Button onClick={handleImportTokens} disabled={selectedTokens.length === 0}>
+                Import Token{selectedTokens.length > 1 ? 's' : ''}
+              </Button>
+            </div>
+
+          </Tab>
+          <Tab eventKey="custom" title="Custom Token">
+            <div className="modal_input">
+              <div className="search_icon">
+                <SearchIcon />
+              </div>
+              <input
+                placeholder="Paste token address"
+                value={query}
+                onChange={searchToken}
+              />
+            </div>
+
+            <div className="search-results">
+              {filtered.map(token => {
+                const isChecked = selectedTokens.some(t => t.address === token.address);
+                return (
+                  <div key={token.address} className="token-row d-flex align-items-center w-100 my-4 ms-5">
+                    <input
+                      name={token.symbol}
+                      type="checkbox"
+                      checked={isChecked}
+                      onChange={() => toggleTokenSelect(token)}
+                    />
+                    <img src={token.icon} alt={token.symbol} width={20} style={{ margin: '0 8px' }}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null; // prevent infinite loop
+                        e.currentTarget.src = NotFoundIcon; // your fallback image URL
+                      }} />
+                    <div>
+                      <div className="h4">{token.symbol}</div>
+                      <div className="h5">{token.name}</div>
+                    </div>
+
+                  </div>
+                );
+              })}
+            </div>
+
+
+            <div className=" my-5 d-flex justify-content-center">
+              <Button onClick={handleImportTokens} disabled={selectedTokens.length === 0}>
+                Import Token{selectedTokens.length > 1 ? 's' : ''}
+              </Button>
+            </div>
+
+          </Tab>
+        </Tabs>
 
       </CommonModal>
 
@@ -403,27 +463,27 @@ const TokensModal = ({
           heading="Select Token"
           footer={
             <div className="import-tokens">
-                  <Button className="tokenBtn text-primary" onClick={() => setShowModel(true)}>Import Token</Button>
-              </div>
+              <Button className="tokenBtn text-primary" onClick={() => setShowModel(true)}>Import Token</Button>
+            </div>
           }
         >
-           {/* <div className="import-tokens">
+          {/* <div className="import-tokens">
             <Button className="tokenBtn text-primary ms-auto mt-2" onClick={() => setShowModel(true)}>Import Token</Button>
           </div> */}
           <div className="ms-5 my-3 h4">
-           
-                      
-                        <span className="my-auto">
-                          <img src={field === "Field1" ? tokenOne?.icon:tokenTwo?.icon} alt="" width={20}  onError={(e) => {
-                      e.currentTarget.onerror = null; // prevent infinite loop
-                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
-                    }}
-                    />
-                        </span>
-                        <span className="ms-3  my-auto">
-                        {field === "Field1" ? tokenOne?.name:tokenTwo?.name} </span>
-                       
-                      
+
+
+            <span className="my-auto">
+              <img src={field === "Field1" ? tokenOne?.icon : tokenTwo?.icon} alt="" width={20} onError={(e) => {
+                e.currentTarget.onerror = null; // prevent infinite loop
+                e.currentTarget.src = NotFoundIcon; // your fallback image URL
+              }}
+              />
+            </span>
+            <span className="ms-3  my-auto">
+              {field === "Field1" ? tokenOne?.name : tokenTwo?.name} </span>
+
+
           </div>
           <div className="modal_input">
             <div className="search_icon">
@@ -437,7 +497,7 @@ const TokensModal = ({
               onChange={handleInputChange}
             ></input>
           </div>
-         
+
           <ul className="modal_coins">
             {tokenList?.slice(0, 4).map((token: any, index: any) => (
               <li className="modal_coins_in" key={index}>
@@ -470,11 +530,11 @@ const TokensModal = ({
                         disabled={field === "Field1" ? tokenTwo?.name === value?.name : tokenOne?.name === value?.name}
                       >
                         <span>
-                          <img src={value?.icon} alt=""  onError={(e) => {
-                      e.currentTarget.onerror = null; // prevent infinite loop
-                      e.currentTarget.src = NotFoundIcon; // your fallback image URL
-                    }}
-                    />
+                          <img src={value?.icon} alt="" onError={(e) => {
+                            e.currentTarget.onerror = null; // prevent infinite loop
+                            e.currentTarget.src = NotFoundIcon; // your fallback image URL
+                          }}
+                          />
                         </span>
                         {value?.name}
                         <span className="checkbtn">
@@ -485,9 +545,9 @@ const TokensModal = ({
                         <span
                           className="info-icon"
                           onClick={() => handleInfoIconClick(value.symbol, value.address)}
-                          
+
                         >
-                          <AiOutlineInfoCircle fontSize={20}  />
+                          <AiOutlineInfoCircle fontSize={20} />
                         </span>
                       )}
                     </li>

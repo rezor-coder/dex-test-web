@@ -189,6 +189,7 @@ const SwapCard = () => {
   };
   const { chainValues } = useAppSelector((state: any) => state?.user);
   const getReservesFirstTime = async () => {
+    
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
       tokenTwoAddress: tokenTwo?.address,
@@ -198,17 +199,19 @@ const SwapCard = () => {
       dispatch,
       walletProvider,
     };
+    
     const reserveData: Array<string> = await getAmountsOutfunction(data);
+
 
     if (reserveData == undefined) {
       setRate("0");
     } else {
-
       var rates = 
        await convertUsingTokenDecimals(
         tokenTwo,
         reserveData[1]);
-        var fixed = 0;
+
+        var fixed = 1;
 
         if(rates < 1){
           fixed=10;
