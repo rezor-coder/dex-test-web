@@ -199,7 +199,7 @@ export const APIURL = {
   CROSS_CHAIN_SWAP: "crossChainSwap",
   CROSS_CHAIN_TXN_STATUS: "crossChainTxnStatus",
 };
-// export const OKX = "https://api-okx.saitamacard.ai/token/"; //localOKx
+
 
 
 ///TODO
