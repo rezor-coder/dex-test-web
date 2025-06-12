@@ -353,7 +353,7 @@ const RezorSwap = () => {
                             <br /> EVM compatible blockchains.
                           </p>
                           <button className="darkButton explore_btn rounded-2 primary-font mt-4">
-                            Cross-Chain Swap
+                            Coming Soon
                           </button>
                         </div>
                       </div>
@@ -372,7 +372,7 @@ const RezorSwap = () => {
                             innovative yield strategies.
                           </p>
                           <button className="darkButton explore_btn rounded-2 primary-font mt-5">
-                            Farm
+                            Coming Soon
                           </button>
                         </div>
                       </div>
@@ -389,7 +389,7 @@ const RezorSwap = () => {
                             <br /> rewards with ease.
                           </p>
                           <button className="darkButton explore_btn rounded-2 primary-font mt-5">
-                            Stake Now
+                            Coming Soon
                           </button>
                         </div>
                       </div>
