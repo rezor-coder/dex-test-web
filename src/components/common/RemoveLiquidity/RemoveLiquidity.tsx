@@ -30,7 +30,6 @@ import TxnModal from "../Modals/TxnModal/TxnModal";
 import useIsWrongNetwork from "../../../CustomHook/useisWrongNetwork";
 // @ts-ignore
 import { multiplier } from "universal-calci-pro";
-import { toFunctionBigNumber } from "../../../utils/OkxHelpers";
 
 type propstype = {
   show?: { show: boolean; data: any };

@@ -9,20 +9,16 @@ import { persistReducer } from "redux-persist";
 import themeReducer from "../features/theme/theme.slice";
 import storage from "redux-persist/lib/storage";
 import userReducer from "../features/theme/user.slice";
-import OkxReducer from "../features/theme/Okx.slice";
 
 const persistConfig = {
   key: "root",
-  // version: 1,
   storage,
-  // whitelist: ["user", "okx"],
 };
 
 const rootReducer = combineReducers({
   theme: themeReducer,
   user: userReducer,
   token: tokenReducer,
-  okx: OkxReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

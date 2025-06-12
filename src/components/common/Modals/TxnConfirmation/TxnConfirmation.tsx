@@ -5,7 +5,7 @@ import "./TxnConfirmation.scss";
 import Lottie from "lottie-react";
 import { useAppSelector } from "../../../../app/hooks";
 import { useEffect, useState } from "react";
-import { BlockExploreUrl } from "../../../../utils/OkxHelpers";
+import { BlockExploreUrl } from "../../../../utils/helpers";
 
 type TProps = {
   show?: boolean;
@@ -14,9 +14,7 @@ type TProps = {
 };
 
 const TxnConfirmation = (props: TProps) => {
-  const { selectedTo, selectedFrom } = useAppSelector<any>(
-    (state) => state.okx
-  );
+
   const [progress, setProgress] = useState<any>(0);
 
   useEffect(() => {
@@ -48,13 +46,13 @@ const TxnConfirmation = (props: TProps) => {
         <li>
           <div>
             <p>From</p>
-            <img src={selectedFrom?.icon} alt="ethereum" />
+            {/* <img src={selectedFrom?.icon} alt="ethereum" /> */}
           </div>
         </li>
         <li>
           <div>
             <p>To</p>
-            <img src={selectedTo?.icon} alt="binance" />
+            {/* <img src={selectedTo?.icon} alt="binance" /> */}
           </div>
         </li>
       </ul>
@@ -77,10 +75,8 @@ const TxnConfirmation = (props: TProps) => {
             Your balance will be shown after some time!
           </p>
           <a
-            href={`${BlockExploreUrl[selectedFrom?.chainID]}${
-              selectedFrom?.chainID == selectedTo?.chainID
-                ? props?.transactionData?.txnHash
-                : props?.transactionData?.txnHash
+            href={`${BlockExploreUrl[56]}${
+               props?.transactionData?.txnHash
             }`}
             target="_blank"
             rel="noreferrer"

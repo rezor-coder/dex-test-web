@@ -10,17 +10,9 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import TokensModal from "../Modals/TokensModal/TokensModal";
 import TokenselectReceivedModal from "../TokenselectReceivedModal/TokenselectReceivedModal";
 // import axios from "axios";
-import axios, { AxiosInstance } from "axios";
 
-// import { APIURL, OKX } from "../../../utils/constants";
-import {
-  apiCallPost,
-  apiCallPostHeader,
-} from "../../../services/ApiServices/axios.service";
-import {
-  setOkxTokenListUpdate,
-  setSaveSelectedTo,
-} from "../../../features/theme/Okx.slice";
+
+
 import { TOKEN_DATA } from "../../../interfaces/Liquidity";
 
 const SecondaryTokenCard = ({
@@ -35,11 +27,9 @@ const SecondaryTokenCard = ({
   showTokensSelectModal,
   showCrossToken,
   setTokenTwoIconnew,
-  setOkxTokenTwoAddress,
   setTokenOneChainId,
   setTwoDecinmal,
   setCurrencyNameForTokenTwo,
-  keyokx,
   setTokenTwoValue,
   setTokenOneValue,
 }: {
@@ -54,16 +44,13 @@ const SecondaryTokenCard = ({
   showTokensSelectModal?: boolean;
   showCrossToken?: any;
   setTokenTwoIconnew?: any;
-  setOkxTokenTwoAddress?: any;
   setTwoDecinmal?: any;
   setTokenOneChainId?: any;
   setCurrencyNameForTokenTwo?: any;
-  keyokx?: string;
   setTokenTwoValue?: any;
   setTokenOneValue?: any;
 }) => {
-  const { chain_Id, allTokenList, okxTokenListData, selectedFrom, selectedTo } =
-    useAppSelector((state) => state?.okx);
+  
 
   const { walletAddress }: { walletAddress: string } = useAppSelector(
     (state: any) => state?.user
@@ -72,20 +59,15 @@ const SecondaryTokenCard = ({
     const { tokenTwo }: { tokenTwo: TOKEN_DATA } =
         useAppSelector((store: any) => store?.token);
 
-  const [tokenList, setTokenList] = useState([]);
   const isWrongNetwork = useIsWrongNetwork();
 
   const dispatch = useAppDispatch();
-  const [chainName, setChainName] = useState("");
-  const [networkChainId, setNetworkChainId] = useState(1);
-
-  const [receiveChainid, setReceiveChainid] = useState("");
-  const [filteredTokenList, setFilteredTokenList] = useState(okxTokenListData);
+ 
 
   const modifyTokenBalance = () => {
     return (
       <>
-        {typeof balance?.token2Balance === "string" && keyokx != "okx" ? (
+        {typeof balance?.token2Balance === "string"  ? (
           <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token2Balance == 0 ? (
@@ -101,34 +83,11 @@ const SecondaryTokenCard = ({
       </>
     );
   };
-  const getTokenList = async (url: any) => {
-    try {
-      const result: any = await apiCallPostHeader(
-        url,
-        { chainId: Number(receiveChainid) },
-        {}
-      );
-      dispatch(setOkxTokenListUpdate(result?.data?.data));
+ 
 
-      setTokenList(result?.data?.data);
-      setFilteredTokenList(result?.data?.data);
-    } catch (error) {
-      console.log("API ERROR", error);
-    }
-  };
+ 
 
-  const searchToken = (value: any) => {
-    const lowercaseValue = value.toLowerCase();
-    const filteredToken = tokenList.filter((data: any) => {
-      const lowercaseName = data.name.toLowerCase();
-      return lowercaseName.includes(lowercaseValue);
-    });
-    setFilteredTokenList(filteredToken);
-  };
-
-  const selectedToken = (item: any) => {
-    dispatch(setSaveSelectedTo(item));
-  };
+  
   return (
     <>
       <div className="secondaryCardToken">
@@ -142,7 +101,6 @@ const SecondaryTokenCard = ({
                 tokenActive
                 field={field}
                 setTokenTwoIconnew={setTokenTwoIconnew}
-                setOkxTokenTwoAddress={setOkxTokenTwoAddress}
                 setTokenOneChainId={setTokenOneChainId}
                 setTwoDecinmal={setTwoDecinmal}
                 setCurrencyNameForTokenTwo={setCurrencyNameForTokenTwo}
@@ -162,40 +120,12 @@ const SecondaryTokenCard = ({
                 className="without_bg"
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK2")}
-                value={keyokx == "okx" ? value : value?.inputValue}
-                // disabled={
-                //   keyokx == "okx" ? true : isWrongNetwork || !walletAddress
-                // }
+                value={ value?.inputValue}
               />
             )}
-            {/* <div className="listRight">
-              {false ? (
-                <Button
-                  text="MAX"
-                  className="maxBtn without_bg_border"
-                  onClick={() => maxFunction("TK2")}
-                />
-              ) : (
-                ""
-              )}
-
-            </div> */}
+            
           </li>
-          {/* <li>
-            <h6>
-              ~$
-              {cryptoDecimals(
-                Number(dollarVal) * Number(value?.inputValue) || 0
-              )}
-            </h6>
-            {keyokx == "okx" &&
-              selectedFrom?.chainID === selectedTo?.chainID && (
-                <h6 className="">
-                  Balance: <span>{balancevalue ? balancevalue : "0"}</span>
-                </h6>
-              )}
-            {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
-          </li> */}
+          
         </ul>
       </div>
       

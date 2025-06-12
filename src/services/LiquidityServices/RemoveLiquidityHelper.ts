@@ -7,7 +7,7 @@ import {
   TOKEN_DATA,
 } from "../../interfaces/Liquidity";
 import { localeStringFunction, slicedValue } from "../../utils/helpers";
-import { calculateGasPrice } from "../contractServices/OkxContractServices";
+import { calculateGasPrice } from "../contractServices/PancakeContractServices";
 import {
   fetchShareOfUser,
   getTotalSupplyOfLp,

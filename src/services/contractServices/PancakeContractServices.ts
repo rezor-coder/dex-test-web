@@ -5,6 +5,7 @@
  */
 // import Web3 from "web3";
 import { store } from "../../app/store";
+import { toast } from "../../components/common/Toasts/Toast";
 import {
   GET_LP_BALANCE_PARAM,
   GET_LP_BALANCE_RESP,
@@ -464,6 +465,20 @@ const getPriceImpact = async (
   }
 };
 
+ const calculateGasPrice = async (walletProvider: any) => {
+  const web3 = await callWeb3(walletProvider);
+  if (!web3) return toast.error("No web3");
+  const network = localStorage.getItem("CURRENT NETWORK");
+
+  const gasPriceRaw = await web3.eth.getGasPrice();
+  const safeGasPrice =
+    network == "BSC"
+      ? (BigInt(Math.floor(1.2 * Number(gasPriceRaw))))
+      : gasPriceRaw;
+  return safeGasPrice.toString();
+};
+
+
 export {
   getNativeBalance,
   getTokenBalance,
@@ -475,5 +490,6 @@ export {
   getAmountsOutfunction,
   getAmountsInfunction,
   getPriceImpact,
-  useGetAmountsInterval
+  useGetAmountsInterval,
+  calculateGasPrice
 };

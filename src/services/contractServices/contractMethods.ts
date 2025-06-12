@@ -18,7 +18,6 @@ export const callWeb3 = async (walletProvider: any) => {
       web3Object = provider;
       const chainId = await provider?.eth?.getChainId();
       const chainValues = store.getState()?.user?.chainValues;
-      const okxDefaultChain = store?.getState()?.okx?.selectedFrom;
       const { network }: any = await networkConfig(chainValues?.chainId);
 
       
@@ -26,13 +25,11 @@ export const callWeb3 = async (walletProvider: any) => {
       if (
         (window?.location?.pathname != "/cross-chain" &&
           chainId != network?.chainId) ||
-        (chainId != okxDefaultChain?.chainID &&
-          window?.location?.pathname == "/cross-chain")
+        ( window?.location?.pathname == "/cross-chain")
       ) {
         walletConnectAlert(
-          window?.location?.pathname != "/cross-chain"
-            ? network?.name
-            : okxDefaultChain.name
+          network?.name
+            
         );
         await walletProvider?.request({
           method: "wallet_switchEthereumChain",
@@ -42,9 +39,7 @@ export const callWeb3 = async (walletProvider: any) => {
                 window?.location?.pathname != "/cross-chain"
                   ? network?.chainIdHex
                   : Web3.utils.toHex(
-                    network?.chainId == okxDefaultChain?.chainID
-                      ? network?.chainId
-                      : okxDefaultChain?.chainID
+                    network?.chainId
                   ),
             },
           ],

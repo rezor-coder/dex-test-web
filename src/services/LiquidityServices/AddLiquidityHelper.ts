@@ -28,7 +28,7 @@ import {
   callContractGetMethod,
   callContractSendMethod,
 } from "../contractServices/contractMethods";
-import { calculateGasPrice } from "../contractServices/OkxContractServices";
+import { calculateGasPrice } from "../contractServices/PancakeContractServices";
 
 const getReservesHelper = async (data: any) => {
   const {

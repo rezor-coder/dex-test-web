@@ -30,11 +30,7 @@ import ConnectWallet from "./ConnectWallet/ConnectWallet";
 import "./Header.scss";
 import { NetworkTypes } from "../../../interfaces/common";
 import { setImportedLps } from "../../../features/theme/user.slice";
-import {
-  nativeData,
-  networkChainName,
-  networkList,
-} from "../../../utils/OkxHelpers";
+
 import { toast } from "../Toasts/Toast";
 
 
@@ -57,9 +53,7 @@ const Header = (props: propTypes) => {
   // console.log("currentPath:", currentPath);
 
   const { switchNetwork, setNetworkInReduxState } = useWalletConnect();
-  const { selectedTo, selectedFrom, allTokenList } = useAppSelector<any>(
-    (state) => state.okx
-  );
+
   const walletAddress = useSelector((state: any) => state?.user?.walletAddress);
   const selectedChain: NetworkTypes = useSelector(
     (state: any) => state?.user?.chainValues
@@ -104,14 +98,7 @@ const Header = (props: propTypes) => {
       return;
     }
   };
-  const getImageFunction = (name: string) => {
-    const result = networkList?.find((data: any) => data?.name == name);
-    return name == "Conflux Espace" && !result
-      ? "https://static.okx.com/cdn/wallet/logo/cfx_19200.png"
-      : !result
-        ? "https://static.okx.com/cdn/wallet/logo/BNB-20220308.png"
-        : result?.icon;
-  };
+  
 
   const { address, disconnect, open } = useWalletConnect();
   const handleWalletConnect = async () => {
@@ -141,21 +128,6 @@ const Header = (props: propTypes) => {
               setRouteDetail={setRouteDetail}
             />
             <div className="header_action">
-              
-              {/* {currentPath === "/swap" || extractedToken === "token" || currentPath === "/cross-chain" ? (
-                ""
-              ) : (
-                <div className="connect_btns">
-                  <Link className="app-button" to="/swap">
-                    Launch App
-                  </Link>
-                </div>
-              )} */}
-              
-              {/* {true &&
-                (currentPath !== "/" ? (
-                  <> */}
-
                     <div className="natwork_btn">
                       <Select
                         isDisabled={routeDetail == "/cross-chain" ? true : false}
@@ -177,11 +149,7 @@ const Header = (props: propTypes) => {
                             <>
                               <img
                                 src={
-                                  routeDetail == "/cross-chain"
-                                    ? getImageFunction(
-                                      networkChainName[selectedFrom?.chainID]
-                                    )
-                                    : options?.icon
+                                   options?.icon
                                 }
                                 alt={options.label}
                               />

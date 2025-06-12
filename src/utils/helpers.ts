@@ -185,3 +185,35 @@ export const walletConnectAlert = async (chain: string) => {
   } catch (error) {
   }
 };
+
+
+export const BlockExploreUrl: any = {
+  1: "https://etherscan.io/tx/",
+  324: "https://explorer.zksync.io/tx/",
+  10: "https://optimistic.etherscan.io/tx/",
+  137: "https://polygonscan.com/tx/",
+  56: "https://bscscan.com/tx/",
+  43114: "https://snowtrace.io/block/",
+  42161: "https://arbiscan.io/tx/",
+  59144: "https://lineascan.build/tx/",
+  250: "https://ftmscan.com/tx/",
+  1030: "https://www.confluxscan.io/transaction/",
+  8453: "https://basescan.org/tx/",
+  5000: "https://mantlescan.info/tx/",
+};
+
+export const networkChainName: any = {
+  1: "Ethereum",
+  324: "zkSync Era",
+  10: "Optimism",
+  137: "Polygon",
+  56: "Binance Coin",
+  66: "OKTC",
+  43114: "Avalanche",
+  42161: "Arbitrum",
+  59144: "Linea",
+  250: "Fantom",
+  1030: "Conflux Espace",
+  8453: "Base",
+  5000: "Mantle",
+};

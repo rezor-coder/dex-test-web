@@ -7,9 +7,7 @@ const axiosInstance1: AxiosInstance = axios.create({
 });
 
 // Create an axios instance for the second base URL
-// const axiosInstance2: AxiosInstance = axios.create({
-//   baseURL: OKX,
-// });
+
 
 // axios.defaults.baseURL = SITE_URL;
 // axios request interceptor~~~~~~~~~~~~

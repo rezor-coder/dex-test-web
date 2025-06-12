@@ -21,7 +21,7 @@ const ActiveTokenCard = ({
   shimmer,
   setTokenOneChainId,
   showTokensSelectModal,
-  keyokx,
+  
   setTokenOneValue,
   setTokenTwoValue,
 }: {
@@ -35,7 +35,6 @@ const ActiveTokenCard = ({
   shimmer: string;
   setTokenOneChainId?: any;
   showTokensSelectModal?: boolean;
-  keyokx?: any;
   setTokenOneValue?: any;
   setTokenTwoValue?: any;
 }) => {
@@ -50,7 +49,7 @@ const ActiveTokenCard = ({
   const modifyTokenBalance = () => {
     return (
       <>
-        {typeof balance?.token1Balance === "string" && keyokx != "okx" ? (
+        {typeof balance?.token1Balance === "string" ? (
           <h6 className="balancevalue">
             <span>Balance :</span>{" "}
             {balance?.token1Balance == 0 ? (
@@ -95,7 +94,7 @@ const ActiveTokenCard = ({
                 className="without_bg inputActive"
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK1")}
-                value={keyokx != "okx" ? value?.inputValue : value}
+                value={ value?.inputValue}
               />
             )}
             <div className="listRight">
@@ -109,20 +108,6 @@ const ActiveTokenCard = ({
         </ul>
       </div>
        <div className="d-flex">
-            {/* <h6>
-              ~$
-              {cryptoDecimals(
-                Number(dollarVal) * Number(value?.inputValue) || 0
-              )}
-            </h6> */}
-            {/* {keyokx == "okx" ? (
-              <h2 className="balancevalue">
-                Balance: <span>{balancevalue ? balancevalue : " "}</span>
-              </h2>
-            ) : (
-              ""
-            )} */}
-            
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
           </div>
     </>

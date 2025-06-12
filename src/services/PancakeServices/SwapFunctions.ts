@@ -1,6 +1,6 @@
 import { store } from "../../app/store";
 import { slicedValue } from "../../utils/helpers";
-import { calculateGasPrice } from "../contractServices/OkxContractServices";
+import { calculateGasPrice } from "../contractServices/PancakeContractServices";
 import { callSendMethod } from "../contractServices/contractMethods";
 
 let hundred = 100;

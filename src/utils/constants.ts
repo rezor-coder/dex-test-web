@@ -7,8 +7,6 @@ import {
   ETHEREUM_CONTRACT_LIST,
   ETHEREUM_TOKEN_LIST,
   PANCAKE_TOKEN_LIST,
-  REZORCHAIN_CONTRACT_LIST,
-  REZORCHAIN_TOKEN_LIST,
 } from "../assets/tokens&ContractInfo/info";
 import { DAYS_TO_VALUE_MAP, NetworkTypes } from "../interfaces/common";
 export const EVENTS = {
@@ -152,12 +150,6 @@ export const networkConfig = (chainId: number = NETWORKS[0].chainId) => {
         contractList: ETHEREUM_CONTRACT_LIST,
         tokenList: ETHEREUM_TOKEN_LIST,
       };
-    } else if (network.symbol === "STC") {
-      return {
-        network: network,
-        contractList: REZORCHAIN_CONTRACT_LIST, //TODO
-        tokenList: REZORCHAIN_TOKEN_LIST, //TODO
-      };
     }
   } else {
     return {
@@ -179,7 +171,6 @@ export const APIURL = {
   GET_DOLLAR_PRICE: "/dollarPrice",
   GET_STAKE_DATA: "/userStakedDetails",
   GET_FARM_DATA: "/farmPoolDetails",
-
   SYMBOL: "/querySymbol",
   CHECKSWAP: "/checkswap",
   FINDDESIREDTOKEN: "/findDesiredToken",
@@ -191,10 +182,6 @@ export const APIURL = {
   SETFAVORITY: "/setFavourite",
   REMOVEFAVORITY: "/removeFromFavourites",
   SWAP_TOKENS_GET: "token/getTokens",
-  OKX_GETTOKEN: "getTokens",
-  OKX_GETCHAIN: "getChains",
-  OKX_GETQUOTES: "getQuotes",
-  OKX_SWAP: "swap",
   CROSS_CHAIN_ROUTES: "getCrossChainSwapRoutes",
   CROSS_CHAIN_SWAP: "crossChainSwap",
   CROSS_CHAIN_TXN_STATUS: "crossChainTxnStatus",
