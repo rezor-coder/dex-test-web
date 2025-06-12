@@ -402,7 +402,7 @@ const TokensModal = ({
             </div>
 
           </Tab>
-          <Tab eventKey="custom" title="Custom Token">
+          <Tab eventKey="custom" title="Token">
             <div className="modal_input">
               <div className="search_icon">
                 <SearchIcon />
