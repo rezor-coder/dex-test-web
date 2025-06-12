@@ -784,20 +784,20 @@ export const PANCAKE_TOKEN_LIST: TOKEN_DATA[] =
           icon: BNB,
         },
         {
-          name: "USDC",
-          address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-          isNative: false,
-          decimals: 18,
-          symbol: "USDC",
-          icon: "https://tokens.pancakeswap.finance/images/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.png",
-        },
-        {
           name: "REZOR",
           address: "0x9D0d41Df4cA809dC16A9BFf646d3c6CbC4EbC707",
           isNative: false,
           decimals: 9,
           symbol: "RZR",
           icon: "https://assets.coingecko.com/coins/images/55692/thumb/1000444573.jpg?1747037831",
+        },
+        {
+          name: "USDC",
+          address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+          isNative: false,
+          decimals: 18,
+          symbol: "USDC",
+          icon: "https://tokens.pancakeswap.finance/images/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.png",
         },
         {
           name: "USDT",
