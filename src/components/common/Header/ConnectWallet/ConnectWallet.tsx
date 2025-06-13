@@ -48,15 +48,11 @@ const ConnectWallet = (props: propTypes) => {
                 <CloseIcon />
               </button>
               {/* <WalletIcon /> */}
-              <Button
-                fluid
-                onClick={() => {
+              <button className="common_btn my-3 " type="button"
+              onClick={() => {
                   props?.handleClose();
                   handleWalletConnect();
-                }}
-              >
-                Connect Wallet
-              </Button>
+                }} >Connect Wallet</button>
             </div>
             {/* <p className="or_line">
             </p>
