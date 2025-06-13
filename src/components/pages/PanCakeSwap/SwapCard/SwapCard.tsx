@@ -421,12 +421,12 @@ const SwapCard = () => {
         fieldCondition == "TK1"
           ? setfixedinputTwo({
               convertedValue: tokenValue1,
-              inputValue: toCustomFixed(calculatedBalance, 7),
+              inputValue: toCustomFixed(calculatedBalance, 4),
               toolTipValue: calculatedBalance,
             })
           : setfixedinputOne({
               convertedValue: tokenValue[0],
-              inputValue: toCustomFixed(calculatedBalance, 7),
+              inputValue: toCustomFixed(calculatedBalance, 4),
               toolTipValue: calculatedBalance,
             });
         setShimmerState("null");
@@ -502,12 +502,12 @@ const SwapCard = () => {
         fieldCondition == "TK1"
           ? setinputTwo({
               convertedValue: tokenValue1,
-              inputValue: toCustomFixed(calculatedBalance, 7),
+              inputValue: toCustomFixed(calculatedBalance, 4),
               toolTipValue: calculatedBalance,
             })
           : setinputOne({
               convertedValue: tokenValue[0],
-              inputValue: toCustomFixed(calculatedBalance, 7),
+              inputValue: toCustomFixed(calculatedBalance, 4),
               toolTipValue: calculatedBalance,
             });
         setShimmerState("null");
@@ -615,7 +615,7 @@ const SwapCard = () => {
         if (Number(calculatedBalance)) {
           setinputTwo({
             convertedValue: tokenTwoValue[1],
-            inputValue: toCustomFixed(calculatedBalance, 7),
+            inputValue: toCustomFixed(calculatedBalance, 4),
             toolTipValue: calculatedBalance,
           });
           setShimmerState("null");
