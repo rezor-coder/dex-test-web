@@ -142,11 +142,23 @@ const SwapCard = () => {
      
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK1", inputOne?.convertedValue, false);
-        handleGetFeeAmountsData("TK1", inputOne?.convertedValue, false);
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
-  }, [inputOne]);
+    if (
+      selectedField == "TK1" &&
+      !isSwitched &&
+      inputFixedOne?.convertedValue != "" 
+    ) {
+     
+      const delayDebounce: NodeJS.Timeout = setTimeout(() => {
+        handleGetFeeAmountsData("TK1", inputFixedOne?.convertedValue, false);
+      }, 500);
+      return () => clearTimeout(delayDebounce);
+    }
+    console.log(inputFixedOne,"inputFixedOne");
+    
+  }, [inputOne,inputFixedOne]);
 
   useEffect(() => {
     if (
@@ -156,11 +168,20 @@ const SwapCard = () => {
     ) {
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK2", inputTwo?.convertedValue, false);
-        handleGetFeeAmountsData("TK2", inputTwo?.convertedValue, false);
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
-  }, [inputTwo]);
+    if (
+      selectedField == "TK2" &&
+      !isSwitched &&
+      inputFixedTwo?.convertedValue != "" 
+    ) {
+      const delayDebounce: NodeJS.Timeout = setTimeout(() => {
+        handleGetFeeAmountsData("TK2", inputFixedTwo?.convertedValue, false);
+      }, 500);
+      return () => clearTimeout(delayDebounce);
+    }
+  }, [inputTwo,inputFixedTwo]);
 
   useEffect(() => {
     getReservesFirstTime();
@@ -377,6 +398,7 @@ const SwapCard = () => {
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
         
+        
     if (tokenValue == undefined || (tokenValue[0] &&  tokenValue[1] == "0")) {
       setSufficientLiquidityCheck(true);
       setShimmerState("null");
@@ -393,9 +415,6 @@ const SwapCard = () => {
 
      var tokenValue1 = tokenValue[1];
      
-     console.log(tokenValue1,"tokenValue1");
-     
-
       // if(tokenTwo?.name === 'REZOR'){
       //     tokenValue1 = Math.floor(tokenValue[1] -  0.02* tokenValue[1]);
       // }
@@ -799,7 +818,7 @@ const SwapCard = () => {
         status=""
       >
      <ReviewSwap state={
-        {tokenDetails,selectedField,inputFixedOne,inputFixedTwo,tk1DollarValue,tk2DollarValue}
+        {tokenDetails,selectedField,inputFixedOne,inputFixedTwo,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
      } isShow={setShow} />
        
       </CommonModal>

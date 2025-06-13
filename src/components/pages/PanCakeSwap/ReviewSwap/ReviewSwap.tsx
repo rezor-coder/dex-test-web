@@ -72,17 +72,17 @@ const ReviewSwap = (props:any) => {
         txHash: null,
       });
 
-      var inputOne = state?.inputFixedOne;
+      var inputOne = state?.inputOne;
       
-      if(state?.selectedField !== 'TK1'){
-         const value = BigInt(10000);
-        const per = BigInt(1000);
-        const inpt = BigInt( state?.inputOne?.convertedValue);
+      // if(state?.selectedField !== 'TK1'){
+      //    const value = BigInt(10000);
+      //   const per = BigInt(1000);
+      //   const inpt = BigInt( state?.inputOne?.convertedValue);
 
-        // Calculate with BigInt only
-         inputOne.convertedValue = (inpt * (value + per)) / value;
+      //   // Calculate with BigInt only
+      //    inputOne.convertedValue = (inpt * (value + per)) / value;
 
-      }
+      // }
 
       console.log(inputOne,"inputOne");
       
@@ -147,11 +147,11 @@ const ReviewSwap = (props:any) => {
               <div className="token_receive_leftSide">
                 <h6 className="mb-2">You Receive</h6>
                 <div className="amount d-grid gap-2">
-                  <h1>{state?.inputFixedTwo?.inputValue} {tokenTwo?.symbol}</h1>
+                  <h1>{state?.inputTwo?.inputValue} {tokenTwo?.symbol}</h1>
                   <p>
                     ~$
                     {cryptoDecimals(
-                      state?.inputFixedTwo?.inputValue * state?.tk2DollarValue || 0
+                      state?.inputTwo?.inputValue * state?.tk2DollarValue || 0
                     )}
                   </p>
                 </div>
