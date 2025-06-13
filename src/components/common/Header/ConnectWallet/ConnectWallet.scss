@@ -1,5 +1,9 @@
 @import "../../../../assets/theme/_var.scss";
 
+.wallet_height{
+  height: 10% !important;
+}
+
 .connect_wallet.offcanvas-end {
   // padding: 5.4rem 3.75rem 4rem;
   padding: 2.5rem 2rem;
@@ -8,7 +12,7 @@
   max-width: 37.5rem;
   border-left: none;
   width: 100%;
-  height: 10%;
+  height: 20%;
   border-radius: 20px;
 
   @media (max-width: 991px) {
@@ -26,8 +30,8 @@
 
     .croseBtn {
       position: absolute;
-      left: -1.2rem;
-      top: -3.2rem;
+      right: -1.2rem;
+      top: -2.2rem;
       width: 3rem;
       height: 3rem;
       padding: 0;

@@ -36,7 +36,7 @@ const ConnectWallet = (props: propTypes) => {
   return (
     <>
       <Offcanvas
-        className={"connect_wallet"}
+        className={`connect_wallet ${address?'wallet_height':''}`}
         show={props.show}
         placement="end"
         onHide={props.handleClose}
@@ -47,7 +47,7 @@ const ConnectWallet = (props: propTypes) => {
               <button className="croseBtn" onClick={() => props?.handleClose()}>
                 <CloseIcon />
               </button>
-              <WalletIcon />
+              {/* <WalletIcon /> */}
               <Button
                 fluid
                 onClick={() => {
@@ -58,13 +58,13 @@ const ConnectWallet = (props: propTypes) => {
                 Connect Wallet
               </Button>
             </div>
-            <p className="or_line">
+            {/* <p className="or_line">
             </p>
             <p className="footer_txt">
               You consent to the Terms of Service and Privacy Policy of
               RezorSwap by connecting a wallet. <br />
               (Latest revision: 6.7.23)
-            </p>
+            </p> */}
           </>
         ) : (
           <>
