@@ -142,25 +142,15 @@ const SwapCard = () => {
      
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK1", inputOne?.convertedValue, false);
+        handleGetFeeAmountsData("TK1", inputOne?.convertedValue, false);
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
-    if (
-      selectedField == "TK1" &&
-      !isSwitched &&
-      inputFixedOne?.convertedValue != "" 
-    ) {
-     
-      const delayDebounce: NodeJS.Timeout = setTimeout(() => {
-        handleGetFeeAmountsData("TK1", inputFixedOne?.convertedValue, false);
-      }, 500);
-      return () => clearTimeout(delayDebounce);
-    }
-    console.log(inputFixedOne,"inputFixedOne");
     
   }, [inputOne,inputFixedOne]);
 
   useEffect(() => {
+    
     if (
       selectedField == "TK2" &&
       !isSwitched &&
@@ -168,19 +158,12 @@ const SwapCard = () => {
     ) {
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK2", inputTwo?.convertedValue, false);
+        handleGetFeeAmountsData("TK2", inputTwo?.convertedValue, false);
+
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
-    if (
-      selectedField == "TK2" &&
-      !isSwitched &&
-      inputFixedTwo?.convertedValue != "" 
-    ) {
-      const delayDebounce: NodeJS.Timeout = setTimeout(() => {
-        handleGetFeeAmountsData("TK2", inputFixedTwo?.convertedValue, false);
-      }, 500);
-      return () => clearTimeout(delayDebounce);
-    }
+   
   }, [inputTwo,inputFixedTwo]);
 
   useEffect(() => {
