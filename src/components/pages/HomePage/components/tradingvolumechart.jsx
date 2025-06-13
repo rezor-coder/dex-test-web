@@ -26,7 +26,7 @@ const TradingVolumeChart = () => {
     stroke: {
       curve: "smooth",
       width: 2,
-      colors: ["#00C896"], // Line color
+      colors: ["#1DD49A"], // Line color
     },
     fill: {
       type: "gradient",
@@ -36,14 +36,14 @@ const TradingVolumeChart = () => {
         opacityTo: 0.5,
         stops: [0, 100],
         colorStops: [
-          { offset: 0, color: "#00C896", opacity: 0.2 },
+          { offset: 0, color: "#1DD49A", opacity: 0.2 },
           { offset: 100, color: "#ffffff", opacity: 0 },
         ],
       },
     },
     markers: {
       size: 0, // 🚀 Removes normal dots
-      hover: { size: 6, colors: ["#00C896"] }, // 🎯 Shows dot on hover
+      hover: { size: 6, colors: ["#1DD49A"] }, // 🎯 Shows dot on hover
     },
     tooltip: {
       enabled: true, // ✅ Shows data labels on hover

@@ -87,6 +87,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 12rem;  // updated css
 
     @media (max-width: 1199px) {
       flex-direction: column;

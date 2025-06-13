@@ -240,7 +240,8 @@
 
     li {
       &:not(:last-child) {
-        margin-bottom: 0.1rem;
+        // margin-bottom: 0.1rem;
+        margin-bottom: 1rem;
       }
 
       button {
@@ -650,10 +651,11 @@
     text-align-last: center;
 }
 
-.token_drop{
+.token_drop, .selected_token_name{
   color:black
 }
 
-body.dark-theme .token_drop{
-  color:white !important;
+body.dark-theme .token_drop ,body.dark-theme .selected_token_name{
+  color:white;
 }
+

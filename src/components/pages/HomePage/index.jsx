@@ -221,7 +221,7 @@ const RezorSwap = () => {
                       </div>
                     </div>
                     <div className="row all_time_row">
-                      <div className="col-6 mt-3 ps-0 pe-1 ps-lg-2">
+                      <div className="col-6 mt-3  pe-1 ps-lg-2">
                         <div className="all-time-swappers position-relative">
                           <div className="heading-all-time-swappers">
                             <p className="primary-font fw-semibold">
@@ -234,7 +234,7 @@ const RezorSwap = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="col-6 mt-3 pe-0 ps-1 pe-lg-2">
+                      <div className="col-6 mt-3  ps-1 pe-lg-2">
                         <div className="all-time-swappers position-relative">
                           <div className="heading-all-time-swappers">
                             <p className="primary-font fw-semibold">
@@ -322,7 +322,7 @@ const RezorSwap = () => {
                 </div>
                 <div className="col-lg-7 col-xl-6">
                   <div className="row">
-                    <div className="col-lg-6 mt-lg-0 mt-4 mt-sm-2 col-sm-6 pe-sm-1">
+                    <div className="col-lg-6 mt-lg-0 mt-4 mt-sm-2 col-sm-6 ">
                       <div className="rezor_swap_div">
                         <div className="rezor_swap_img text-center">
                           <img src="assets/images/rezorSwapImages/third-section/rezor_swap_img.svg" />
@@ -335,16 +335,16 @@ const RezorSwap = () => {
                             Quick & easy swaps across
                             <br /> BSC & ETH.
                           </p>
-                          <a  href="/swap" className="darkButton explore_btn rounded-2 primary-font mt-5">
+                          <a  href="/swap" className="darkButton explore_btn rounded-2 primary-font mt-4">
                             Swap Now
                           </a>
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6 mt-lg-0 mt-4 mt-sm-2 col-sm-6 ps-sm-1">
+                    <div className="col-lg-6 mt-lg-0 mt-4 mt-sm-2 col-sm-6 ">
                       <div className="rezor_swap_div">
                         <div className="rezor_swap_img text-center">
-                          <img src="assets/images/rezorSwapImages/third-section/CrossChain_div_img.svg" />
+                          <img src="assets/images/rezorSwapImages/third-section/CrossChain_div_img.svg" width={'63%'} />
                         </div>
                         <div className="rezor_swap_heading text-center">
                           <h4 className="primary-font fw-bold">Cross-Chain</h4>
@@ -360,7 +360,7 @@ const RezorSwap = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-lg-6 mt-sm-2 mt-xl-3 mt-4 col-sm-6 pe-sm-1">
+                    <div className="col-lg-6 mt-sm-2 mt-xl-3 mt-4 col-sm-6">
                       <div className="rezor_swap_div">
                         <div className="rezor_swap_img text-center">
                           <img src="assets/images/rezorSwapImages/third-section/Farming_div_img.svg" />
@@ -377,7 +377,7 @@ const RezorSwap = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-6 mt-sm-2 mt-xl-3 ps-sm-1 mt-4 col-sm-6">
+                    <div className="col-lg-6 mt-sm-2 mt-xl-3  mt-4 col-sm-6">
                       <div className="rezor_swap_div">
                         <div className="rezor_swap_img text-center">
                           <img src="assets/images/rezorSwapImages/third-section/Staking_div_img.svg" />
@@ -499,9 +499,9 @@ const RezorSwap = () => {
                     <p className="primary-font p_para_community mt-4 mb-0">
                       At RezorSwap, our community isn’t just a part of the
                       journey—it’s
-                      <br /> the driving force. Your engagement powers our
+                       the driving force. Your engagement powers our
                       growth, innovation, and the
-                      <br /> future of seamless crypto trading. Join us & help
+                      future of seamless crypto trading. Join us & help
                       shape the future!
                     </p>
                   </div>

@@ -801,7 +801,8 @@ table {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.5em;
-  font-size: 4.5em;
+  // font-size: 4.5em;
+  font-size: 4em;
 }
 .rezorSwap-wrapper .heading_million_div span {
   font-size: 96px;
@@ -844,6 +845,8 @@ table {
 }
 .rezorSwap-wrapper .heading_rezorscan {
   margin-bottom: 32.5em;
+  margin-left: 17px;
+  margin-top: 10px;
 }
 .rezorSwap-wrapper .rezorscan_row {
   margin-top: 8%;
@@ -890,6 +893,7 @@ table {
   background-image: url(/assets/images/rezorSwapImages/fourth-section/statisticks_img.png);
   background-size: 80% 100%;
   padding: 21% 4.5em;
+  background-repeat: no-repeat;
 }
 .rezorSwap-wrapper .heading_statistics_h2 {
   color: #fff;
@@ -1121,8 +1125,8 @@ a.btn-download {
 .rezorSwap-wrapper .our_products_heading_h2,
 .rezorSwap-wrapper .overview_h2,
 .rezorSwap-wrapper .h1_heading_community {
-  font-size: 5em;
-  font-weight: 400 !important;
+  font-size: 4.6em;
+  font-weight: 600 !important;
 }
 
 .rezorSwap-wrapper .our_products_paragraph_p {
@@ -1152,8 +1156,8 @@ a.btn-download {
 }
 
 .rezorSwap-wrapper .volume_trading_h2 {
-  font-size: 3em;
-  font-weight: 500 !important;
+  font-size: 3.2em;
+  font-weight: 700 !important;
 }
 
 .rezorSwap-wrapper .activity_p {
@@ -1173,7 +1177,8 @@ a.btn-download {
   font-size: 1.4rem;
 }
 .rezorSwap-wrapper .h4_heading_statistics {
-  font-size: 3.5em;
+  // font-size: 3.5em;
+  font-size: 3.2em;
   font-weight: 400 !important;
 }
 .rezorSwap-wrapper .flex_statistics p {
@@ -1768,9 +1773,9 @@ body.dark-theme .tokenBtn .tokenIcon {
     right: 0px;
     left: 50%;
   }
-  .rezorSwap-wrapper .h4_heading_statistics {
-    font-size: 1.875em;
-  }
+  // .rezorSwap-wrapper .h4_heading_statistics {
+  //   font-size: 1.875em;
+  // }
   .rezorSwap-wrapper .heading_million_div {
     padding-top: 22%;
     padding-left: 9%;
@@ -1887,14 +1892,14 @@ body.dark-theme .tokenBtn .tokenIcon {
   .rezorSwap-wrapper .all-value-img img {
     content: url(assets/images/rezorSwapImages/second-section/all-value-wave-ipad.png);
   }
-  .rezorSwap-wrapper .all-time-value {
-    margin-left: 15%;
-    margin-right: 15%;
-  }
-  .rezorSwap-wrapper .all_time_row {
-    margin-right: 15%;
-    margin-left: 15%;
-  }
+  // .rezorSwap-wrapper .all-time-value {
+  //   margin-left: 15%;
+  //   margin-right: 15%;
+  // }
+  // .rezorSwap-wrapper .all_time_row {
+  //   margin-right: 15%;
+  //   margin-left: 15%;
+  // }
 
   .rezorSwap-wrapper .our-products {
     margin-top: 12.5%;
@@ -1927,10 +1932,20 @@ body.dark-theme .tokenBtn .tokenIcon {
     display: block;
   }
   .rezorSwap-wrapper .statistics_div_img {
-    background-image: url(assets/images/rezorSwapImages/fourth-section/statisticks_img_ipad.png);
+    background-image: url(assets/images/rezorSwapImages/fourth-section/statisticks_img_mobile.png);
     background-size: 100% 100%;
     padding: 8em 4em 12em;
   }
+
+  .rezorSwap-wrapper .flex_statistics{
+    gap: 0px;
+    width: 65%;
+  }
+
+  .rezorSwap-wrapper .flex_statistics img {
+    margin-left: auto;
+  }
+
   .rezorSwap-wrapper .statisticks_div_black {
     position: relative;
     margin-top: 2em;
@@ -1969,6 +1984,16 @@ body.dark-theme .tokenBtn .tokenIcon {
         background-position: 30% 70% !important;
     }
 }
+@media (min-width: 750px) and (max-width:992px)   {
+     .rezorSwap-wrapper .all-time-value {
+        margin-left: 15%;
+        margin-right: 15%;
+  }
+    .rezorSwap-wrapper .all_time_row {
+      margin-right: 15%;
+      margin-left: 15%;
+    }
+}
 
 @media (min-width: 992px) and (max-width:1180px) {
       .bg-image {
@@ -2000,6 +2025,10 @@ body.dark-theme .tokenBtn .tokenIcon {
   .slider_dots {
     display: none !important;
   }
+  .rezorSwap-wrapper .overview_p,
+    .rezorSwap-wrapper .p_para_community {
+      width: 80%;
+    }
 }
 
 @media (max-width: 552px) {
@@ -2210,4 +2239,16 @@ body.dark-theme .seticon-bg{
 
 .listToken:hover{
   border: 1px solid #1af5af;
+}
+
+@media (min-width: 1500px) and (max-width:1750px) {
+     .rezorSwap-wrapper .trusted_million_img, .rezorSwap-wrapper .statistics_div_img  {
+        background-size: 85% 100%;
+     }
+}
+@media (min-width: 1750px) {
+     .rezorSwap-wrapper .trusted_million_img, .rezorSwap-wrapper .statistics_div_img  {
+        background-size: contain;
+    }
+    
 }

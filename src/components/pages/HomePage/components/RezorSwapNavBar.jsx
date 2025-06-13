@@ -4,6 +4,7 @@ import {  useLocation } from "react-router-dom";
 
 import { setTheme } from "../../../../features/theme/theme.slice";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks";
+import { LightMenu,Menu } from "../../../../assets/icons/svgicons";
 
 
 
@@ -54,10 +55,7 @@ const RezorSwapNavBar = () => {
               data-bs-target="#offcanvasNavbar"
               aria-controls="offcanvasNavbar"
             >
-              <img
-                src="/assets/images/menu.png "
-                className="border-0 menuImageForDark"
-              alt="" />
+              {theme === 'light'? <LightMenu /> : <Menu /> } 
             </button>
 
             <div

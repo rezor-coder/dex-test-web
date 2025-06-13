@@ -480,7 +480,7 @@ const TokensModal = ({
               }}
               />
             </span>
-            <span className="ms-3  my-auto">
+            <span className="ms-3  my-auto selected_token_name">
               {field === "Field1" ? tokenOne?.name : tokenTwo?.name} </span>
 
 
