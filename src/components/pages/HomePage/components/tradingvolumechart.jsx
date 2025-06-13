@@ -21,6 +21,9 @@ const TradingVolumeChart = () => {
     setSeries([{ name: "Trading Volume", data: getSeriesData() }]);
   }, [timeframe]);
 
+
+  const lastIndex = getSeriesData().length - 1;
+    const lastValue = getSeriesData()[lastIndex];
   const options = {
     chart: { type: "area", height: 300, toolbar: { show: false } },
     stroke: {
@@ -46,7 +49,7 @@ const TradingVolumeChart = () => {
       hover: { size: 6, colors: ["#1DD49A"] }, // 🎯 Shows dot on hover
     },
     tooltip: {
-      enabled: true, // ✅ Shows data labels on hover
+      enabled: false, // ✅ Shows data labels on hover
       theme: "light",
       style: { fontSize: "12px", fontWeight: "bold" },
     },
@@ -59,6 +62,42 @@ const TradingVolumeChart = () => {
     },
     yaxis: { show: false },
     grid: { show: false },
+     annotations: {
+      points: [
+        {
+          x: 'JUL',
+          y: lastValue,
+          marker: {
+            size: 6,
+            fillColor: "#1DD49A",
+            strokeColor: "#fff",
+            radius: 2,
+            shape: "circle",
+            borderColor:"#000",
+            border:2
+          },
+          label: {
+            borderColor: "#EEF5FF",
+            borderRadius:10,
+            offsetY: -10,
+            offsetX: -50,
+            style: {
+              color: "#1DD49A",
+              background: "#EEF5FF",
+              fontSize: "14px",  
+              fontWeight: "700",
+               padding: {
+                  left: 20,               
+                  right: 20,
+                  top: 15,                 
+                  bottom: 15,
+                },
+            },
+            text: `$${lastValue.toLocaleString("en-IN", { minimumFractionDigits: 1 })}`
+          }
+        }
+      ]
+    },
   };
 
   return (

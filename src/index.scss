@@ -1118,7 +1118,7 @@ a.btn-download {
 }
 .rezorSwap-wrapper .heading-all-time-bitcoin h1,
 .rezorSwap-wrapper .heading-all-time-swappers-new h1 {
-  font-size: 5rem;
+  font-size: 4.8rem;
   font-weight: 900 !important;
 }
 
@@ -1860,10 +1860,10 @@ body.dark-theme .tokenBtn .tokenIcon {
     margin-right: 0px;
     margin-top: 7%;
   }
-  .rezorSwap-wrapper .heading-all-time-swappers-new h1,
-  .rezorSwap-wrapper .heading-all-time-bitcoin h1 {
-    font-size: 3.25em;
-  }
+  // .rezorSwap-wrapper .heading-all-time-swappers-new h1,
+  // .rezorSwap-wrapper .heading-all-time-bitcoin h1 {
+  //   font-size: 3.25em;
+  // }
 
   .rezorSwap-wrapper .heading-all-time-swappers {
     margin-bottom: 5em;
@@ -2048,6 +2048,12 @@ body.dark-theme .tokenBtn .tokenIcon {
   #subscribe_mail {
     padding: 1rem 5rem;
     font-size: 1.5em !important;
+  }
+  .rezorSwap-wrapper .trusted_million_img {
+    background-image: url(assets/images/rezorSwapImages/second-section/trusted_million_div_mobile.png);
+    background-size: 100% 100%;
+    /* width: 100%; */
+    border-radius: 20px;
   }
 }
 

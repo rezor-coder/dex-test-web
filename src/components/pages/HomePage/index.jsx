@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import TradingVolumeChart from "./components/tradingvolumechart";
 import RezorSwapNavBar from "./components/RezorSwapNavBar";
+import axios from "axios";
 
 
 
@@ -9,6 +10,11 @@ import RezorSwapNavBar from "./components/RezorSwapNavBar";
 
 
 const RezorSwap = () => {
+  const bodyStyles = document.body.style;
+  var isOpened = bodyStyles.getPropertyValue("overflow") === "hidden";
+  const [prices, setPrices] = useState({});
+
+        
 
   useEffect(() => { 
     const script = document.createElement("script");
@@ -18,7 +24,20 @@ const RezorSwap = () => {
   
     document.body.appendChild(script);
 
+
+
+      if (!bodyStyles.getPropertyValue("overflow") === "hidden") {
+        console.log("Body overflow is hidden");
+      }
+
+      fetchPrices();
+
+    const interval = setInterval(fetchPrices, 10000); // refresh every 10s (optional)
+    return () => clearInterval(interval);
+
   }, []);
+
+  
   const data = [
     {
       id: 1,
@@ -27,6 +46,7 @@ const RezorSwap = () => {
       img: "btc.png",
       change: +0.3,
       icon: "up.png",
+      symbol:"BTCUSDT"
     },
     {
       id: 2,
@@ -35,6 +55,7 @@ const RezorSwap = () => {
       img: "eth.png",
       change: -0.45,
       icon: "down.png",
+      symbol:"ETHUSDT"
     },
     {
       id: 3,
@@ -43,6 +64,7 @@ const RezorSwap = () => {
       img: "btc.png",
       change: +0.3,
       icon: "up.png",
+      symbol:"BTCUSDT"
     },
     {
       id: 4,
@@ -51,6 +73,7 @@ const RezorSwap = () => {
       img: "tether.png",
       change: +0.23,
       icon: "up.png",
+      symbol:"USDCUSDT"
     },
     {
       id: 5,
@@ -59,6 +82,7 @@ const RezorSwap = () => {
       img: "eth.png",
       change: -0.45,
       icon: "down.png",
+      symbol:"ETHUSDT"
     },
     {
       id: 6,
@@ -67,6 +91,7 @@ const RezorSwap = () => {
       img: "doge.png",
       change: -1.45,
       icon: "down.png",
+       symbol:"DOGEUSDT"
     },
     {
       id: 7,
@@ -75,6 +100,7 @@ const RezorSwap = () => {
       img: "btc.png",
       change: +0.3,
       icon: "up.png",
+      symbol:"BTCUSDT"
     },
     {
       id: 8,
@@ -83,6 +109,7 @@ const RezorSwap = () => {
       img: "tether.png",
       change: +0.23,
       icon: "up.png",
+      symbol:"USDCUSDT"
     },
     {
       id: 9,
@@ -91,6 +118,7 @@ const RezorSwap = () => {
       img: "eth.png",
       change: -0.45,
       icon: "down.png",
+      symbol:"ETHUSDT"
     },
     {
       id: 10,
@@ -99,9 +127,30 @@ const RezorSwap = () => {
       img: "doge.png",
       change: -1.45,
       icon: "down.png",
+      symbol:"DOGEUSDT"
     },
     
   ];
+
+  
+  const fetchPrices = async () => {
+    try {
+      const result = {};
+
+      for (const coin of data) {
+        const res = await axios.get(
+          `https://fapi.binance.com/fapi/v1/ticker/24hr?symbol=${coin.symbol}`
+        );
+        result[coin.symbol] = res.data.priceChangePercent;
+      }
+
+      setPrices(result);
+    } catch (error) {
+      console.error("Error fetching prices", error);
+    }
+  };
+
+
   return (
     <>
       <div className="rezorSwap-wrapper">
@@ -127,7 +176,7 @@ const RezorSwap = () => {
                   </p>
                   <a
                     href="/swap"
-                    className="swapnow_button fw-bold primary-font d-flex align-items-center justify-content-center px-4 py-4 gap-5 mx-auto mx-lg-0 mt-4 position-relative z-index-3"
+                    className={`swapnow_button fw-bold primary-font d-flex align-items-center justify-content-center px-4 py-4 gap-5 mx-auto mx-lg-0 mt-4 position-relative ${!isOpened ?? 'z-index-3'}`}
                   >
                     Swap Now
                     <img
@@ -181,14 +230,14 @@ const RezorSwap = () => {
                 </div>
                 <div
                   className={`d-flex align-items-center gap-2 primary-font ${
-                    coin.change >= 0 ? "profitColor" : "lossColor"
+                    Number(prices[coin.symbol])  >= 0 ? "profitColor" : "lossColor"
                   }`}
                 >
                   <span>
-                    {coin.change > 0 ? `+${coin.change}%` : `${coin.change}%`}
+                    {prices[coin.symbol] > 0 ? `+${prices[coin.symbol]}%` : `${prices[coin.symbol]}%`}
                   </span>
                   <img
-                    src={`/assets/images/coins/${coin.icon}`}
+                    src={`/assets/images/coins/${ Number(prices[coin.symbol])  >= 0 ? 'up.png':'down.png'}`}
                     alt="change-icon"
                   />
                 </div>
