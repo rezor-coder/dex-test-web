@@ -176,7 +176,7 @@ const RezorSwap = () => {
                   </p>
                   <a
                     href="/swap"
-                    className={`swapnow_button fw-bold primary-font d-flex align-items-center justify-content-center px-4 py-4 gap-5 mx-auto mx-lg-0 mt-4 position-relative ${!isOpened ?? 'z-index-3'}`}
+                    className={`swapnow_button fw-bold primary-font d-flex align-items-center justify-content-center px-4 py-4 gap-5 mx-auto mx-lg-0 mt-4 position-relative ${!isOpened ? 'z-index-3':''}`}
                   >
                     Swap Now
                     <img
