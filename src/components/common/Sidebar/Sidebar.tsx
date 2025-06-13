@@ -198,20 +198,7 @@ const Sidebar = (props: propTypes) => {
             </li>
           ))}
 
-          {/* {!(location.pathname === "/") ? ( */}
-            {/* <li className="list-for-tradef">
-              <div className="connect_btnf">
-                <Link
-                  className="app-buttonf"
-                  to="/token/stc/0x19Ae49B9F38dD836317363839A5f6bfBFA7e319A"
-                >
-                  Trade History
-                </Link>
-              </div>
-            </li> */}
-          {/* ) : (
-            ""
-          )} */}
+         
           <li>
              <div className="d-block d-sm-none">
                 <button
