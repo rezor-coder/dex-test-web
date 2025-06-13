@@ -248,7 +248,7 @@ const RezorSwap = () => {
 
         {/* second section */}
         <div className="padding-left-div">
-          <div className="swap-container container">
+          {/* <div className="swap-container container">
             <div className="trusted-by-million">
               <div className="row  flex-column-reverse flex-lg-row">
                 <div className="col-lg-5">
@@ -302,11 +302,6 @@ const RezorSwap = () => {
                 <div className="col-lg-7 position-relative">
                   <div className="statisticks_div_black trustedMillionDark">
                     <div className="trusted_million_img">
-                      {/* <img
-                      src="assets/images/rezorSwapImages/second-section/trusted_million_div.png"
-                      className="w-100"
-                    /> */}
-                      {/* </div> */}
                       <div className="heading_million_div">
                         <div className="col-xl-8 col-xxl-6 col-lg-8 col-md-8 col-sm-9">
                           <h1 className="fw-semibold primary-font">
@@ -326,7 +321,7 @@ const RezorSwap = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* third section */}
           <div className="swap-container container">

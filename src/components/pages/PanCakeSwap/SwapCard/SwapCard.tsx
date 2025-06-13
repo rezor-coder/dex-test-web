@@ -818,7 +818,7 @@ const SwapCard = () => {
         status=""
       >
      <ReviewSwap state={
-        {tokenDetails,selectedField,inputFixedOne,inputFixedTwo,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
+        {tokenDetails,selectedField,inputFixedTwo,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
      } isShow={setShow} />
        
       </CommonModal>
