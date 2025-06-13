@@ -336,6 +336,9 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
     } = data;
 
     const path = [tokenOneAddress, tokenTwoAddress];
+
+    console.log("amountIn",amountIn);
+    
     
     // var amountInput = Number(amountIn) - (0.01)*Number(amountIn);
     

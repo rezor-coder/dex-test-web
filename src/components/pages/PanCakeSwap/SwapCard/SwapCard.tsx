@@ -92,6 +92,16 @@ const SwapCard = () => {
     convertedValue: "",
     toolTipValue: "",
   });
+  const [inputFixedTwo, setfixedinputTwo] = useState<INPUTS>({
+    inputValue: "",
+    convertedValue: "",
+    toolTipValue: "",
+  });
+  const [inputFixedOne, setfixedinputOne] = useState<INPUTS>({
+    inputValue: "",
+    convertedValue: "",
+    toolTipValue: "",
+  });
 
 
   
@@ -132,6 +142,7 @@ const SwapCard = () => {
      
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK1", inputOne?.convertedValue, false);
+        handleGetFeeAmountsData("TK1", inputOne?.convertedValue, false);
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
@@ -145,6 +156,7 @@ const SwapCard = () => {
     ) {
       const delayDebounce: NodeJS.Timeout = setTimeout(() => {
         handleGetAmountsData("TK2", inputTwo?.convertedValue, false);
+        handleGetFeeAmountsData("TK2", inputTwo?.convertedValue, false);
       }, 500);
       return () => clearTimeout(delayDebounce);
     }
@@ -340,19 +352,102 @@ const SwapCard = () => {
     }
   };
 
-  const handleGetAmountsData = async (
+  //with fees
+
+  const handleGetFeeAmountsData = async (
     fieldCondition: string,
     amount: string,
     max: boolean
   ) => {
 
-       var amountInput = Math.floor(Number(amount) - (0.01)*Number(amount)) ;
+       var amountInput = Math.floor(Number(amount) - (0.002)*Number(amount)) ;
     // var amountInput = amount;
 
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
       tokenTwoAddress: tokenTwo?.address,
       amountIn: amountInput.toString(),
+      max: max,
+      dispatch,
+      walletProvider,
+    };
+
+    const tokenValue: string[2] | undefined | any =
+      fieldCondition == "TK1"
+        ? await getAmountsOutfunction(data)
+        : await getAmountsInfunction(data);
+        
+    if (tokenValue == undefined || (tokenValue[0] &&  tokenValue[1] == "0")) {
+      setSufficientLiquidityCheck(true);
+      setShimmerState("null");
+      setPriceImpact("0");
+    } else {
+      setSufficientLiquidityCheck(false);
+
+      //maxEthAmount
+      // var value:any= BigInt(10000);
+      // var per:any= BigInt(1);
+      // var tv:any = Number(tokenValue[0]) * Number((value+per)/value);
+
+      // tv= tv.toString();
+
+     var tokenValue1 = tokenValue[1];
+     
+     console.log(tokenValue1,"tokenValue1");
+     
+
+      // if(tokenTwo?.name === 'REZOR'){
+      //     tokenValue1 = Math.floor(tokenValue[1] -  0.02* tokenValue[1]);
+      // }
+      
+      
+      const calculatedBalance: string = await convertUsingTokenDecimals(
+        fieldCondition == "TK1" ? tokenTwo : tokenOne,
+        fieldCondition == "TK1" ? tokenValue1 : tokenValue[0]
+      );
+      
+      
+      if (Number(calculatedBalance)) {
+        if(walletAddress){
+        const res: string = await getPriceImpact(
+          fieldCondition == "TK1" ? tokenValue1 :tokenValue[0],
+          tokenOne?.address,
+          tokenTwo?.address,
+          dispatch,
+          walletProvider
+        );
+        setPriceImpact(cryptoDecimals(res));
+      }
+        fieldCondition == "TK1"
+          ? setfixedinputTwo({
+              convertedValue: tokenValue1,
+              inputValue: toCustomFixed(calculatedBalance, 4),
+              toolTipValue: calculatedBalance,
+            })
+          : setfixedinputOne({
+              convertedValue: tokenValue[0],
+              inputValue: toCustomFixed(calculatedBalance, 4),
+              toolTipValue: calculatedBalance,
+            });
+        setShimmerState("null");
+      }
+    }
+  };
+
+  //without fees
+
+  const handleGetAmountsData = async (
+    fieldCondition: string,
+    amount: string,
+    max: boolean
+  ) => {
+
+   
+
+    const data: GET_AMOUNTS_DATA = {
+      tokenOneAddress: tokenOne?.address,
+      tokenTwoAddress: tokenTwo?.address,
+      amountIn: amount,
       max: max,
       dispatch,
       walletProvider,
@@ -704,7 +799,7 @@ const SwapCard = () => {
         status=""
       >
      <ReviewSwap state={
-        {tokenDetails,selectedField,inputOne,inputTwo,tk1DollarValue,tk2DollarValue}
+        {tokenDetails,selectedField,inputFixedOne,inputFixedTwo,tk1DollarValue,tk2DollarValue}
      } isShow={setShow} />
        
       </CommonModal>

@@ -72,7 +72,7 @@ const ReviewSwap = (props:any) => {
         txHash: null,
       });
 
-      var inputOne = state?.inputOne;
+      var inputOne = state?.inputFixedOne;
       
       if(state?.selectedField !== 'TK1'){
          const value = BigInt(10000);
@@ -89,7 +89,7 @@ const ReviewSwap = (props:any) => {
       const swapResult: any = await swapHelperFunction(
         state?.tokenDetails,
         inputOne,
-        state?.inputTwo,
+        state?.inputFixedTwo,
         state?.selectedField,
         walletProvider,
         dispatch,
@@ -147,11 +147,11 @@ const ReviewSwap = (props:any) => {
               <div className="token_receive_leftSide">
                 <h6 className="mb-2">You Receive</h6>
                 <div className="amount d-grid gap-2">
-                  <h1>{state?.inputTwo?.inputValue} {tokenTwo?.symbol}</h1>
+                  <h1>{state?.inputFixedTwo?.inputValue} {tokenTwo?.symbol}</h1>
                   <p>
                     ~$
                     {cryptoDecimals(
-                      state?.inputTwo?.inputValue * state?.tk2DollarValue || 0
+                      state?.inputFixedTwo?.inputValue * state?.tk2DollarValue || 0
                     )}
                   </p>
                 </div>
