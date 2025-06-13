@@ -649,3 +649,11 @@
 .center-tabs li {
     text-align-last: center;
 }
+
+.token_drop{
+  color:black
+}
+
+body.dark-theme .token_drop{
+  color:white !important;
+}

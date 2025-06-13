@@ -709,7 +709,8 @@ const SwapCard = () => {
        
       </CommonModal>
 
-      <a href="trust://main.d2ntv08wzoldtg.amplifyapp.com/swap">Dapp</a>
+      {/* <a href="dapp://main.d2ntv08wzoldtg.amplifyapp.com/swap">Dapp</a> */}
+      {/* <a href="https://link.trustwallet.com/open_url?coin_id=56&url=https://main.d2ntv08wzoldtg.amplifyapp.com/swap">Dapp</a> */}
     </>
   );
 };

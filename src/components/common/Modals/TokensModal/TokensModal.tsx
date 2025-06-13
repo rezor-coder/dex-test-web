@@ -329,7 +329,7 @@ const TokensModal = ({
           <span className="tokenIcon">
             {readOnly ? data?.tokenName : tokenOne?.name}
           </span>
-          {!readOnly ? <AiOutlineCaretDown className="text-dark" /> : null}
+          {!readOnly ? <AiOutlineCaretDown className="token_drop" /> : null}
         </Button>
       ) : (
         <Button className="tokenBtn " onClick={() => setShowToken(true)}>
@@ -338,7 +338,7 @@ const TokensModal = ({
             e.currentTarget.src = NotFoundIcon; // your fallback image URL
           }} />
           <span className="tokenIcon">{tokenTwo?.name}</span>
-          <AiOutlineCaretDown className="text-dark" />
+          <AiOutlineCaretDown className="token_drop" />
         </Button>
       )}
 
