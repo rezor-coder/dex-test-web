@@ -496,18 +496,18 @@ const RezorSwap = () => {
                       <div className="row">
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            $ {rzrData ? Number(rzrData?.quote?.USD?.price).toFixed(9):'Loading....'}
+                            $ {rzrData  || Number(rzrData?.quote?.USD?.price) !== 'Nan' ? Number(rzrData?.quote?.USD?.price).toFixed(9):'Loading....'}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
-                              TVL
+                              Price
                             </p>
                             <img src="assets/images/rezorSwapImages/fourth-section/arrow-right.png" />
                           </div>
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            $ {rzrData ? Number(rzrData?.self_reported_market_cap).toFixed(5):'Loading....'}
+                            $ {rzrData || Number(rzrData?.self_reported_market_cap) !== 'Nan' ? Number(rzrData?.self_reported_market_cap).toFixed(5):'Loading....'}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -518,16 +518,16 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                           {rzrData ? Number(rzrData?.quote?.USD?.volume_24h).toFixed(9):"Loading..."}
+                           {rzrData || Number(rzrData?.quote?.USD?.volume_24h) !== 'Nan'  ? Number(rzrData?.quote?.USD?.volume_24h).toFixed(9):"Loading..."}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
-                              FDV
+                              24hr Volume
                             </p>
                             <img src="assets/images/rezorSwapImages/fourth-section/arrow-right.png" />
                           </div>
                         </div>
-                        <div className="col-lg-5 col-sm-6 mt-5">
+                        {/* <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
                              {rzrData ? Number(rzrData?.quote?.USD?.volume_24h).toFixed(9):"Loading.."}
                           </h4>
@@ -537,7 +537,7 @@ const RezorSwap = () => {
                             </p>
                             <img src="assets/images/rezorSwapImages/fourth-section/arrow-right.png" />
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
