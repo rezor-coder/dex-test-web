@@ -154,6 +154,8 @@ const RezorSwap = () => {
   const rezorData = async () => {
     try {
       
+      console.log(`${process.env.REACT_APP_API_URL}src/server/V1/coinDetails/rezor`,"data url",);
+      
         const res = await axios.get(
           `${process.env.REACT_APP_API_URL}src/server/V1/coinDetails/rezor`
         );
