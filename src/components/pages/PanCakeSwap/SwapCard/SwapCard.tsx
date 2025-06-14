@@ -19,6 +19,7 @@ import { GET_AMOUNTS_DATA } from "../../../../interfaces/swap";
 import {
   getAmountsInfunction,
   getAmountsOutfunction,
+  getFeePercentage,
   getPriceImpact,
   useGetAmountsInterval,
 } from "../../../../services/contractServices/PancakeContractServices";
@@ -323,12 +324,15 @@ const SwapCard = () => {
     if (walletAddress) {
       setShimmerState("Tk1");
     }
+
     const response: boolean | string = await validateInputField(
       e,
       tokenTwo?.decimals,
       max,
       emptyValues
     );
+
+    
     if (response) {
       setselectedField(field);
       let convertedValue: string = (
@@ -344,12 +348,23 @@ const SwapCard = () => {
       ).toLocaleString("fullwide", {
         useGrouping: !1,
       });
+
       setIsSwitched(false);
       setinputTwo({
         convertedValue: convertedValue,
         inputValue: originalValue,
         toolTipValue: convertedValue,
       });
+
+
+      setfixedinputTwo({
+        convertedValue: convertedValue,
+        inputValue: originalValue,
+        toolTipValue: convertedValue,
+      });
+
+
+     
     } else {
       setShimmerState("null");
       setPriceImpact("0");
@@ -364,9 +379,23 @@ const SwapCard = () => {
     max: boolean
   ) => {
 
-       var amountInput = Math.floor(Number(amount) - (0.002)*Number(amount)) ;
+
+        var feeData:any ={
+          dispatch,
+          walletProvider,
+        }
+
+       var getPercentage = await getFeePercentage(feeData);
+
+      var per_val= getPercentage ? Number(getPercentage/10000) : 0.002;
+
+      console.log(per_val,"per_val");
+      
+
+      var amountInput = Math.floor(Number(amount) - (per_val)*Number(amount)) ;
     // var amountInput = amount;
 
+    
     const data: GET_AMOUNTS_DATA = {
       tokenOneAddress: tokenOne?.address,
       tokenTwoAddress: tokenTwo?.address,
@@ -375,6 +404,7 @@ const SwapCard = () => {
       dispatch,
       walletProvider,
     };
+
 
     const tokenValue: string[2] | undefined | any =
       fieldCondition == "TK1"

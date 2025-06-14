@@ -386,6 +386,36 @@ const getAmountsOutfunction = async (data: GET_AMOUNTS_DATA) => {
  * @returns an array of two values first one being the optimal value and second one being the input value
  */
 
+
+const getFeePercentage = async (data:any) => {
+  try {
+    const list = store.getState()?.user?.contractDetails;
+    const {
+      dispatch,
+      walletProvider,
+    } = data;
+   
+    const res = await dispatch(
+      callContractGetMethod(
+        "feePercentage",
+         [],
+        "pancakeSwap",
+        list?.panCakeSwap?.address,
+        walletProvider
+      )
+    );
+
+       console.log(res, "res");
+      
+
+    
+    return res;
+  } catch (error) {
+    return 20;
+  }
+};
+
+
 const getAmountsInfunction = async (data: GET_AMOUNTS_DATA) => {
   try {
     const list = store.getState()?.user?.contractDetails;
@@ -494,5 +524,6 @@ export {
   getAmountsInfunction,
   getPriceImpact,
   useGetAmountsInterval,
-  calculateGasPrice
+  calculateGasPrice,
+  getFeePercentage
 };

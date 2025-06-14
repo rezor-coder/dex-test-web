@@ -76,15 +76,15 @@ const ReviewSwap = (props:any) => {
 
       var inputOne = state?.inputOne;
       
-      // if(state?.selectedField !== 'TK1'){
-      //    const value = BigInt(10000);
-      //   const per = BigInt(1000);
-      //   const inpt = BigInt( state?.inputOne?.convertedValue);
+      if(state?.selectedField !== 'TK1'){
+         const value = BigInt(10000);
+        const per = BigInt(1000);
+        const inpt = BigInt( state?.inputOne?.convertedValue);
 
-      //   // Calculate with BigInt only
-      //    inputOne.convertedValue = (inpt * (value + per)) / value;
+        // Calculate with BigInt only
+         inputOne.convertedValue = (inpt * (value + per)) / value;
 
-      // }
+      }
 
       console.log(inputOne,"inputOne");
       
