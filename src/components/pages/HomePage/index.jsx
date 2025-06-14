@@ -31,6 +31,7 @@ const RezorSwap = () => {
       }
 
       fetchPrices();
+      rezorData();
 
     const interval = setInterval(fetchPrices, 10000); // refresh every 10s (optional)
     return () => clearInterval(interval);
@@ -145,6 +146,26 @@ const RezorSwap = () => {
       }
 
       setPrices(result);
+    } catch (error) {
+      console.error("Error fetching prices", error);
+    }
+  };
+  const rezorData = async () => {
+    try {
+      
+
+    
+        const res = await axios.get(
+          `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=RZR`,{
+            header:{
+              'X-CMC_PRO_API_KEY':'a1bd5e1f-1ede-4139-85ab-7009ffd90fbd'
+            }
+          }
+        );
+
+        console.log("rezorData",res);
+        
+
     } catch (error) {
       console.error("Error fetching prices", error);
     }

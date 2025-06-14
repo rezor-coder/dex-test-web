@@ -489,6 +489,10 @@ const SwapCard = () => {
       fieldCondition == "TK1"
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
+
+        console.log("all data",data);
+        console.log("tokenValue data",tokenValue);
+        
         
     if (tokenValue == undefined || (tokenValue[0] &&  tokenValue[1] == "0")) {
       setSufficientLiquidityCheck(true);

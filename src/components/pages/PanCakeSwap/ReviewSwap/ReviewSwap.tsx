@@ -76,13 +76,15 @@ const ReviewSwap = (props:any) => {
 
       var inputOne = state?.inputOne;
       
+      console.log(inputOne,"inputonevaluedata");
       if(state?.selectedField !== 'TK1'){
+        
          const value = BigInt(10000);
         const per = BigInt(1000);
         const inpt = BigInt( state?.inputOne?.convertedValue);
 
         // Calculate with BigInt only
-         inputOne.convertedValue = (inpt * (value + per)) / value;
+         inputOne.convertedValue = Number((inpt * (value + per)) / value);
 
       }
 
@@ -97,6 +99,9 @@ const ReviewSwap = (props:any) => {
         dispatch,
         setModalData
       );
+
+      console.log(swapResult,"swapResult");
+      
       if (swapResult == "SWAP DONE") {
         dispatch(setTransactionCounter(true));
       } else if (swapResult == "SWAP FAILED") {

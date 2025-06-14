@@ -515,12 +515,15 @@ export const callSendMethod = async (
           .apply(null, Array.prototype.slice.call(data))
           .estimateGas(dataForSend);
 
-        if (chainValues?.chainId == 1209) {
-          dataForSend.gasLimit = Number(gasLimit?.toFixed());
-        } else {
-          dataForSend.gasLimit = Number((gasLimit * 1.2)?.toFixed());
+           dataForSend.gasLimit = Number(gasLimit?.toFixed());
+       
 
-        }
+        // if (chainValues?.chainId == 1209) {
+        //   dataForSend.gasLimit = Number(gasLimit?.toFixed());
+        // } else {
+        //   dataForSend.gasLimit = Number((gasLimit * 1.2)?.toFixed());
+
+        // }
 
         /**CALL SEND METHOD */
         contract?.methods[method]
