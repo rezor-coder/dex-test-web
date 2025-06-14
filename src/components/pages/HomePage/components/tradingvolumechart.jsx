@@ -101,7 +101,7 @@ const TradingVolumeChart = () => {
   };
 
   return (
-    <div className="trading_chart_card">
+    <div className="trading_chart_card " >
       <h2 className="fw-bold primary-font mt-3 volume_trading_h2 px-3 text-start px-sm-5 pt-4 pt-lg-5">Trading Volume</h2>
       <div className="d-flex justify-content-between align-items-center mt-5 px-3 px-sm-5">
       <p className="mb-0 primary-font activity_p">Activity</p>

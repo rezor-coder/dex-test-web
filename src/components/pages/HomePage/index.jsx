@@ -477,8 +477,8 @@ const RezorSwap = () => {
                       <br /> real-time stats that showcase our scale, strength,
                       and unwavering transparency.
                     </p>
-                    <div className="trading_view">
-                      <TradingVolumeChart />
+                    <div className="trading_view mb-5">
+                      {/* <TradingVolumeChart /> */}
                     </div>
                   </div>
                 </div>
@@ -490,7 +490,7 @@ const RezorSwap = () => {
                           <h2 className="primary-font heading_statistics_h2 fw-bold">
                             Statistics
                           </h2>
-                          <p className="fw-semibold text-white primary-font">Coming Soon</p>
+                          {/* <p className="fw-semibold text-white primary-font">Coming Soon</p> */}
                         </div>
                       </div>
                       <div className="row">
@@ -548,7 +548,7 @@ const RezorSwap = () => {
         </div>
 
         {/* fifth section */}
-        <div className="community_div">
+        <div className="community_div mt-5">
           <div className="swap-container container">
             <div className="empowered_community">
               <div className="row align-items-center flex-column-reverse flex-lg-row">
