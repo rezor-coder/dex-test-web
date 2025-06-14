@@ -496,7 +496,7 @@ const RezorSwap = () => {
                       <div className="row">
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            $ {Number(rzrData?.quote?.USD?.price).toFixed(9)}
+                            $ {rzrData ? Number(rzrData?.quote?.USD?.price).toFixed(9):'Loading....'}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -507,7 +507,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            $ {Number(rzrData?.self_reported_market_cap).toFixed(5)}
+                            $ {rzrData ? Number(rzrData?.self_reported_market_cap).toFixed(5):'Loading....'}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -518,7 +518,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                           {Number(rzrData?.quote?.USD?.volume_24h).toFixed(9)}
+                           {rzrData ? Number(rzrData?.quote?.USD?.volume_24h).toFixed(9):"Loading..."}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -529,7 +529,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                             {Number(rzrData?.quote?.USD?.volume_24h).toFixed(9)}
+                             {rzrData ? Number(rzrData?.quote?.USD?.volume_24h).toFixed(9):"Loading.."}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
