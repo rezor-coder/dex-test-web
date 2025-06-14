@@ -23,7 +23,7 @@ const insertData = async(data:any) =>{
 
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}src/server/V1/saveTransaction`,
+      `https://gmteoqbjt5.execute-api.us-east-1.amazonaws.com/src/server/V1/saveTransaction`,
       data
     );     
             console.log("rezorDataswap",res);

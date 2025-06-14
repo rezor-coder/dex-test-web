@@ -155,7 +155,7 @@ const RezorSwap = () => {
     try {
       
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}src/server/V1/coinDetails/rezor`
+          `https://gmteoqbjt5.execute-api.us-east-1.amazonaws.com/src/server/V1/coinDetails/rezor`
         );
 
         
