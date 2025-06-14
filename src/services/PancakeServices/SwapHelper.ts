@@ -8,6 +8,7 @@ import {
   swapTokensOrExactTokensWithTokens,
 } from "./SwapFunctions";
 import { TOKEN_DETAILS } from "../../interfaces/common";
+import axios from "axios";
 
 /**
  * function to execute swapping
@@ -17,6 +18,19 @@ import { TOKEN_DETAILS } from "../../interfaces/common";
  * @param selectedField field that user has inputted first
  * @returns boolean if swap is successful or not
  */
+
+const insertData = async(data:any) =>{
+
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}src/server/V1/saveTransaction`,
+      data
+    );     
+            console.log("rezorDataswap",res);
+            } catch (error) {
+              console.error("Error insert data", error);
+            }
+}
 export const swapHelperFunction = async (
   tokenDetails: TOKEN_DETAILS,
   inputOne: any,
@@ -59,6 +73,28 @@ export const swapHelperFunction = async (
       });
 
       const res = await swapGTHOrExactGTHWithTokens(data);
+
+       console.log(res,"response swap");
+        
+
+        var res_data = {
+                "maker": "0x123456789abcdef",
+                "type": "rezorswap",
+                "transactionHash": res?.transactionHash,
+                "fromToken": tokenDetails?.tokenOneData?.symbol,
+                "fromAmount": inputOne?.inputValue,
+                "toAmount": inputTwo?.inputValue,
+                "toToken": tokenDetails?.tokenTwoData?.symbol,
+                "fromTokenLogo": "https://example.com/logos/eth.png",
+                "toTokenLogo": "https://example.com/logos/usdt.png",
+                "rawData": JSON.stringify(res),
+                "timestamp": 1622548800,
+                "block": 12567890,
+                "feePayer": "0xfeePayerAddress12345"
+        }
+      
+        await insertData(res_data);
+
       if (
         res?.code != 4001 &&
         res?.code != -32603 &&
@@ -140,6 +176,46 @@ export const swapHelperFunction = async (
           tokenonedecimals
         };
         const res = await swapTokensOrExactTokensWithGTH(data);
+
+        console.log(res,"response swap1");
+        
+
+        var res_data = {
+                "maker": "0x123456789abcdef",
+                "type": "rezorswap",
+                "transactionHash": res?.transactionHash,
+                "fromToken": tokenDetails?.tokenOneData?.symbol,
+                "fromAmount": inputOne?.inputValue,
+                "toAmount": inputTwo?.inputValue,
+                "toToken": tokenDetails?.tokenTwoData?.symbol,
+                "fromTokenLogo": "https://example.com/logos/eth.png",
+                "toTokenLogo": "https://example.com/logos/usdt.png",
+                "rawData": JSON.stringify(res),
+                "timestamp": 1622548800,
+                "block": 12567890,
+                "feePayer": "0xfeePayerAddress12345"
+        }
+        var res_data = {
+                "maker": "0x123456789abcdef",
+                "type": "rezorswap",
+                "transactionHash": res?.transactionHash,
+                "fromToken": tokenDetails?.tokenOneData?.symbol,
+                "fromAmount": inputOne?.inputValue,
+                "toAmount": inputTwo?.inputValue,
+                "toToken": tokenDetails?.tokenTwoData?.symbol,
+                "fromTokenLogo": "https://example.com/logos/eth.png",
+                "toTokenLogo": "https://example.com/logos/usdt.png",
+                "rawData": JSON.stringify(res),
+                "timestamp": 1622548800,
+                "block": 12567890,
+                "feePayer": "0xfeePayerAddress12345"
+        }
+      
+        await insertData(res_data);
+
+           
+          
+
         if (
           res?.code != 4001 &&
           res?.code != -32603 &&
@@ -210,6 +286,9 @@ export const swapHelperFunction = async (
         txHash: null,
       });
       const res = await getAllowanceAndApprovalHelper(data);
+
+        
+
       if (res) {
         const data = {
           input1: inputOne?.convertedValue,
@@ -238,6 +317,28 @@ export const swapHelperFunction = async (
           txHash: null,
         });
         const res = await swapTokensOrExactTokensWithTokens(data);
+               console.log(res,"response swap2");
+
+
+        var res_data = {
+                "maker": "0x123456789abcdef",
+                "type": "rezorswap",
+                "transactionHash": res?.transactionHash,
+                "fromToken": tokenDetails?.tokenOneData?.symbol,
+                "fromAmount": inputOne?.inputValue,
+                "toAmount": inputTwo?.inputValue,
+                "toToken": tokenDetails?.tokenTwoData?.symbol,
+                "fromTokenLogo": "https://example.com/logos/eth.png",
+                "toTokenLogo": "https://example.com/logos/usdt.png",
+                "rawData": JSON.stringify(res),
+                "timestamp": 1622548800,
+                "block": 12567890,
+                "feePayer": "0xfeePayerAddress12345"
+        }
+        
+      
+        await insertData(res_data);
+
         if (
           res?.code != 4001 &&
           res?.code != -32603 &&

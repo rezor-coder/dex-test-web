@@ -13,6 +13,7 @@ const RezorSwap = () => {
   const bodyStyles = document.body.style;
   var isOpened = bodyStyles.getPropertyValue("overflow") === "hidden";
   const [prices, setPrices] = useState({});
+  const [rzrData, setRzrData] = useState({});
 
         
 
@@ -154,14 +155,12 @@ const RezorSwap = () => {
     try {
       
         const res = await axios.get(
-          `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=RZR`,{
-            headers:{
-              'X-CMC_PRO_API_KEY':'a1bd5e1f-1ede-4139-85ab-7009ffd90fbd'
-            }
-          }
+          `${process.env.REACT_APP_API_URL}src/server/V1/coinDetails/rezor`
         );
 
+        
         console.log("rezorData",res);
+        setRzrData(res?.data?.data?.data?.RZR);
         
 
     } catch (error) {
@@ -497,7 +496,7 @@ const RezorSwap = () => {
                       <div className="row">
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            00000000
+                            $ {Number(rzrData.quote?.USD?.price).toFixed(9)}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -508,7 +507,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            $ 00000000
+                            $ {Number(rzrData.self_reported_market_cap).toFixed(5)}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -519,7 +518,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            00000000
+                           {Number(rzrData.quote?.USD?.volume_24h).toFixed(9)}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
@@ -530,7 +529,7 @@ const RezorSwap = () => {
                         </div>
                         <div className="col-lg-5 col-sm-6 mt-5">
                           <h4 className="primary-font fw-bold h4_heading_statistics">
-                            00000000
+                             {Number(rzrData.quote?.USD?.volume_24h).toFixed(9)}
                           </h4>
                           <div className="d-flex align-items-center flex_statistics">
                             <p className="primary-font mb-0 p_para_statistics">
