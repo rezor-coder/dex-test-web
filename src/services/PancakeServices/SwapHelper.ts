@@ -24,7 +24,8 @@ export const swapHelperFunction = async (
   selectedField: string,
   walletProvider: any,
   dispatch: any,
-  setModalData: any
+  setModalData: any,
+  tokenonedecimals:any| undefined
 ) => {
   try {
     const { walletAddress, slippage, deadline } = store?.getState()?.user;
@@ -136,6 +137,7 @@ export const swapHelperFunction = async (
           deadLine,
           slippageTolerance: slippage,
           walletProvider,
+          tokenonedecimals
         };
         const res = await swapTokensOrExactTokensWithGTH(data);
         if (
@@ -164,6 +166,17 @@ export const swapHelperFunction = async (
             bodyText: res?.message.split("{")[0]
               ? res?.message.split("{")[0]
               : res?.message.split(":")[0],
+            status: "failed",
+            txHash: null,
+          });
+          return "SWAP FAILED";
+        }
+        else if (
+          res?.code == 4000
+        ) {
+          setModalData({
+            title: "Swap",
+            bodyText: res?.string,
             status: "failed",
             txHash: null,
           });

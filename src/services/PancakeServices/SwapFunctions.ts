@@ -20,10 +20,13 @@ const swapTokensForExactGTH = async (data: any) => {
     deadLine,
     slippageTolerance,
     walletProvider,
+    tokenonedecimals
   } = data;
   const list = store.getState()?.user?.contractDetails;
   const routerAddress = list?.panCakeSwap?.address;
   try {
+
+    
     let amountInMaxWithSlippageTolerance =
       (amountInMax / hundred) * slippageTolerance == 0
         ? amountInMax
@@ -33,6 +36,16 @@ const swapTokensForExactGTH = async (data: any) => {
           ) + Number(amountInMax)
         );
     const gasPrice = await calculateGasPrice(walletProvider);
+
+    
+    
+    
+
+    amountInMaxWithSlippageTolerance = Number(amountInMaxWithSlippageTolerance.toString().slice(0, tokenonedecimals));
+
+
+    console.log("exact data log", amountOut, amountInMaxWithSlippageTolerance);
+    
 
     return await callSendMethod(
       "rezorSwapTokensForExactETH",
@@ -44,9 +57,25 @@ const swapTokensForExactGTH = async (data: any) => {
       walletProvider,
       gasPrice
     );
+
+
   } catch (error) {
-    return error;
-    //   errorHelperContract(error, "send", "rezorSwapTokensForExactETH");
+    var string= "Unknown Error:'execution reverted'. Try increasing your slippage tolerance";
+    var code = 4000;
+
+   var err= {
+      string,
+      code
+    }
+
+    console.log(error,"error data mine");
+
+return err;
+    
+    // return error;
+      // errorHelperContract(error, "send", "rezorSwapTokensForExactETH");
+
+     
   }
 };
 const swapExactTokensForGTH = async (data: any) => {
@@ -461,6 +490,7 @@ const swapTokensOrExactTokensWithGTH = async (data: any) => {
     deadLine,
     slippageTolerance,
     walletProvider,
+    tokenonedecimals
   } = data;
   let path = [tokenOneAddress, tokenTwoAddress];
   if (selectedField == "TK1") {
@@ -487,6 +517,7 @@ const swapTokensOrExactTokensWithGTH = async (data: any) => {
       deadLine,
       slippageTolerance,
       walletProvider,
+      tokenonedecimals
     };
 
     const res: any = await swapTokensForExactGTH(data);

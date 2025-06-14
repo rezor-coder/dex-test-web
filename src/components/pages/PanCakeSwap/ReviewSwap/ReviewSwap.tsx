@@ -84,9 +84,12 @@ const ReviewSwap = (props:any) => {
         const inpt = BigInt( state?.inputOne?.convertedValue);
 
         // Calculate with BigInt only
-         inputOne.convertedValue = Number((inpt * (value + per)) / value);
-
+         inputOne.convertedValue = Number((inpt * (value + per) / value));
       }
+
+      var tokenonedecimals = tokenOne?.decimals;
+      // console.log("tokentwodecimals data",tokenonedecimals);
+      
 
       console.log(inputOne,"inputOne");
       
@@ -97,7 +100,8 @@ const ReviewSwap = (props:any) => {
         state?.selectedField,
         walletProvider,
         dispatch,
-        setModalData
+        setModalData,
+        tokenonedecimals
       );
 
       console.log(swapResult,"swapResult");
