@@ -44,7 +44,7 @@ const swapTokensForExactGTH = async (data: any) => {
     amountInMaxWithSlippageTolerance = Number(amountInMaxWithSlippageTolerance.toString().slice(0, tokenonedecimals));
 
 
-    console.log("exact data log", amountOut, amountInMaxWithSlippageTolerance);
+    // console.log("exact data log", amountOut, amountInMaxWithSlippageTolerance);
     
 
     return await callSendMethod(
@@ -168,7 +168,7 @@ const swapExactTokensForToken = async (data: any) => {
   const list = store.getState()?.user?.contractDetails;
   const routerAddress = list?.panCakeSwap?.address;
   try {
-    console.log("in try");
+    // console.log("in try");
     // var amountInput = amountIn - (0.01)*amountIn;
 
     let amountOutMinWithSlippageTolerance =
@@ -199,7 +199,7 @@ const swapExactTokensForToken = async (data: any) => {
       gasPrice
     );
   } catch (error: any) {
-    console.log("in catch");
+    // console.log("in catch");
 
     if (error?.code !== 5000) {
       if (error?.code !== 4001) {
@@ -254,7 +254,7 @@ const swapExactGTHForToken = async (data: any) => {
   } = data;
   const list = store.getState()?.user?.contractDetails;
   const routerAddress = list?.panCakeSwap?.address;
-  console.log("path2", path);
+  // console.log("path2", path);
 
   try {
     let amountOutMinWithSlippageTolerance =
@@ -447,7 +447,7 @@ const swapTokensOrExactTokensWithTokens = async (data: any) => {
     walletProvider,
   } = data;
   let path = [tokenOneAddress, tokenTwoAddress];
-  console.log("path", path);
+  // console.log("path", path);
 
   if (selectedField == "TK1") {
     const data = {
@@ -549,7 +549,7 @@ const swapGTHOrExactGTHWithTokens = async (data: any) => {
       slippageTolerance,
       walletProvider,
     };
-    console.log(path, "path1");
+    // console.log(path, "path1");
 
     const res: any = await swapExactGTHForToken(data);
     return res;
@@ -560,7 +560,7 @@ const swapGTHOrExactGTHWithTokens = async (data: any) => {
     // var per:any= BigInt(100);
     // var inpt:any = Number(inpt1) * Number((value+per)/value);
 
-    console.log(inpt,"inpt");
+    // console.log(inpt,"inpt");
     
 
     const data = {

@@ -417,10 +417,10 @@ export const callGetMethod = async (
         walletProvider
       );
 
-      console.log(contract, "contract");
-      console.log(contractType);
-      console.log(contract?.methods, "contract.methods");
-      console.log(method, "method");
+      // console.log(contract, "contract");
+      // console.log(contractType);
+      // console.log(contract?.methods, "contract.methods");
+      // console.log(method, "method");
 
 
       // await contract.methods
@@ -502,12 +502,12 @@ export const callSendMethod = async (
       );
       if (contract.methods) {
         /**ESTIMATE GAS FOR TRANSACTION */
-        console.log("------");
-        console.log(data);
-        console.log(dataForSend);
-        console.log(contractType);
-        console.log(method);
-        console.log("------");
+        // console.log("------");
+        // console.log(data);
+        // console.log(dataForSend);
+        // console.log(contractType);
+        // console.log(method);
+        // console.log("------");
 
 
 

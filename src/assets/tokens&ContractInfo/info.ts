@@ -92,7 +92,7 @@ export const BSC_CONTRACT_LIST =
           abi: routerABI,
         },
         panCakeSwap: {
-          address: "0x88559d5B6663df517cdA0732Ea768FAE1d258eD5",
+          address: "0x103ff087E5e704c0974C2AC2434EC67A1CbB818B",
           blockNumber: 6810080,
           abi: panCakeAbi,
         },

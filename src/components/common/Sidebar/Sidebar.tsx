@@ -25,7 +25,7 @@ const Sidebar = (props: propTypes) => {
   const { walletAddress } = useAppSelector((state: any) => state?.user);
   const tokenSymbol = useAppSelector((state: any) => state.token.symbol);
   const tokenAddress = useAppSelector((state: any) => state.token.address);
-  console.log(tokenSymbol, tokenAddress, "fbvfgvfv");
+  // console.log(tokenSymbol, tokenAddress, "fbvfgvfv");
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
   const [showTradeDropDown, setShowTradeDropDown] = useState(false);

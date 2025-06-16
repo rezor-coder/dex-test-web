@@ -26,7 +26,7 @@ const insertData = async(data:any) =>{
       `https://gmteoqbjt5.execute-api.us-east-1.amazonaws.com/src/server/V1/saveTransaction`,
       data
     );     
-            console.log("rezorDataswap",res);
+            // console.log("rezorDataswap",res);
             } catch (error) {
               console.error("Error insert data", error);
             }
@@ -74,7 +74,7 @@ export const swapHelperFunction = async (
 
       const res = await swapGTHOrExactGTHWithTokens(data);
 
-       console.log(res,"response swap");
+      //  console.log(res,"response swap");
         
 
         var res_data = {
@@ -177,7 +177,7 @@ export const swapHelperFunction = async (
         };
         const res = await swapTokensOrExactTokensWithGTH(data);
 
-        console.log(res,"response swap1");
+        // console.log(res,"response swap1");
         
 
         var res_data = {
@@ -317,7 +317,7 @@ export const swapHelperFunction = async (
           txHash: null,
         });
         const res = await swapTokensOrExactTokensWithTokens(data);
-               console.log(res,"response swap2");
+              //  console.log(res,"response swap2");
 
 
         var res_data = {

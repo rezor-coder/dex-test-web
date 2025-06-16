@@ -38,7 +38,7 @@ const ReviewSwap = (props:any) => {
 
   
 
-  console.log(state,"state");
+  // console.log(state,"state");
 
   
   
@@ -76,7 +76,7 @@ const ReviewSwap = (props:any) => {
 
       var inputOne = state?.inputOne;
       
-      console.log(inputOne,"inputonevaluedata");
+      // console.log(inputOne,"inputonevaluedata");
       if(state?.selectedField !== 'TK1'){
         
          const value = BigInt(10000);
@@ -91,7 +91,7 @@ const ReviewSwap = (props:any) => {
       // console.log("tokentwodecimals data",tokenonedecimals);
       
 
-      console.log(inputOne,"inputOne");
+      // console.log(inputOne,"inputOne");
       
       const swapResult: any = await swapHelperFunction(
         state?.tokenDetails,
@@ -104,7 +104,7 @@ const ReviewSwap = (props:any) => {
         tokenonedecimals
       );
 
-      console.log(swapResult,"swapResult");
+      // console.log(swapResult,"swapResult");
       
       if (swapResult == "SWAP DONE") {
         dispatch(setTransactionCounter(true));

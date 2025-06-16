@@ -389,7 +389,7 @@ const SwapCard = () => {
 
       var per_val= getPercentage ? Number(getPercentage/10000) : 0.002;
 
-      console.log(per_val,"per_val");
+      // console.log(per_val,"per_val");
       
 
       var amountInput = Math.floor(Number(amount) - (per_val)*Number(amount)) ;
@@ -490,8 +490,8 @@ const SwapCard = () => {
         ? await getAmountsOutfunction(data)
         : await getAmountsInfunction(data);
 
-        console.log("all data",data);
-        console.log("tokenValue data",tokenValue);
+        // console.log("all data",data);
+        // console.log("tokenValue data",tokenValue);
         
         
     if (tokenValue == undefined || (tokenValue[0] &&  tokenValue[1] == "0")) {
@@ -510,7 +510,7 @@ const SwapCard = () => {
 
      var tokenValue1 = tokenValue[1];
      
-     console.log(tokenValue1,"tokenValue1");
+    //  console.log(tokenValue1,"tokenValue1");
      
 
       // if(tokenTwo?.name === 'REZOR'){
