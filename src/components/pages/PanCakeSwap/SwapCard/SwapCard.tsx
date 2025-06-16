@@ -747,7 +747,7 @@ const SwapCard = () => {
                       delay: 0.2,
                     }}
                   >
-                    <label>slippage</label>
+                    <label>Slippage</label>
                     <p>{slippage}%</p>
                   </motion.li>
                   <motion.li
