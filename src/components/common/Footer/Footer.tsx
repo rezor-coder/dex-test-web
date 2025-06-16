@@ -122,7 +122,7 @@ const Footer = () => {
             <div className="social-icons">
               <div className="icon">
                 <a
-                  href="https://x.com/RezorChainCoin?t=a3CEIVO0BUl093GQo6Lqjw&s=08"
+                  href="https://x.com/rezor_official?s=21&t=Pqj041XnLLBjILHh9nKyzg"
                   target="_blank" // Opens the link in a new tab
                   rel="noopener noreferrer" // Security reasons
                 >
@@ -131,7 +131,7 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <a
-                  href="https://t.me/RezormaWorldwide"
+                  href="https://t.me/rezorofficial"
                   target="_blank" // Opens the link in a new tab
                   rel="noopener noreferrer" // Security reasons
                 >
@@ -140,7 +140,7 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <a
-                  href="https://www.linkedin.com/company/rezorchain/"
+                  href="https://www.linkedin.com/company/rezor/about/?viewAsMember=true"
                   target="_blank" // Opens the link in a new tab
                   rel="noopener noreferrer" // Security reasons
                 >
@@ -149,14 +149,14 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <a
-                  href="https://www.instagram.com/rezorchaincoin/"
+                  href="https://www.instagram.com/rezor.rzr?igsh=MWE5NXBiaDA4Y3F2Mg=="
                   target="_blank" // Opens the link in a new tab
                   rel="noopener noreferrer" // Security reasons
                 >
                   <Instagram />
                 </a>
               </div>
-              <div className="icon">
+              {/* <div className="icon">
                 <a
                   href="https://www.facebook.com/groups/wearerezorma/?ref=share&mibextid=NSMWBT"
                   target="_blank" // Opens the link in a new tab
@@ -164,7 +164,7 @@ const Footer = () => {
                 >
                   <Facebook />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

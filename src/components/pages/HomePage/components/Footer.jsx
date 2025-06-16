@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Instagram, Linkedin, Telegram } from "../../../../assets/icons/svgicons";
 
 
 const Footer = () => {
@@ -111,34 +112,34 @@ const Footer = () => {
                   <div className="d-block  align-items-center   ">
                     <a href="https://www.rezor.org/getintouch">
                       <div className="mt-3 emailContainer rounded-pill pe-2">
-                      <input
-                        type="button"
-                        name="email"
-                        className="form-control rounded-pill border-0 font-geist w-100 "
-                        id="subscribe_mail"
-                        value="Get In Touch"
-                        // value={formData.name}
-                        onChange={handleChange}
-                      />
-                      <button type="submit" className="btn btn-link">
-                        {loading !== "" && loading ? (
-                          <div
-                            className="spinner-grow  spinner-grow-sm text-primary"
-                            role="status"
-                          >
-                            <span className="sr-only">Loading...</span>
-                          </div>
-                        ) : (
-                          <img
-                            src="/assets/images/footericons/emailSend.png"
-                            className="img-fluid emailImageD"
-                            alt=""
-                          />
-                        )}
-                      </button>
-                     </div>
-                  
-                  </a>
+                        <input
+                          type="button"
+                          name="email"
+                          className="form-control rounded-pill border-0 font-geist w-100 "
+                          id="subscribe_mail"
+                          value="Get In Touch"
+                          // value={formData.name}
+                          onChange={handleChange}
+                        />
+                        <button type="submit" className="btn btn-link">
+                          {loading !== "" && loading ? (
+                            <div
+                              className="spinner-grow  spinner-grow-sm text-primary"
+                              role="status"
+                            >
+                              <span className="sr-only">Loading...</span>
+                            </div>
+                          ) : (
+                            <img
+                              src="/assets/images/footericons/emailSend.png"
+                              className="img-fluid emailImageD"
+                              alt=""
+                            />
+                          )}
+                        </button>
+                      </div>
+
+                    </a>
                   </div>
                 </div>
               </div>
@@ -151,7 +152,7 @@ const Footer = () => {
                       <ul className="list-unstyled mt-4 d-none d-sm-block ">
                         <li className="mt-5">
                           <Link to="https://www.rezor.org/rezorwallet"
-                            
+
                             className="text-decoration-none font-base"
                           >
                             Rezor Wallet
@@ -223,7 +224,7 @@ const Footer = () => {
                       support@rezor.org
                     </a>
                   </h6>
-                       
+
 
                 </div>
               </div>
@@ -247,64 +248,19 @@ const Footer = () => {
                         <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                       </svg>
                     </a>
-                    {/* <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/youtube.png"
-                        alt="Footer Image"
-                        width=""
-                      />
+                    <a href="https://t.me/rezorofficial" target="_blank" className="text-white">
+                      <Telegram />
                     </a>
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/telegram.png"
-                        alt="Footer Image"
-                        width=""
-                      />
+                    <a href="https://www.instagram.com/rezor.rzr?igsh=MWE5NXBiaDA4Y3F2Mg==" target="_blank" className="text-white">
+                      <Instagram   />
                     </a>
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/instagram.png"
-                        alt="Footer Image"
-                        width=""
-                      />
+                    <a
+                      href="https://www.linkedin.com/company/rezor/about/?viewAsMember=true"
+                      target="_blank" // Opens the link in a new tab
+                      rel="noopener noreferrer" // Security reasons
+                    >
+                      <Linkedin />
                     </a>
-                  </div>
-                  <div className="d-none d-sm-flex mt-4 gap-4 align-items-center">
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/snapchat.png"
-                        alt="Footer Image"
-                        width=""
-                      />
-                    </a>
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/reddit.png"
-                        alt="Footer Image"
-                        width=""
-                      />
-                    </a>
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/tiktok.png"
-                        alt="Footer Image"
-                        width=""
-                      />
-                    </a>
-                    <a href="#" className="text-white"> 
-                      <img
-                        className="image-fluid"
-                        src="/assets/images/footericons/discord.png"
-                        alt="Footer Image"
-                        width=""
-                      />
-                    </a> */}
                   </div>
                 </div>
               </div>
@@ -378,15 +334,15 @@ const Footer = () => {
             </p>
             <div className="d-block  align-items-center   ">
               <a href='https://www.rezor.org/getintouch'>
-              <div className="mt-3 emailContainer rounded-pill pe-3">
-                <input
-                  type="button"
-                  className="form-control rounded-pill border-0 font-geist w-100 fs-6"
-                  id="subscribe_mail"
-                  value="Get In Touch"
-                />
-                <img src="/assets/images/footericons/emailSend.png" alt="" />
-              </div>
+                <div className="mt-3 emailContainer rounded-pill pe-3">
+                  <input
+                    type="button"
+                    className="form-control rounded-pill border-0 font-geist w-100 fs-6"
+                    id="subscribe_mail"
+                    value="Get In Touch"
+                  />
+                  <img src="/assets/images/footericons/emailSend.png" alt="" />
+                </div>
               </a>
             </div>
             <div className="forms_text ">
@@ -399,7 +355,7 @@ const Footer = () => {
                   support@rezor.org
                 </a>
               </h6>
-              
+
             </div>
             <div className=" mt-5">
               <div className="dropdown">
@@ -419,7 +375,7 @@ const Footer = () => {
                     alt=""
                   />
                 </div>
-                <ul className={`collapse ${isOpen1 ? 'show':''}`} id="p&u">
+                <ul className={`collapse ${isOpen1 ? 'show' : ''}`} id="p&u">
                   <li>
                     <Link to="https://www.rezor.org/rezorwallet" className="dropdown-item">
                       Rezor Wallet
@@ -427,12 +383,12 @@ const Footer = () => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                    Rezor Swap (Coming Soon)
+                      Rezor Swap (Coming Soon)
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                    Rezor Scan (Coming Soon)
+                      Rezor Scan (Coming Soon)
                     </a>
                   </li>
                 </ul>
@@ -440,22 +396,22 @@ const Footer = () => {
             </div>
             <div className=" mt-5">
               <div className="dropdown">
-               <div
-                 className="dropdown-custom dropdown-toggle"
-                 type="button" data-bs-toggle="collapse" data-bs-target="#resources" aria-expanded="false" aria-controls="resources"
-                onClick={() => setIsOpen2(!isOpen2)}
+                <div
+                  className="dropdown-custom dropdown-toggle"
+                  type="button" data-bs-toggle="collapse" data-bs-target="#resources" aria-expanded="false" aria-controls="resources"
+                  onClick={() => setIsOpen2(!isOpen2)}
                 >
                   <p className="m-0 p-0"> Resources</p>
-                 <img
+                  <img
                     src="/assets/images/footericons/arrow-square-down.png"
                     className="img-fluid"
                     alt=""
                   />
-                </div> 
+                </div>
 
-                <ul className={`collapse ${isOpen2 ? 'show':''}`} id="resources">
+                <ul className={`collapse ${isOpen2 ? 'show' : ''}`} id="resources">
                   <li>
-                    
+
                     <a className="dropdown-item" href="/getintouch">
                       Contact Us
                     </a>
@@ -510,16 +466,16 @@ const Footer = () => {
                   data-bs-target="#ktw"
                   aria-expanded="false"
                   aria-controls="ktw"
-                 onClick={() => setIsOpen3(!isOpen3)}
+                  onClick={() => setIsOpen3(!isOpen3)}
                 >
                   <p className="m-0 p-0"> Keep in touch with</p>
-                 <img
+                  <img
                     src="/assets/images/footericons/arrow-square-down.png"
                     className="img-fluid"
                     alt=""
                   />
                 </div>
-                <ul className={`collapse social-icon ${isOpen3?'show':''}`} id="ktw">
+                <ul className={`collapse social-icon ${isOpen3 ? 'show' : ''}`} id="ktw">
                   <li>
                     <a
                       href="https://x.com/rezor_official?s=21&t=Pqj041XnLLBjILHh9nKyzg"
@@ -577,7 +533,7 @@ const Footer = () => {
                     Privacy Policy.
                   </a>
                 </span>
-                Copyright Rezor 
+                Copyright Rezor
               </p>
             </div>
           </div>
