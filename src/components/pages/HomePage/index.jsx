@@ -395,7 +395,7 @@ const RezorSwap = () => {
                           </h4>
                           <p className="primary-font paragraph_p">
                             Quick & easy swaps across
-                            <br /> BSC & ETH.
+                            <br /> BSC .
                           </p>
                           <a  href="/swap" className="darkButton explore_btn rounded-2 primary-font mt-4">
                             Swap Now
