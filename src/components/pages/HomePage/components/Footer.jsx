@@ -181,7 +181,7 @@ const Footer = () => {
                           </a>
                         </li>
                         <li className="mt-4">
-                          <a href="https://drive.google.com/drive/folders/14BgMi3FsZZ27nLyAnZsAc_1A30GYz1xg" className="text-decoration-none">
+                          <a href="https://drive.google.com/drive/folders/14BgMi3FsZZ27nLyAnZsAc_1A30GYz1xg" className="text-decoration-none" target="_blank">
                             Brand Kit
                           </a>
                         </li>
@@ -236,6 +236,8 @@ const Footer = () => {
                     <a
                       href="https://x.com/rezor_official?s=21&t=Pqj041XnLLBjILHh9nKyzg"
                       className="text-white"
+                      target="_blank"
+                      rel="noreferrer" 
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -248,10 +250,10 @@ const Footer = () => {
                         <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                       </svg>
                     </a>
-                    <a href="https://t.me/rezorofficial" target="_blank" className="text-white">
+                    <a href="https://t.me/rezorofficial" target="_blank" className="text-white" rel="noreferrer" >
                       <Telegram />
                     </a>
-                    <a href="https://www.instagram.com/rezor.rzr?igsh=MWE5NXBiaDA4Y3F2Mg==" target="_blank" className="text-white">
+                    <a href="https://www.instagram.com/rezor.rzr?igsh=MWE5NXBiaDA4Y3F2Mg==" target="_blank" className="text-white" rel="noreferrer" >
                       <Instagram   />
                     </a>
                     <a
@@ -351,7 +353,7 @@ const Footer = () => {
               </h3>
 
               <h6 className="fw-semibold font-geist mb-0">
-                <a href="#" className="text-white text-decoration-none">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@rezor.org" target="_blank" className="text-white text-decoration-none">
                   support@rezor.org
                 </a>
               </h6>
@@ -382,8 +384,8 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Rezor Swap (Coming Soon)
+                    <a className="dropdown-item" href="/swap">
+                      Rezor Swap 
                     </a>
                   </li>
                   <li>
@@ -417,7 +419,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="https://drive.google.com/drive/folders/14BgMi3FsZZ27nLyAnZsAc_1A30GYz1xg">
+                    <a className="dropdown-item" href="https://drive.google.com/drive/folders/14BgMi3FsZZ27nLyAnZsAc_1A30GYz1xg" target="_blank" rel="noreferrer">
                       Brand Kit
                     </a>
                   </li>
@@ -479,7 +481,9 @@ const Footer = () => {
                   <li>
                     <a
                       href="https://x.com/rezor_official?s=21&t=Pqj041XnLLBjILHh9nKyzg"
-                      className="text-white"
+                      className="text-white me-4"
+                      target="_blank"
+                      rel="noreferrer" 
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -491,6 +495,29 @@ const Footer = () => {
                       >
                         <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                       </svg>
+                    </a>
+                    <a
+                      href="https://t.me/rezorofficial"
+                      className="text-white me-4"
+                      target="_blank"
+                      rel="noreferrer" 
+                    >
+                    <Telegram />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/rezor.rzr?igsh=MWE5NXBiaDA4Y3F2Mg==" target="_blank"
+                      className="text-white me-4"
+                      rel="noreferrer" 
+                    >
+                     <Instagram />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/rezor/about/?viewAsMember=true"
+                      target="_blank"
+                      className="text-white"
+                      rel="noreferrer" 
+                    >
+                      <Linkedin />
                     </a>
                   </li>
                 </ul>
