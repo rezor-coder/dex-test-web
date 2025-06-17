@@ -414,7 +414,7 @@ const Footer = () => {
                 <ul className={`collapse ${isOpen2 ? 'show' : ''}`} id="resources">
                   <li>
 
-                    <a className="dropdown-item" href="/getintouch">
+                    <a className="dropdown-item" href="https://www.rezor.org/getintouch">
                       Contact Us
                     </a>
                   </li>
