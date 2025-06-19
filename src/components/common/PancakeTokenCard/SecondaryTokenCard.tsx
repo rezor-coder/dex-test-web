@@ -127,6 +127,7 @@ const SecondaryTokenCard = ({
           </li>
           
         </ul>
+         <div className="text-end h4">~${dollarVal}</div>
       </div>
       
       {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()} 

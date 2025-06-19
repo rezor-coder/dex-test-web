@@ -21,7 +21,6 @@ const ActiveTokenCard = ({
   shimmer,
   setTokenOneChainId,
   showTokensSelectModal,
-  
   setTokenOneValue,
   setTokenTwoValue,
 }: {
@@ -38,6 +37,8 @@ const ActiveTokenCard = ({
   setTokenOneValue?: any;
   setTokenTwoValue?: any;
 }) => {
+
+  
   const isWrongNetwork = useIsWrongNetwork();
   const { walletAddress }: { walletAddress: string } = useAppSelector(
     (state: any) => state?.user
@@ -106,6 +107,7 @@ const ActiveTokenCard = ({
             </div>
           </li>
         </ul>
+        <div className="text-end h4">~${dollarVal}</div>
       </div>
        <div className="d-flex">
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}

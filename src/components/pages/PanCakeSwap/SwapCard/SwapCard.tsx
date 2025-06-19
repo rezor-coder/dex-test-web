@@ -46,6 +46,7 @@ import TxnModal from "../../../common/Modals/TxnModal/TxnModal";
 import CommonModal from "../../../common/Modals/CommonModal/CommonModal";
 import ReviewSwap from "../ReviewSwap/ReviewSwap";
 import { IoIosArrowDropdownCircle, IoIosArrowDropupCircle } from "react-icons/io";
+import axios from "axios";
 
 var oldTknVal = "";
 
@@ -103,6 +104,15 @@ const SwapCard = () => {
     convertedValue: "",
     toolTipValue: "",
   });
+
+  const getPrice = async(coin:any)=>{
+    var res:any = await axios.get(`https://gmteoqbjt5.execute-api.us-east-1.amazonaws.com/src/server/V1/coin/${coin.toString().toLowerCase()}`);
+    var price = 0;
+    if(res?.data?.status === true){
+          price = res?.data?.data?.priceUSD;
+      }
+      return price;
+  }
 
 
   
@@ -181,28 +191,49 @@ const SwapCard = () => {
     } else {
       oldTknVal = newTknVal;
     }
-    let getDollarPriceValue: DOLLAR_VAL = await TradeData(
-      tokenOne.symbol,
-      tokenTwo.symbol
-    );
 
-    if (
-      !getDollarPriceValue?.token0 ||
-      getDollarPriceValue?.token0 === "This token is not Listed on CMC."
-    ) {
-      setTk1DollarValue(0.0);
-    } else {
-      setTk1DollarValue(getDollarPriceValue?.token0);
-    }
+    // let token1dollarprice = await getPrice(tokenOne.symbol);
+    // let token2dollarprice = await getPrice(tokenTwo.symbol);
 
-    if (
-      !getDollarPriceValue?.token1 ||
-      getDollarPriceValue?.token1 === "This token is not Listed on CMC."
-    ) {
-      setTk2DollarValue(0.0);
-    } else {
-      setTk2DollarValue(getDollarPriceValue?.token1);
-    }
+    
+
+    // if(token1dollarprice == undefined ){
+    //   setTk1DollarValue(0.0);
+    // }
+    // else{
+    //     var value = token1dollarprice * Number(inputOne?.inputValue);
+    //      setTk1DollarValue(value);
+    // }
+
+    // if(token2dollarprice == undefined ){
+    //   setTk2DollarValue(0.0);
+    // }
+    // else{
+    //     var value = token2dollarprice * Number(inputTwo?.inputValue);
+    //      setTk2DollarValue(value);
+    // }
+    // let getDollarPriceValue: DOLLAR_VAL = await TradeData(
+    //   tokenOne.symbol,
+    //   tokenTwo.symbol
+    // );
+
+    // if (
+    //   !getDollarPriceValue?.token0 ||
+    //   getDollarPriceValue?.token0 === "This token is not Listed on CMC."
+    // ) {
+    //   setTk1DollarValue(0.0);
+    // } else {
+    //   setTk1DollarValue(getDollarPriceValue?.token0);
+    // }
+
+    // if (
+    //   !getDollarPriceValue?.token1 ||
+    //   getDollarPriceValue?.token1 === "This token is not Listed on CMC."
+    // ) {
+    //   setTk2DollarValue(0.0);
+    // } else {
+    //   setTk2DollarValue(getDollarPriceValue?.token1);
+    // }
   };
   const { chainValues } = useAppSelector((state: any) => state?.user);
   const getReservesFirstTime = async () => {
@@ -282,6 +313,7 @@ const SwapCard = () => {
   };
 
   const handleInputOne = async (e: string, max: boolean, field: string) => {
+    setTk1DollarValue(0.0);
     if (walletAddress) {
       setShimmerState("Tk2");
     }
@@ -291,6 +323,7 @@ const SwapCard = () => {
       max,
       emptyValues
     );
+
 
     
     if (response) {
@@ -309,6 +342,16 @@ const SwapCard = () => {
         useGrouping: !1,
       });
       setIsSwitched(false);
+
+       let token1dollarprice = await getPrice(tokenOne.symbol);
+        if(token1dollarprice == undefined ){
+             setTk1DollarValue(0.0);
+            }
+            else{
+                var value = token1dollarprice * Number(originalValue);
+                setTk1DollarValue(value);
+            }
+
       setinputOne({
         convertedValue: convertedValue,
         inputValue: originalValue,
@@ -321,6 +364,7 @@ const SwapCard = () => {
   };
 
   const handleInputTwo = async (e: string, max: boolean, field: string) => {
+    setTk2DollarValue(0.0);
     if (walletAddress) {
       setShimmerState("Tk1");
     }
@@ -348,6 +392,18 @@ const SwapCard = () => {
       ).toLocaleString("fullwide", {
         useGrouping: !1,
       });
+
+
+        let token2dollarprice = await getPrice(tokenTwo.symbol);
+
+        if(token2dollarprice == undefined ){
+          setTk2DollarValue(0.0);
+        }
+        else{
+            var value = token2dollarprice * Number(originalValue);
+            setTk2DollarValue(value);
+        }
+
 
       setIsSwitched(false);
       setinputTwo({
@@ -547,6 +603,12 @@ const SwapCard = () => {
               toolTipValue: calculatedBalance,
             });
         setShimmerState("null");
+
+        var tokenprice = fieldCondition == "TK1" ? await getPrice(tokenTwo?.symbol) : await getPrice(tokenOne?.symbol);
+        if(tokenprice != undefined ){
+          var value = toCustomFixed(calculatedBalance, 7) * Number(tokenprice);
+          fieldCondition == "TK1" ? setTk2DollarValue(value) : setTk1DollarValue(value);
+        } 
       }
     }
   };
