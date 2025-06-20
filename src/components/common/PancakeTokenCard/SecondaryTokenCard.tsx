@@ -127,10 +127,13 @@ const SecondaryTokenCard = ({
           </li>
           
         </ul>
-         <div className="text-end h4">~${dollarVal}</div>
       </div>
-      
-      {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()} 
+
+       <div className="d-flex w-100">
+            {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
+
+            <div className="text-end h4 ms-auto">~${Number(dollarVal).toFixed(4)}</div>
+          </div>
       
     </>
   );

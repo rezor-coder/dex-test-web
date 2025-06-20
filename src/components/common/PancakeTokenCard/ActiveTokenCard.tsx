@@ -95,7 +95,7 @@ const ActiveTokenCard = ({
                 className="without_bg inputActive"
                 type="number"
                 onChange={(e: any) => input(e.target.value, false, "TK1")}
-                value={ value?.inputValue}
+                value={value?.inputValue}
               />
             )}
             <div className="listRight">
@@ -107,10 +107,12 @@ const ActiveTokenCard = ({
             </div>
           </li>
         </ul>
-        <div className="text-end h4">~${dollarVal}</div>
+        
       </div>
-       <div className="d-flex">
+       <div className="d-flex w-100">
             {isWrongNetwork || !walletAddress ? "" : modifyTokenBalance()}
+
+            <div className="text-end h4 ms-auto">~${Number(dollarVal).toFixed(4)}</div>
           </div>
     </>
   );
